@@ -11,6 +11,7 @@ import Register from './containers/Register'
 import LateralMenu from './components/LateralMenu'
 import Header from './components/Header'
 import InputSearch from './components/InputSearch'
+import SeccionHome from './components/SeccionHome'
 
 // FIN DE IMPORTACIONES DE COMPONENTES PARA OBSERVAR
 
@@ -27,6 +28,7 @@ function App() {
      <Route path='/lateralmenu' element = {<LateralMenu />} />
      <Route path='/header' element={<Header />} />
      <Route path='/inputsearch' element={<InputSearch />} />
+     <Route path='/seccionhome' element={<SeccionHome />} />
     
 
 
