@@ -1,5 +1,8 @@
 import {BrowserRouter,Routes,Route}  from 'react-router-dom'
 
+// CONTEXT
+import { ContextUserProvider } from './contexts/contextAuth.jsx'
+
 // IMPORTACIONES DE CONTAINERS
 import Home from './containers/Home'
 import Login from './containers/Login'
@@ -21,7 +24,11 @@ function App() {
   return (
     <>
     <BrowserRouter>
+    <ContextUserProvider>
     <Routes>
+
+      
+      
      <Route path='/' element={<Home />} />
      <Route path='/login'  element={<Login />}/>
      <Route path='/singup' element={<Register />} /> 
@@ -29,10 +36,15 @@ function App() {
      <Route path='/header' element={<Header />} />
      <Route path='/inputsearch' element={<InputSearch />} />
      <Route path='/seccionhome' element={<SeccionHome />} />
+
+
     
 
 
     </Routes>
+
+    </ContextUserProvider>
+
     </BrowserRouter>
      
     </>
