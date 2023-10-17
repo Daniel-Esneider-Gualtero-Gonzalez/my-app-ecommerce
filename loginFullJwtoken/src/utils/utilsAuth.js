@@ -1,10 +1,10 @@
 
 import { endpoints } from "../api/config"
-
+import { getCommunHeaders } from "../api/config"
 
 
 export function saveToken(token) {
-    console.log("guardando token",token)
+
     window.localStorage.setItem("token",JSON.stringify(token))
     return
 }
@@ -90,17 +90,13 @@ export function verifyTokenExpiration() {
 
 export function autoVerifyAutoRefrest(setUser) {
 
-    // const estoyhaciendorefrest = estoyhaciendorefrest
+    // temporizadores para horas y minutos
     let idTimeOutHours = null
 
     let idTimeOutMinuts = null
 
-    // if( !getTokenStorage()){
-    //     return 
-    // }
     const {isvalid,isvencido,refrest,horas,minutos} = verifyTokenExpiration()
 
-    
 
     // si hay horas se vuelve a ejecutar esta funcion dentro de esas
     const hourstToVerify =  horas * 3600000
@@ -117,7 +113,6 @@ export function autoVerifyAutoRefrest(setUser) {
     }
 
     if(refrest){
-        
         // esta funcion se ejecutara la veces que tenemos refres
         // en el backend para que no exceda a muchas peticiones debe poner una fecha mas larga
        getTokenRefrest()
@@ -139,7 +134,7 @@ export function autoVerifyAutoRefrest(setUser) {
         // intervalo en minutos ya que queda menos de una hora
         idTimeOutMinuts = setTimeout(()=>{
             autoVerifyAutoRefrest(setUser)
-        },2000)
+        },120000)
     }
 
 
@@ -150,29 +145,26 @@ export function autoVerifyAutoRefrest(setUser) {
 
 async function getTokenRefrest() {
 
-    console.log("haciendo el refrest")
+    // console.log("comun headers",comunHeaders)
 
     const header = { 
-    headers: {
-        "Authorization": `Bearer ${JSON.parse(localStorage.getItem("token"))}`,
-        'Content-Type' : 'Application/json',
-        
-        
-    },}
+    headers: getCommunHeaders(),
+    }
 
    
         
        try {
-        // si estor refrescando
-        throw new Error("Forzando error para ver si se elimina el usuario")
+        
         const getToken = await fetch(`${endpoints.auth}resfrestToken`,header)
         const data = await getToken.json()
 
         console.log("NUEVO TOKKEN",data)
-        // guardamos el nuevo token
-
+       
+        // eliminamos por si las moscas esta el token viejo
         if(getTokenStorage()) deleteTokenStorage()
-        saveToken(data.token)
+        
+         // guardamos el nuevo token
+        if(getToken.status === 200) saveToken(data.token)
 
         return {success: true}
 

@@ -20,7 +20,6 @@ export const ContextUserProvider = ({children}) => {
         const {isvencido} = verifyTokenExpiration()
 
         if(isvencido){
-            console.log("token vencido")
             deleteTokenStorage()
         }else{
             if(!user) setUser(getTokenStorage())
@@ -28,10 +27,7 @@ export const ContextUserProvider = ({children}) => {
             
         }
         // sin no esta vencido ejecutamos 
-        if(!isvencido) autoVerifyAutoRefrest(setUser)
-
-        
-        
+        if(!isvencido) autoVerifyAutoRefrest(setUser) 
     }
     
     return (

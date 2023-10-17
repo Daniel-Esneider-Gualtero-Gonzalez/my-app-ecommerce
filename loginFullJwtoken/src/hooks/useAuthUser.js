@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+
 import { authUser } from "../api/auth";
 import { useContextAuth } from "../contexts/contextAuth";
 
@@ -22,15 +23,23 @@ export function useAuthUser() {
 
         if(getAuthToken.error) setError(getAuthToken.error)
 
-        saveToken(getAuthToken.token)
-        const tokenDecode = decodeToken(getAuthToken.token)
-
-        if(tokenDecode){
-            // añade los datos del usuario al contexto global
-            setUser(tokenDecode)
+        if(!getAuthToken.error){
+            saveToken(getAuthToken.token)
+            const tokenDecode = decodeToken(getAuthToken.token)
+            if(tokenDecode){
+                // añade los datos del usuario al contexto global
+                setUser(tokenDecode)
+                setThereUser(true)
+                
+            }
         }
+
+        
+        
+
+        
        
-        setThereUser(true)
+       
         
     }
  

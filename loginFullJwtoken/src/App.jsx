@@ -29,13 +29,15 @@ function App() {
 
       
       
-     <Route path='/' element={<Home />} />
+     <Route path='/home' element={<Home />} />
      <Route path='/login'  element={<Login />}/>
      <Route path='/singup' element={<Register />} /> 
      <Route path='/lateralmenu' element = {<LateralMenu />} />
      <Route path='/header' element={<Header />} />
      <Route path='/inputsearch' element={<InputSearch />} />
      <Route path='/seccionhome' element={<SeccionHome />} />
+
+     <Route path="*" element={"NOT FOUNT NO SE ENCONTRO ESTA RUTA"}/>
 
 
     
