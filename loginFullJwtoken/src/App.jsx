@@ -1,5 +1,9 @@
 import {BrowserRouter,Routes,Route}  from 'react-router-dom'
 
+// RUTES 
+import PublicRutes from './rutes/PublicRutes.jsx'
+import PrivateRutes from './rutes/PrivateRutes.jsx'
+
 // CONTEXT
 import { ContextUserProvider } from './contexts/contextAuth.jsx'
 
@@ -26,16 +30,24 @@ function App() {
     <BrowserRouter>
     <ContextUserProvider>
     <Routes>
-
-      
-      
-     <Route path='/home' element={<Home />} />
-     <Route path='/login'  element={<Login />}/>
-     <Route path='/singup' element={<Register />} /> 
+      {/* NO LE PONEMOS RUTA EN ESPECIFICO ESTARA ACCESIBLE A TODOS */}
+      <Route element={<PublicRutes />}>
+        <Route path='/' element={<Home />} />
+        <Route path='/login'  element={<Login />}/>
+        <Route path='/singup' element={<Register />} /> 
+      </Route>
+     
+ 
+      <Route>
+        
+      </Route>
+     
      <Route path='/lateralmenu' element = {<LateralMenu />} />
      <Route path='/header' element={<Header />} />
      <Route path='/inputsearch' element={<InputSearch />} />
      <Route path='/seccionhome' element={<SeccionHome />} />
+     
+     <Route path='/privatedroute' element={"Esta es una ruta privada solo si hay usuario"}/>
 
      <Route path="*" element={"NOT FOUNT NO SE ENCONTRO ESTA RUTA"}/>
 

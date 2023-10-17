@@ -33,7 +33,7 @@ function SingIn() {
   return (
     <div className='w-screen h-screen border bg-green-100 border-black'>
 
-      {user ? <Navigate to={"/home"}/> : null}
+      {user ? <Navigate to={"/"}/> : null}
       
       {user ? <span>{JSON.stringify(user)}</span> : null}
 
