@@ -35,7 +35,6 @@ function SingIn() {
 
       {user ? <Navigate to={"/"}/> : null}
       
-      {user ? <span>{JSON.stringify(user)}</span> : null}
 
 
       {loading ? <span>VALIDANTO EL USUARIO</span> : null}

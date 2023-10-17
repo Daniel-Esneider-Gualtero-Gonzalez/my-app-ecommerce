@@ -15,6 +15,7 @@ import Register from './containers/Register'
 
 
 // IMPORTACIONES DE COMPONENTES PARA OBSERVAR
+import SideBarUserProfile from './components/SideBarUserProfile.jsx'
 import LateralMenu from './components/LateralMenu'
 import Header from './components/Header'
 import InputSearch from './components/InputSearch'
@@ -38,16 +39,18 @@ function App() {
       </Route>
      
  
-      <Route>
-        
-      </Route>
+    <Route element={<PrivateRutes />}>
+        <Route path='/privateroute' element={"Esta es una ruta privada solo si hay usuario"}/>
+    </Route>
+
      
      <Route path='/lateralmenu' element = {<LateralMenu />} />
      <Route path='/header' element={<Header />} />
      <Route path='/inputsearch' element={<InputSearch />} />
      <Route path='/seccionhome' element={<SeccionHome />} />
+     <Route path='/sidebaruser' element={<SideBarUserProfile />} />
      
-     <Route path='/privatedroute' element={"Esta es una ruta privada solo si hay usuario"}/>
+     
 
      <Route path="*" element={"NOT FOUNT NO SE ENCONTRO ESTA RUTA"}/>
 

@@ -29,9 +29,15 @@ export const ContextUserProvider = ({children}) => {
         // sin no esta vencido ejecutamos 
         if(!isvencido) autoVerifyAutoRefrest(setUser) 
     }
+
+
+    const logOut = ()=>{
+        deleteTokenStorage()
+        setUser(null)
+    }
     
     return (
-        <contextAuthUser.Provider value={{user,setUser}}>
+        <contextAuthUser.Provider value={{user,setUser,logOut}}>
             {children}
         </contextAuthUser.Provider>
     )

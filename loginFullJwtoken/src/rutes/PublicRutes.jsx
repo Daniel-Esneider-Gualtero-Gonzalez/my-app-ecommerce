@@ -5,6 +5,8 @@ function PublicRutes({children}) {
     // rutas publicas
   return (
     <>
+    
+    {/* devuleve las ruta hijas que esten envolvidas */}
     <Outlet />
     </>
   )
