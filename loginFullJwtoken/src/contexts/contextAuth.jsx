@@ -1,5 +1,5 @@
 import { createContext, useContext, useState } from "react";
-import { getUserStorage } from "../utils/utilsAuth";
+import { autoVerifyAutoRefrest, deleteTokenStorage, getTokenStorage, verifyTokenExpiration } from "../utils/utilsAuth";
 
 
 const contextAuthUser = createContext()
@@ -15,8 +15,24 @@ export function useContextAuth() {
 export const ContextUserProvider = ({children}) => {
     const [user,setUser]= useState(null)
     
-    // si el user esta en el storage y el user actual esta vacio
-    if(getUserStorage() && !user) setUser(getUserStorage())
+    
+    if(getTokenStorage()) {
+        const {isvencido} = verifyTokenExpiration()
+
+        if(isvencido){
+            console.log("token vencido")
+            deleteTokenStorage()
+        }else{
+            if(!user) setUser(getTokenStorage())
+            // iniciamos al auto refrest
+            
+        }
+        // sin no esta vencido ejecutamos 
+        if(!isvencido) autoVerifyAutoRefrest(setUser)
+
+        
+        
+    }
     
     return (
         <contextAuthUser.Provider value={{user,setUser}}>

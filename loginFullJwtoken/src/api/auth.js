@@ -4,7 +4,6 @@ import { endpoints } from "./config"
 import { ERRORS } from "../constants/errorMessages"
 
 export async function authUser(credentials) {
-    console.log("credencital antes del fecth en stringifuy",JSON.stringify({daniel:"hola"}))
 
     
     try {
