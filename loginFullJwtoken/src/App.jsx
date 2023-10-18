@@ -11,6 +11,8 @@ import { ContextUserProvider } from './contexts/contextAuth.jsx'
 import Home from './containers/Home'
 import Login from './containers/Login'
 import Register from './containers/Register'
+
+import NotFoundPage from './components/Errors/NotFoundPage.jsx'
 // FIN DE IMPORTACIONES DE CONTAINERS
 
 
@@ -20,6 +22,7 @@ import LateralMenu from './components/LateralMenu'
 import Header from './components/Header'
 import InputSearch from './components/InputSearch'
 import SeccionHome from './components/SeccionHome'
+import NavBar from './components/NavBar.jsx'
 
 // FIN DE IMPORTACIONES DE COMPONENTES PARA OBSERVAR
 
@@ -49,10 +52,11 @@ function App() {
      <Route path='/inputsearch' element={<InputSearch />} />
      <Route path='/seccionhome' element={<SeccionHome />} />
      <Route path='/sidebaruser' element={<SideBarUserProfile />} />
+     <Route path='/navbar' element={<NavBar />} />
      
      
 
-     <Route path="*" element={"NOT FOUNT NO SE ENCONTRO ESTA RUTA"}/>
+     <Route path="*" element={<NotFoundPage />}/>
 
 
     
