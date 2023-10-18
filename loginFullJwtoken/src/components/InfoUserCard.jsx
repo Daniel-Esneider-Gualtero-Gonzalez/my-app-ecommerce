@@ -1,6 +1,6 @@
 
 
-function InfoUserCard() {
+function InfoUserCard({showBarSideUser}) {
   return (
     <div className=" border py-1 px-1  border-fuchsia-500 relative">
         <div className="flex   border border-green-500">
@@ -11,7 +11,7 @@ function InfoUserCard() {
                 <span className="font-bold">Daniel Gualtero</span>
                 <div className="text-sm">Programmin</div>
             </div>
-            <button className="border border-black ml-5  w-[50px]">❌</button>
+            <button onClick={()=>showBarSideUser(false)} className="border border-black ml-5  w-[50px]">❌</button>
         </div>
         
     </div>
