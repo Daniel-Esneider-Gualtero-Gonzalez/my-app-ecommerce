@@ -1,20 +1,36 @@
 import { NavLink } from "react-router-dom"
+import { useContextAuth } from "../contexts/contextAuth"
 
-function NavItems() {
+function NavItems({className}) {
+
+    const {user} = useContextAuth()
     return (
-        <ul className=' flex'>
+        <ul className={className ? className : 'flex'}>
+
+            {/* PUBLIC NAV ITEMS */}
             <li>
-                <NavLink to={"/"} className='mx-2 relative '>Home</NavLink>
+                <NavLink to={"/"} >Home</NavLink>
             </li>
             <li>
-                <NavLink className='mx-2'>Productos</NavLink>
+                <NavLink  to={"/productos"}>Productos</NavLink>
             </li>
             <li>
-                <NavLink className='mx-2'>Servicios</NavLink>
+                <NavLink to={"/servicios"} >Servicios</NavLink>
             </li>
             <li>
-                <NavLink className='mx-2'>About as</NavLink>
+                <NavLink to={"/aboutas"}>About as</NavLink>
             </li>
+
+
+            {/* ADMIN NAV ITEMS */}
+
+            {user.role.admin ? 
+            <li>
+            <NavLink to={"/admin"}>Admin</NavLink>
+            </li> 
+            : 
+            
+            null}
         </ul>
 
     )

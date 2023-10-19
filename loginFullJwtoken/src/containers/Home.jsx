@@ -1,9 +1,9 @@
-import React from 'react'
+import Banner from "../components/containers/componentsHome/Banner"
 
 function Home() {
   return (
     <div>
-        hola soy el home
+       <Banner />
         
     </div>
   )

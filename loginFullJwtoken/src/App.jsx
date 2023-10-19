@@ -33,6 +33,7 @@ function App() {
     <>
     <BrowserRouter>
     <ContextUserProvider>
+      <NavBar />
     <Routes>
       {/* NO LE PONEMOS RUTA EN ESPECIFICO ESTARA ACCESIBLE A TODOS */}
       <Route element={<PublicRutes />}>
@@ -44,6 +45,7 @@ function App() {
  
     <Route element={<PrivateRutes />}>
         <Route path='/privateroute' element={"Esta es una ruta privada solo si hay usuario"}/>
+       
     </Route>
 
      
@@ -64,6 +66,7 @@ function App() {
 
     </Routes>
 
+    
     </ContextUserProvider>
 
     </BrowserRouter>

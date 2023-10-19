@@ -3,3 +3,27 @@
 @tailwind utilities;
 
 
+nav a{
+    margin: 0 8px;
+    font-weight: 400;
+}
+
+/* los componentes navlink pone por defecto esat clase a esos links */
+.active{
+    border-bottom: 2px solid brown;
+}
+
+nav a:hover{
+    border-bottom: 2px solid brown;
+}
+
+
+/* estylos de los mismos items del navbar pero en la SideBarUserProfile */
+
+.navItemsProfile li {
+    margin: 0px;
+    border: 1px solid black;
+    width: 100%;
+    margin: 4px 0px;
+    padding: 5px 0px;
+}

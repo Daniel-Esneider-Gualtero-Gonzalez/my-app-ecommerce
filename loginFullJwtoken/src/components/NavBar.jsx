@@ -13,7 +13,7 @@ function NavBar() {
             </div>
            
 
-            <div className='mx-auto flex py-5 border border-gray-400 w-fit  hidden md:block'>
+            <div className='mx-auto  py-5 border border-gray-400 w-fit  hidden md:block'>
                 <NavItems />
            </div>
 
