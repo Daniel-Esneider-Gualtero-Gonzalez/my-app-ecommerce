@@ -1,4 +1,7 @@
 import { createContext, useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
+
+
 import { autoVerifyAutoRefrest, deleteTokenStorage, getTokenStorage, verifyTokenExpiration } from "../utils/utilsAuth";
 
 
@@ -14,6 +17,7 @@ export function useContextAuth() {
 
 export const ContextUserProvider = ({children}) => {
     const [user,setUser]= useState(null)
+    const navigate = useNavigate()
     
     
     if(getTokenStorage()) {
@@ -34,6 +38,8 @@ export const ContextUserProvider = ({children}) => {
     const logOut = ()=>{
         deleteTokenStorage()
         setUser(null)
+        navigate("/login")
+    
     }
     
     return (

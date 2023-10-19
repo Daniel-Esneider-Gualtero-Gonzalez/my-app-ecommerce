@@ -24,13 +24,13 @@ function NavItems({className}) {
 
             {/* ADMIN NAV ITEMS */}
 
-            {user.role.admin ? 
+            {/* {user.role.admin ?  */}
             <li>
             <NavLink to={"/admin"}>Admin</NavLink>
             </li> 
-            : 
+            {/* :  */}
             
-            null}
+            {/* null} */}
         </ul>
 
     )

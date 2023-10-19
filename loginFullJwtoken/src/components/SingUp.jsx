@@ -1,44 +1,23 @@
-import React from 'react'
+
+import RegisterForm from "./forms/RegisterForm"
 
 function SingUp() {
   return (
-    <div className='w-screen h-screen border bg-green-100 border-black'>
-        <form className="mx-auto mt-[10%]  w-[400px]">
-
-        <label className=" block text-sm font-medium leading-6 text-gray-900">Names</label>
-        <div className="mt-2">
-        <input  type="text" className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
+    <>
+      <div className='flex h-screen sm:justify-center sm:py-10 border border-black'>
+        <div className='w-[600px] py-2 my-auto hidden md:block border border-black '>
+          <img className='rounded-[800px] w-[200px] h-[200px] mx-auto ' src="https://cdn.pixabay.com/photo/2023/09/21/17/05/european-shorthair-8267220_1280.jpg" alt="" />
+          <button className='mx-auto bg-blue-500 text-white font-bold text-xl hover:bg-blue-600 hover:scale-105 flex mt-10 border w-[50%] items-center py-2 justify-center rounded'>Selecciona Avatar</button>
         </div>
 
-        <label className=" mt-2 block text-sm font-medium leading-6 text-gray-900">Password</label>
-        <div className="mt-2">
-        <input type="text" className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
+        <div className='w-full my-auto border border-black sm:w-[600px]  sm:w-[500px] '>
+         <RegisterForm />
         </div>
 
-        <label className="mt-2 block text-sm font-medium leading-6 text-gray-900">Username</label>
-        <div className="mt-2">
-        <input  type="text" className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
-        </div>
 
-        <div className='border border-black flex justify-center'>
-            <div className='mx-2 border'>
-                <label className="text-center mt-2 block text-sm font-medium leading-6 text-gray-900">Password</label>
-                <div className="mt-2">
-                <input  type="text" className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
-                </div>
-            </div>
+      </div>
 
-            <div className='mx-2 border'>
-                <label className="text-center mt-2 block text-sm font-medium leading-6 text-gray-900">Confirm password</label>
-                <div className="mt-2">
-                <input  type="text" className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
-                </div>
-            </div>
-        </div>
-
-        <button className="hover:bg-green-400 hover:scale-105 hover:border-none hover:text-white border font-semibold mx-auto  flex py-2 px-2 w-[200px] justify-center items-center rounded mt-10">Sing Up</button>
-        </form>
-    </div>
+    </>
   )
 }
 
