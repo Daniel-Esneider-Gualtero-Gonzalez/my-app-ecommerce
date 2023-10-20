@@ -19,7 +19,7 @@ function SingInForm() {
 
     }
     return (
-        <div className='my-40'>
+        <div className=' w-full  '>
             <h1 className="text-2xl font-semibold mb-4">Login</h1>
             <form onSubmit={handleSubmit(submitLogin)}>
 

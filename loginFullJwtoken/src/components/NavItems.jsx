@@ -5,7 +5,7 @@ function NavItems({className}) {
 
     const {user} = useContextAuth()
     return (
-        <ul className={className ? className : 'flex'}>
+        <ul className={className ? className : 'flex w-fit  mx-auto '}>
 
             {/* PUBLIC NAV ITEMS */}
             <li>

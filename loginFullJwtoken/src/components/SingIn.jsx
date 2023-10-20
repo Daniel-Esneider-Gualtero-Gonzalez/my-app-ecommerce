@@ -20,12 +20,10 @@ function SingIn() {
   return (
     <>
 
-      <div className='flex justify-center py-10 border border-black'>
-        <div className=' hidden sm:block '>
-          <img className=' h-full ' src="https://cdn.pixabay.com/photo/2023/09/14/19/46/elephant-8253639_640.jpg" alt="" />
-        </div>
+      <div className='flex py-10   justify-center  '>
+        
 
-        <div className='px-10 border border-black w-[400px]  sm:w-[500px] '>
+        <div className='px-10 w-full flex items-center   sm:w-[500px]  '>
           <SingInForm />
         </div>
 
