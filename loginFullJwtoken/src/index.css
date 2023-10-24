@@ -14,6 +14,7 @@ nav a{
 }
 
 nav a:hover{
+    
     border-bottom: 2px solid brown;
 }
 
@@ -26,4 +27,35 @@ nav a:hover{
     width: 100%;
     margin: 4px 0px;
     padding: 5px 0px;
+}
+
+
+/* Animacion para el CONTENEDOR DEL FORM REGISTER */
+#containerFormRegister:hover{
+    animation-name: form;
+    animation-duration: 5s;
+    animation-iteration-count: 1;
+    
+}
+#containerFormSingin:hover{
+    animation-name: form;
+    animation-duration: 5s;
+    animation-iteration-count: 1;
+}
+
+@keyframes form {
+
+    0%{
+        border-top: 1px solid blue;
+    }
+    25%{
+        border-right: 1px solid blue;
+    }
+    50%{
+        border-bottom: 1px solid blue ;
+    }
+    75%{
+        border-left: 1px solid blue;
+    }
+    
 }

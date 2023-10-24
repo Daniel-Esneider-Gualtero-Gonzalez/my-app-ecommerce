@@ -12,6 +12,7 @@ function SideBarUserProfile({showBarSideUser}) {
     {/* le paso unos stylos ya que el navbar los tiene de otra manera  */}
     <NavItems className={'navItemsProfile md:hidden'} />
     <SingOut/>
+
     <BtnLogin width={"w-full"}/>
     </div>
     </>
