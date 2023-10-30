@@ -1,13 +1,33 @@
 import SideBarUserProfile from "./SideBarUserProfile"
 import NavItems from "./NavItems"
 import BtnLogin from "./buttons/BtnLogin"
-import { useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import BtnRegister from "./buttons/BtnRegister"
 
 function NavBar() {
     const [showsBarUser,setShowBarUser] = useState(false)
+    const refScroll = useRef(0)
+    const [stylesNavScroll,setStylesNavScroll] = useState(null)
+
+    useEffect(()=> {
+        window.document.addEventListener("scroll",()=>{
+            if(window.scrollY === 0) return setStylesNavScroll(null)
+            if(window.scrollY < refScroll.current){
+                setStylesNavScroll(
+                    {'position':'sticky','top':'0', 'zIndex': '999'}
+                )
+            }else{
+                setStylesNavScroll(null)
+            }
+
+            refScroll.current = window.scrollY
+
+            
+        })
+    } ,[])
+    
     return (
-       <nav className=" py-2 px-4 flex justify-between sm:grid sm:grid-cols-3 sm:gap-1">
+       <nav style={stylesNavScroll} className=" bg-blue-300 py-2 px-4 flex justify-between sm:grid sm:grid-cols-3 sm:gap-1">
           
 
             <div className=''>

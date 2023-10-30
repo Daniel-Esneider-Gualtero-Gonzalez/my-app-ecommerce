@@ -11,14 +11,14 @@ function RegisterForm() {
                     <div className=''>
                         <label>First Name</label>
                         <div className='mt-2'>
-                            <div className='mt-1 flex  items-center -gray-600'><div className='ml-1 absolute'>🧑‍✈️</div> <input className='w-full border border-black rounded h-[45px] px-8 focus:outline-none focus:border-blue-500' type="text" /> </div>
+                            <div className='mt-1 flex  items-center -gray-600'><div className='ml-1 absolute'>🧑</div> <input className='w-full border border-black rounded h-[45px] px-8 focus:outline-none focus:border-blue-500' type="text" /> </div>
                         </div>
                     </div>
 
                     <div>
                         <label>Last Name</label>
                         <div className='mt-2'>
-                            <div className='mt-1 flex  border-gray-300 items-center'><div className='ml-1 absolute'>🧑‍✈️</div> <input className='w-full border border-black rounded h-[45px] px-8 focus:outline-none focus:border-blue-500' type="text" /> </div>
+                            <div className='mt-1 flex  border-gray-300 items-center'><div className='ml-1 absolute'>🧑</div> <input className='w-full border border-black rounded h-[45px] px-8 focus:outline-none focus:border-blue-500' type="text" /> </div>
                         </div>
                     </div>
                 </div>
