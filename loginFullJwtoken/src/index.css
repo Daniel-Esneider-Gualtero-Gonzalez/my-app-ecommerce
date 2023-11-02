@@ -59,3 +59,66 @@ nav a:hover{
     }
     
 }
+
+
+
+
+
+
+
+
+
+
+
+.modal{
+    animation-name:modalButton ;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+    animation-timing-function:  ease-out;
+}
+
+@keyframes modalLeft {
+
+    from{
+        transform: translateX(-100%);
+    }
+
+    
+    
+}
+
+@keyframes modalRight {
+
+    from{
+        transform: translateX(100%);
+    }
+
+   
+}
+
+
+@keyframes modalButton {
+
+    from{
+        transform: translateY(100%);
+    }
+
+   
+    
+}
+
+/* modal TOP MAS  LEFT */
+@keyframes modalTop {
+
+    from{
+    
+        transform: translateY(-100%) translateX(-100%);
+    }
+
+   
+    
+}
+
+
+
+
