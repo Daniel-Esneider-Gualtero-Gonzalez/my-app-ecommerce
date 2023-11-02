@@ -23,7 +23,7 @@ function SingIn() {
       <div className='flex py-10   justify-center  '>
         
 
-        <div id='containerFormSingin' className='px-10 py-10 w-full border flex items-center   sm:w-[500px]  '>
+        <div id='containerFormSingin' className='px-10 rounded py-10 w-full border flex items-center   sm:w-[500px]  '>
           <SingInForm />
         </div>
 
