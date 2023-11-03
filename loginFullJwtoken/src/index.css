@@ -71,13 +71,33 @@ nav a:hover{
 
 
 .modal{
-    animation-name:modalButton ;
+    animation-name:animationButton ;
     animation-duration: 1s;
     animation-iteration-count: 1;
     animation-timing-function:  ease-out;
 }
 
-@keyframes modalLeft {
+.animationLeft{
+    animation-name:animationLeft ;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+    animation-timing-function:  ease-out;
+}
+.animationRight{
+    animation-name:animationRight;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+    animation-timing-function:  ease-out;
+}
+
+.animationTop{
+    animation-name:animationTop ;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+    animation-timing-function:  ease-out;
+}
+
+@keyframes animationLeft {
 
     from{
         transform: translateX(-100%);
@@ -87,7 +107,7 @@ nav a:hover{
     
 }
 
-@keyframes modalRight {
+@keyframes animationRight {
 
     from{
         transform: translateX(100%);
@@ -97,7 +117,7 @@ nav a:hover{
 }
 
 
-@keyframes modalButton {
+@keyframes animationButton {
 
     from{
         transform: translateY(100%);
@@ -108,7 +128,18 @@ nav a:hover{
 }
 
 /* modal TOP MAS  LEFT */
-@keyframes modalTop {
+@keyframes animationTop {
+
+    from{
+    
+        transform: translateY(-100%);
+    }
+
+   
+    
+}
+
+@keyframes animationTopLeft {
 
     from{
     

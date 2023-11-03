@@ -11,7 +11,7 @@ import { ContextUserProvider } from './contexts/contextAuth.jsx'
 import Home from './containers/Home'
 import Login from './containers/Login'
 import Register from './containers/Register'
-
+import Profile from './containers/Profile.jsx'
 import NotFoundPage from './components/Errors/NotFoundPage.jsx'
 // FIN DE IMPORTACIONES DE CONTAINERS
 
@@ -45,6 +45,7 @@ function App() {
  
     <Route element={<PrivateRutes />}>
         <Route path='/privateroute' element={"Esta es una ruta privada solo si hay usuario"}/>
+        <Route path='/userprofile' element={<Profile />} />
        
     </Route>
 

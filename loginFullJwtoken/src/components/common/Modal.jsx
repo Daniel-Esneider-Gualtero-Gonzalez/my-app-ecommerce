@@ -1,6 +1,6 @@
 
 
-function Modal({title="Title Modal por defauldt", statusModal=false,closeModal,accept = Function, children}) {
+function Modal({title="Title Modal por defauldt", statusModal=false,closeModal,accept = Function, isForLoading = false, children}) {
 
     if(statusModal){
     //    document.body.style.opacity = '.7'
