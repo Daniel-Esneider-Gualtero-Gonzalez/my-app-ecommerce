@@ -4,7 +4,7 @@ function Banner() {
     return (
         <header className=' border border-black  sm:flex px-4 py-12 justify-center'>
             <div className=''>
-                <img className='object-cover rounded' src="https://images.pexels.com/photos/163036/mario-luigi-yoschi-figures-163036.jpeg?auto=compress&cs=tinysrgb&w=600" alt="" />
+                <img className='object-cover rounded' src="https://images.unsplash.com/photo-1496171367470-9ed9a91ea931?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fHRlY25vbG9naXxlbnwwfHwwfHx8MA%3D%3D" alt="" />
             </div>
 
             <div className=' border py-2 px-8  border-green-600 ]'>
