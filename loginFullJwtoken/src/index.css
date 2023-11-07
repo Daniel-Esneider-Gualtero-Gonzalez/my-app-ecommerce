@@ -62,7 +62,10 @@ nav a:hover{
 
 
 
+.transitionHeight{
 
+    transition: height 1s ease-in-out;
+}
 
 
 
@@ -127,7 +130,7 @@ nav a:hover{
     
 }
 
-/* modal TOP MAS  LEFT */
+
 @keyframes animationTop {
 
     from{
@@ -139,6 +142,7 @@ nav a:hover{
     
 }
 
+/* modal TOP MAS  LEFT */
 @keyframes animationTopLeft {
 
     from{

@@ -23,6 +23,7 @@ import Header from './components/Header'
 import InputSearch from './components/InputSearch'
 import SeccionHome from './components/SeccionHome'
 import NavBar from './components/NavBar.jsx'
+import Footer from './components/Footer.jsx'
 
 // FIN DE IMPORTACIONES DE COMPONENTES PARA OBSERVAR
 
@@ -69,6 +70,8 @@ function App() {
 
     
     </ContextUserProvider>
+
+    <Footer />
 
     </BrowserRouter>
      
