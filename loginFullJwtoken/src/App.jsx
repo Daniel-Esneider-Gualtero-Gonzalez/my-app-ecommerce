@@ -9,6 +9,7 @@ import { ContextUserProvider } from './contexts/contextAuth.jsx'
 
 // IMPORTACIONES DE CONTAINERS
 import Home from './containers/Home'
+import AboutAs from './containers/AboutAs.jsx'
 import Login from './containers/Login'
 import Register from './containers/Register'
 import Profile from './containers/Profile.jsx'
@@ -24,6 +25,7 @@ import InputSearch from './components/InputSearch'
 import SeccionHome from './components/SeccionHome'
 import NavBar from './components/NavBar.jsx'
 import Footer from './components/Footer.jsx'
+
 
 // FIN DE IMPORTACIONES DE COMPONENTES PARA OBSERVAR
 
@@ -41,6 +43,7 @@ function App() {
         <Route path='/' element={<Home />} />
         <Route path='/login'  element={<Login />}/>
         <Route path='/singup' element={<Register />} /> 
+        <Route path='/aboutas'  element={<AboutAs />}/>
       </Route>
      
  
