@@ -21,7 +21,7 @@ import NotFoundPage from './components/Errors/NotFoundPage.jsx'
 import SideBarUserProfile from './components/SideBarUserProfile.jsx'
 import LateralMenu from './components/LateralMenu'
 import Header from './components/Header'
-import InputSearch from './components/InputSearch'
+
 import SeccionHome from './components/SeccionHome'
 import NavBar from './components/NavBar.jsx'
 import Footer from './components/Footer.jsx'
@@ -56,7 +56,6 @@ function App() {
      
      <Route path='/lateralmenu' element = {<LateralMenu />} />
      <Route path='/header' element={<Header />} />
-     <Route path='/inputsearch' element={<InputSearch />} />
      <Route path='/seccionhome' element={<SeccionHome />} />
      <Route path='/sidebaruser' element={<SideBarUserProfile />} />
      <Route path='/navbar' element={<NavBar />} />

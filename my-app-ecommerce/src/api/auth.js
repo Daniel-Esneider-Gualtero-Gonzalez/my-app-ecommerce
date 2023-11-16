@@ -9,7 +9,7 @@ export async function authUser(credentials) {
 
     
     try {
-        const authUser = await fetch("http://localhost:3000/api/auth0/",{
+        const authUser = await fetch("http://localhost:3000/auth/login",{
             method:"POST",
             headers:{
                 'Content-Type' : 'application/json'

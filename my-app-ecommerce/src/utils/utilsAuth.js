@@ -155,7 +155,9 @@ async function getTokenRefrest() {
         
        try {
         
-        const getToken = await fetch(`${endpoints.auth}resfrestToken`,header)
+        const getToken = await fetch(`${endpoints.auth}refrestToken/`,{
+            headers: header.headers
+        })
         const data = await getToken.json()
 
         console.log("NUEVO TOKKEN",data)

@@ -1,7 +1,7 @@
 
 
 
-const apiBase = "http://localhost:3000/api/"
+const apiBase = "http://localhost:3000/"
 
 
 // Cabeceras DEFINITAS  para enviar EN TODA REQUEST 
@@ -23,5 +23,5 @@ export const getCommunHeaders = ()=>{
 
 export const endpoints = {
 
-    auth : `${apiBase}auth0/`
+    auth : `${apiBase}auth/`
 }

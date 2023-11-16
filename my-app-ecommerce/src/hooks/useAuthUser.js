@@ -5,6 +5,7 @@ import { useContextAuth } from "../contexts/contextAuth";
 
 import { saveToken } from "../utils/utilsAuth";
 import { decodeToken } from "../utils/utilsAuth";
+import { getCommunHeaders } from "../api/config";
 
 
 
@@ -46,5 +47,44 @@ export function useAuthUser() {
 
 
     return {loading,error,thereUser,getAuthUser}
+    
+}
+
+// hook para registrar el usuario
+
+export function useRegisterUser() {
+    
+    const [loading,setLoading] = useState(false)
+    const [error,setError] = useState(null)
+    const [isRegister,setIsregister] = useState(false)
+
+    const headers = new Headers()
+
+    headers.append('Content-Type', 'application/json')
+    
+    // definir si al endpoint login o auth0
+    async function handleRegisterUser(data) {
+        const optionsFetch = {
+            headers: headers,
+            method: 'POST',
+            body: JSON.stringify(data)
+        }
+    
+        setLoading(true)
+        const response = await fetch("http://localhost:3000/singup/",optionsFetch)
+        if(!response.ok){
+            setError("Error al registrar el usuario")
+        }else{
+            setIsregister(true)
+        }
+        setLoading(false)
+
+       
+        
+    }
+ 
+
+
+    return {loading,error,isRegister,handleRegisterUser}
     
 }
