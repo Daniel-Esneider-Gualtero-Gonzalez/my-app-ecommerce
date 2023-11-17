@@ -5,6 +5,7 @@ import { useContextAuth } from '../../contexts/contextAuth'
 import { useAuthUser } from '../../hooks/useAuthUser'
 import { useState } from 'react'
 import AlertMessage from '../AlertMessage'
+import { Link } from 'react-router-dom'
 
 
 function SingInForm() {
@@ -72,7 +73,8 @@ function SingInForm() {
                     </div>
 
                     <div className="mt-6 text-blue-500 text-center mb-10">
-                        <a href="#" className="hover:underline">Sign up Here</a>
+                        
+                        <Link className="hover:underline border-b border-black hover:border-none" to={"/register"}>Sign up Here</Link>
                     </div>
 
                     <button type="submit" className="bg-blue-500 hover:bg-blue-600 text-white font-semibold rounded-md py-2 px-4 w-full">Login</button>

@@ -73,7 +73,12 @@ export function useRegisterUser() {
         setLoading(true)
         const response = await fetch("http://localhost:3000/singup/",optionsFetch)
         if(!response.ok){
-            setError("Error al registrar el usuario")
+            if(response.status === 409){
+                setError("El correo esta en uso")
+            }else{
+                setError("Error al registrar el usuario")
+            }
+           
         }else{
             setIsregister(true)
         }

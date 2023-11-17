@@ -1,6 +1,6 @@
 
 
-function Modal({title="Title Modal por defauldt", statusModal=false,closeModal=Function,accept = Function, cancel=Function, isForLoading = false, children}) {
+function Modal({title="Title Modal por defauldt", statusModal=false,closeModal=Function,accept = Function, cancel=closeModal, isForLoading = false, children}) {
 
     if(statusModal){
     //    document.body.style.opacity = '.7'
@@ -24,7 +24,7 @@ function Modal({title="Title Modal por defauldt", statusModal=false,closeModal=F
             <div className='justify-center flex items-end mt-auto border  py-2 '>
                     
                     <button onClick={()=> accept()} className='border mx-2 flex justify-center items-center w-[100px] h-[40px] rounded border-green-600 bg-transition hover:bg-green-600 hover:text-white '>Aceptar</button>
-                    <button onClick={()=> cancel()} className='border flex justify-center items-center w-[100px] h-[40px] rounded border-red-600 bg-transition hover:bg-red-600 hover:text-white '>Cancelar</button>
+                    <button onClick={()=>  cancel()} className='border flex justify-center items-center w-[100px] h-[40px] rounded border-red-600 bg-transition hover:bg-red-600 hover:text-white '>Cancelar</button>
                    
                 </div>
 

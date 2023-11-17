@@ -9,6 +9,7 @@ import { useRegisterUser } from "../hooks/useAuthUser"
 import { Navigate } from "react-router-dom"
 import useGetAvatars from "../hooks/useGetAvatars"
 import AlertMessage from "./AlertMessage"
+import Loading from "./common/Loading"
 
 
 function SingUp() {
@@ -17,12 +18,6 @@ function SingUp() {
   const [avatar, setAvatar] = useState()
   const { modal, openModal, closeModal } = useModal()
   const { loading: avatarsLoading, error: avatarsError, avatars } = useGetAvatars()
-
-
-
-  if (loading) {
-    return <span>REGISTRANDO USUARIO POR FAVOR ESPERE</span>
-  }
 
   if (isRegister) {
 
@@ -33,7 +28,7 @@ function SingUp() {
   return (
     <>
       
-      
+     {loading ? <Loading center={true} />  : null}
       {isRegister ? <AlertMessage succes={true} textMessage="Usuario Registrado exitosamente" /> : null}
       {error ? <AlertMessage error={true} textMessage={`${error}`} /> : null}
 
@@ -42,8 +37,8 @@ function SingUp() {
       <Modal statusModal={modal} title="choose Avatar" closeModal={closeModal} >
         <div className="flex flex-wrap   mx-auto justify-center">
           {avatars ? avatars.map((avatar, index) => {
-            const styleAvarSele = index === avatar ? "bg-gray-600 " : null
-            return <img key={avatar.name} onClick={() => setAvatar(index)} className={`hover:scale-110 w-[100px] mx-1 my-1 ${styleAvarSele}`} src={avatar.image} alt="" />
+            const styleAvarSele = index === avatar ? "bg-gray-600  " : null
+            return <img key={avatar.name} onClick={() => setAvatar(index)} className={` w-[100px] mx-1 my-1 ${styleAvarSele}`} src={avatar.image} alt="" />
           }) : null}
         </div>
       </Modal>

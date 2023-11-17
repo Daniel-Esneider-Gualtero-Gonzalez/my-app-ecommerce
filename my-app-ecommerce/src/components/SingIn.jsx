@@ -41,11 +41,3 @@ export default SingIn
 
 
 
-{/* {user ? <Navigate to={"/"}/> : null} */ }
-
-
-
-{/* {loading ? <span>VALIDANTO EL USUARIO</span> : null} */ }
-
-
-

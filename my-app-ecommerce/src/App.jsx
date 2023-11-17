@@ -1,4 +1,4 @@
-import {BrowserRouter,Routes,Route}  from 'react-router-dom'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 // RUTES 
 import PublicRutes from './rutes/PublicRutes.jsx'
@@ -30,53 +30,56 @@ import Footer from './components/Footer.jsx'
 // FIN DE IMPORTACIONES DE COMPONENTES PARA OBSERVAR
 
 function App() {
-  
+
 
   return (
     <>
-    <BrowserRouter>
-    <ContextUserProvider>
-      <NavBar />
-    <Routes>
-      {/* NO LE PONEMOS RUTA EN ESPECIFICO ESTARA ACCESIBLE A TODOS */}
-      <Route element={<PublicRutes />}>
-        <Route path='/' element={<Home />} />
-        <Route path='/login'  element={<Login />}/>
-        <Route path='/singup' element={<Register />} /> 
-        <Route path='/aboutas'  element={<AboutAs />}/>
-      </Route>
-     
- 
-    <Route element={<PrivateRutes />}>
-        <Route path='/privateroute' element={"Esta es una ruta privada solo si hay usuario"}/>
-        <Route path='/userprofile' element={<Profile />} />
-       
-    </Route>
-
-     
-     <Route path='/lateralmenu' element = {<LateralMenu />} />
-     <Route path='/header' element={<Header />} />
-     <Route path='/seccionhome' element={<SeccionHome />} />
-     <Route path='/sidebaruser' element={<SideBarUserProfile />} />
-     <Route path='/navbar' element={<NavBar />} />
-     
-     
-
-     <Route path="*" element={<NotFoundPage />}/>
+      <BrowserRouter>
+        <ContextUserProvider>
+          <NavBar />
+          <Routes>
+            {/* NO LE PONEMOS RUTA EN ESPECIFICO ESTARA ACCESIBLE A TODOS */}
+            <Route >
+        
+              <Route path='/' element={<Home />} />
+              <Route path='/login' element={<Login />} />
+              <Route path='/singup' element={<Register />} /> 
+              <Route path='/aboutas' element={<AboutAs />} />
+            
+            </Route>
+            
 
 
-    
+            <Route element={<PrivateRutes />}>
+              <Route path='/privateroute' element={"Esta es una ruta privada solo si hay usuario"} />
+              <Route path='/userprofile' element={<Profile />} />
+
+            </Route>
 
 
-    </Routes>
+            <Route path='/lateralmenu' element={<LateralMenu />} />
+            <Route path='/header' element={<Header />} />
+            <Route path='/seccionhome' element={<SeccionHome />} />
+            <Route path='/sidebaruser' element={<SideBarUserProfile />} />
+            <Route path='/navbar' element={<NavBar />} />
 
-    
-    </ContextUserProvider>
 
-    <Footer />
 
-    </BrowserRouter>
-     
+            <Route path="*" element={<NotFoundPage />} />
+
+
+
+
+
+          </Routes>
+
+
+        </ContextUserProvider>
+
+        <Footer />
+
+      </BrowserRouter>
+
     </>
   )
 }
