@@ -6,6 +6,7 @@ import { useAuthUser } from '../../hooks/useAuthUser'
 import { useState } from 'react'
 import AlertMessage from '../AlertMessage'
 import { Link } from 'react-router-dom'
+import Loading from '../common/Loading'
 
 
 function SingInForm() {
@@ -40,7 +41,7 @@ function SingInForm() {
     return (
         <>
 
-
+            {loading ? <Loading center={true} />  : null}
             { error ? <AlertMessage error={true} textMessage={`Correo o password incorrectos`} /> : null}
 
 
