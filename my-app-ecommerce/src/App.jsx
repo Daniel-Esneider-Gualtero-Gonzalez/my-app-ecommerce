@@ -11,6 +11,7 @@ import { ContextUserProvider } from './contexts/contextAuth.jsx'
 import Home from './containers/Home'
 import AboutAs from './containers/AboutAs.jsx'
 import Login from './containers/Login'
+import Recharge from './containers/Recharge.jsx'
 import Register from './containers/Register'
 import Profile from './containers/Profile.jsx'
 import NotFoundPage from './components/Errors/NotFoundPage.jsx'
@@ -53,6 +54,7 @@ function App() {
             <Route element={<PrivateRutes />}>
               <Route path='/privateroute' element={"Esta es una ruta privada solo si hay usuario"} />
               <Route path='/userprofile' element={<Profile />} />
+              <Route path='user/recharge/' element={<Recharge />} />
 
             </Route>
 
