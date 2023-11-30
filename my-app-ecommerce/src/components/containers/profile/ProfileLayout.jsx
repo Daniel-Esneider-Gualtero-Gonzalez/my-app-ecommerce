@@ -1,11 +1,14 @@
 import { useContextAuth } from "../../../contexts/contextAuth"
 import ExpandableSection from "../../ExpandableSection"
+import UserBalance from "../../balance/UserBalance"
 import SideBar from "../../SideBar"
 import CardProfile from "./CardProfile"
+import { Link } from "react-router-dom"
+
 
 
 function ProfileLayout() {
-  const {user} =useContextAuth()
+  const { user } = useContextAuth()
   return (
 
 
@@ -31,9 +34,21 @@ function ProfileLayout() {
 
 
         <div className="  flex flex-wrap mt-10  justify-center   ">
-          <CardProfile titleCard="Saldo" iconCard="💰" backgraund="bg-green-300 text-black" />
-          <CardProfile titleCard="Historial" iconCard="📑" backgraund="bg-yellow-400" />
-          <CardProfile titleCard="Recargar saldo" iconCard="💸" backgraund="bg-green-800 text-white" />
+          <CardProfile classNameContainer="bg-green-300 text-black">
+          <UserBalance />
+          </CardProfile>
+
+          <CardProfile classNameContainer="bg-yellow-400">
+            Historial
+          </CardProfile>
+
+          <Link to={"/user/recharge/"}>
+            <CardProfile classNameContainer="bg-green-800 text-white">
+            Recargar saldo
+            </CardProfile>
+          </Link>
+
+          
         </div>
 
 

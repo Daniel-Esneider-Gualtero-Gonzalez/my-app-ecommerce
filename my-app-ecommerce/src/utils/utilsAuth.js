@@ -147,16 +147,15 @@ async function getTokenRefrest() {
 
     // console.log("comun headers",comunHeaders)
 
-    const header = { 
-    headers: getCommunHeaders(),
-    }
+    const headers = getCommunHeaders()
+    
 
    
         
        try {
         
         const getToken = await fetch(`${endpoints.auth}refrestToken/`,{
-            headers: header.headers
+            headers: headers
         })
         const data = await getToken.json()
 

@@ -1,5 +1,6 @@
 
 import { useState } from "react"
+import { getCommunHeaders } from "../api/config"
 
 
 function useRecharge() {
@@ -10,16 +11,21 @@ function useRecharge() {
 
     const rechargeBalance = async (dataRecharge) => {
         setLoading(true)
+
+        const headers = getCommunHeaders()
+        headers.set("Content-Type","application/json")
        
+        //  'Content-Type': 'application/json',
         try {
             const recharge = await fetch("http://localhost:3000/user/balance/recharge/", {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    // Puedes incluir otros encabezados necesarios, como token de autenticación si es necesario
-                },
+                headers: headers,
                 body: JSON.stringify(dataRecharge)
             })
+
+            const data = await recharge.json()
+
+            console.log("respuesta de intentar recargar",data)
     
             if(!recharge.ok){
     
@@ -39,7 +45,7 @@ function useRecharge() {
     }
 
 
-    return {loading,error,successRecharge}
+    return {loading,error,successRecharge,rechargeBalance}
 }
 
 export default useRecharge

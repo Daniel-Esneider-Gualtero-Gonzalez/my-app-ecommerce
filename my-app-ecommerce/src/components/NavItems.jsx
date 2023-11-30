@@ -12,7 +12,7 @@ function NavItems({className}) {
                 <NavLink to={"/"} >Home</NavLink>
             </li>
             <li>
-                <NavLink  to={"/productos"}>Productos</NavLink>
+                <NavLink  to={"/products"}>Products</NavLink>
             </li>
             <li>
                 <NavLink to={"/servicios"} >Servicios</NavLink>

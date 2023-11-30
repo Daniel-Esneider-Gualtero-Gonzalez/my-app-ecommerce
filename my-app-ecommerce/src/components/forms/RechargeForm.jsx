@@ -1,14 +1,21 @@
-import React from 'react'
+
 import Input from '../Input'
 import useForm from '../../hooks/useForm'
-function RechargeForm() {
+
+function RechargeForm({handleRecharge}) {
 
     const { errors, register, registerError, cleanError, handleSubmitForm } = useForm()
+    
 
     const onSubmitRecharge = (e)=>{
     e.preventDefault()
     const dataToRecharge = handleSubmitForm(e.target)
+    
+    // hay que cambiarles el typo ya que el input asi sea number lo pone como texto y el baken los espera en number
+    // cuando se hace el strinjyfy y se envian ,d espues se parsean y seguia siendo texto, entonces toca cambiarlo
+    dataToRecharge.amount = 100000
     console.log("data to send recharge",dataToRecharge)
+    handleRecharge(dataToRecharge)
         
 
     }
@@ -35,7 +42,7 @@ function RechargeForm() {
 
             <div className="md:col-span-2">
                 <label htmlFor="city">Saldo</label>
-                <Input {...register("amount_recharge")} name="amount_recharge" className="h-10 border mt-1 rounded  w-full bg-gray-50" />
+                <Input type='number' {...register("amount")} name="amount" className="h-10 border mt-1 rounded  w-full bg-gray-50" />
 
             </div>
 

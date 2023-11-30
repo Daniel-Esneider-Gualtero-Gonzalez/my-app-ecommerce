@@ -26,6 +26,7 @@ import Header from './components/Header'
 import SeccionHome from './components/SeccionHome'
 import NavBar from './components/NavBar.jsx'
 import Footer from './components/Footer.jsx'
+import Products from './containers/Products.jsx'
 
 
 // FIN DE IMPORTACIONES DE COMPONENTES PARA OBSERVAR
@@ -46,6 +47,9 @@ function App() {
               <Route path='/login' element={<Login />} />
               <Route path='/singup' element={<Register />} /> 
               <Route path='/aboutas' element={<AboutAs />} />
+              {/* es accesible a todos pero cuando quiera comprar debemos indicarle que debe registrarle */}
+
+              <Route path='/products' element={<Products />}/>
             
             </Route>
             

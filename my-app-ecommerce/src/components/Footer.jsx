@@ -6,13 +6,8 @@ function Footer() {
 
   const refFooter = useRef()
 
-  const getPositionElementTop = (element) =>{
-    return element.getBoundingClientRect().top
-}
-
-
   const animateItemsLi = (listItems) => {
-    const colors = ["blue","green"]
+    const colors = ["red","green"]
     const options = {
       iterations: 1,
       duration: 2000,     // Duración de la animación en milisegundos.
@@ -31,6 +26,11 @@ function Footer() {
 
 
   }
+  
+
+  useEffect(()=>{
+    animateItemsLi(refFooter.current.querySelectorAll("li"))
+  },[])
 
  
   return (
