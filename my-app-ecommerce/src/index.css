@@ -1,6 +1,15 @@
+@import "./css/skeleton.css";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+
+
+
+/* :root{
+    color-scheme: dark;
+} */
 
 
 nav a{
@@ -10,12 +19,12 @@ nav a{
 
 /* los componentes navlink pone por defecto esat clase a esos links */
 .active{
-    border-bottom: 2px solid brown;
+    border-bottom: 2px solid white;
 }
 
 nav a:hover{
-    
-    border-bottom: 2px solid brown;
+   
+    border-bottom: 2px solid white;
 }
 
 
@@ -192,6 +201,48 @@ nav a:hover{
         transform: rotate(160deg);
         background-color: aqua;
        
+    }
+    
+}
+
+
+/* stylos de burbuja para cualquier elemento */
+.animationBurbuje{
+    animation: burbujeTopRight 1.8s ease-out  infinite alternate , 
+     burbujeBottonRight 2.3s ease-out  2s infinite alternate,
+    burbujeBottonLeft 3s ease-out 1.2s infinite  alternate,
+    burbujeTopLeft 2.3s ease-out 1.8s infinite alternate
+    ;
+}
+
+
+@keyframes burbujeTopRight {
+
+    from{
+        border-top-right-radius:20px;
+    }
+    
+}
+@keyframes burbujeBottonRight {
+
+    from{
+        border-bottom-right-radius:20px;
+    }
+    
+}
+@keyframes burbujeBottonLeft {
+
+    from{
+        border-bottom-left-radius:20px;
+    }
+    
+}
+@keyframes burbujeTopLeft {
+    to{
+
+    }
+    from{
+        border-top-left-radius:20px;
     }
     
 }

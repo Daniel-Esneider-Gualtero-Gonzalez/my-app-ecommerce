@@ -27,6 +27,8 @@ import SeccionHome from './components/SeccionHome'
 import NavBar from './components/NavBar.jsx'
 import Footer from './components/Footer.jsx'
 import Products from './containers/Products.jsx'
+import BuyButton from './components/buttons/BuyButton.jsx'
+
 
 
 // FIN DE IMPORTACIONES DE COMPONENTES PARA OBSERVAR
@@ -36,23 +38,24 @@ function App() {
 
   return (
     <>
+
       <BrowserRouter>
         <ContextUserProvider>
           <NavBar />
           <Routes>
             {/* NO LE PONEMOS RUTA EN ESPECIFICO ESTARA ACCESIBLE A TODOS */}
             <Route >
-        
+
               <Route path='/' element={<Home />} />
               <Route path='/login' element={<Login />} />
-              <Route path='/singup' element={<Register />} /> 
+              <Route path='/singup' element={<Register />} />
               <Route path='/aboutas' element={<AboutAs />} />
               {/* es accesible a todos pero cuando quiera comprar debemos indicarle que debe registrarle */}
 
-              <Route path='/products' element={<Products />}/>
-            
+              <Route path='/products' element={<Products />} />
+
             </Route>
-            
+
 
 
             <Route element={<PrivateRutes />}>
@@ -81,10 +84,14 @@ function App() {
 
 
         </ContextUserProvider>
-
-        <Footer />
-
+        
       </BrowserRouter>
+
+      
+    <BuyButton />
+      <Footer />
+
+
 
     </>
   )

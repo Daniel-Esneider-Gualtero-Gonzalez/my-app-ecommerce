@@ -4,6 +4,8 @@ import BtnLogin from "./buttons/BtnLogin"
 import { useEffect, useRef, useState } from "react"
 import BtnRegister from "./buttons/BtnRegister"
 
+import { GrMenu } from "react-icons/gr";
+
 function NavBar() {
     const [showsBarUser,setShowBarUser] = useState(false)
     const refScroll = useRef(0)
@@ -44,7 +46,10 @@ function NavBar() {
                 
                 <BtnLogin />
                 <BtnRegister />
-                <button className='w-[100px] rounded h-[40px] mx-1 text-2xl border' onClick={()=>setShowBarUser(true)}>🤴</button>
+                
+                <button className='p-2 flex justify-center items-center animationBurbuje rounded mx-1 text-2xl border ' onClick={()=>setShowBarUser(true)}>
+                <GrMenu  className=" text-[30px]"/>
+                </button>
                 {showsBarUser ? <SideBarUserProfile showBarSideUser={setShowBarUser} />  : null}
             </div>
 

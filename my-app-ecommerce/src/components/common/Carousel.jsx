@@ -62,9 +62,6 @@ function Carousel({listImages}) {
             // calcular tambien mejor el  tiempo en que se tarda para realizar el tranlate de la imagen o elemento que sale
         } , 200)
     }
-
-    useEffect(()=> console.log("next image carousel",next) , [next])
-    
    
 
     return (

@@ -1,6 +1,7 @@
 import { useEffect } from "react"
 import useProductCategories from "../../../hooks/useProductCategories"
 import CategoryItem from "./CategoryItem"
+import SkeletonCategoryProdut from "./SkeletonCategoryProdut"
 
 
 function ProductCategoryList() {
@@ -11,9 +12,7 @@ function ProductCategoryList() {
         getCategories()
     },[])
 
-    if(loading){
-        return <div>Cargando categorias....</div>
-    }
+
     if(error){
         return <div>Error al obtener categorias</div>
     }
@@ -21,9 +20,12 @@ function ProductCategoryList() {
     
   return (
     <div className="border flex justify-center p-1 border-green-600">
-        {categories && categories.map((category,index)=>{
+         {categories && categories.map((category,index)=>{
             return <CategoryItem  img={imageCategories[index]} title={category}/>
-        }) }
+        }) } 
+
+        {loading && !categories ?  <SkeletonCategoryProdut />  : null}
+        
     </div>
   )
 }

@@ -29,6 +29,11 @@ function ProductsLayout() {
 
         <h1>Carrusel de images mas comprados</h1>
         <Carousel />
+        <div className="h-[300px] relative bg-black rounded-tr-[100px]">
+          <h1 className="text-white text-[80px]">Productos con Descuento <span className="border-b">50%</span></h1>
+          <div className=" absolute bottom-0 rounded-tr-[100px] border-white bg-white w-[500px] h-[80px]"></div>
+          <button className="absolute text-white border w-[100px] h-[40px] bottom-4 right-[40%] hover:bg-white hover:text-black font-bold hover:rounded transition-all duration-300">Ir</button>
+        </div>
         
     </div>
   )
