@@ -18,13 +18,13 @@ function ProductOfWeek() {
   return (
     <div className='flex gap-1'>
         <div className='  h-[400px] w-[50%]'>
-            <img ref={refImageBig} className=" w-full h-full object-cover" src={imgProductOfWeek[0]} alt="" />
+            <img ref={refImageBig} className=" w-full rounded h-full object-cover" src={imgProductOfWeek[0]} alt="" />
         </div>
         <div className='  h-[400px] w-[70%]  '>
 
             <div className="flex gap-1 h-[50%]  border-red-500">
-                <div className="w-[50%] h-full"><img onClick={handleChangeImage} className="w-full h-full object-cover" src={imgProductOfWeek[1]} alt="" /></div>
-                <div className="w-[50%] h-full"><img onClick={handleChangeImage} className="w-full h-full object-cover" src={imgProductOfWeek[2]} alt="" /></div>
+                <div className="w-[50%] h-full"><img onClick={handleChangeImage} className="rounded w-full h-full object-cover" src={imgProductOfWeek[1]} alt="" /></div>
+                <div className="w-[50%] h-full"><img onClick={handleChangeImage} className="rounded w-full h-full object-cover" src={imgProductOfWeek[2]} alt="" /></div>
 
             </div>
 

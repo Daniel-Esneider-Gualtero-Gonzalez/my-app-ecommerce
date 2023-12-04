@@ -14,6 +14,7 @@ import Login from './containers/Login'
 import Recharge from './containers/Recharge.jsx'
 import Register from './containers/Register'
 import Profile from './containers/Profile.jsx'
+import MyCarrito from './containers/MyCarrito.jsx'
 import NotFoundPage from './components/Errors/NotFoundPage.jsx'
 // FIN DE IMPORTACIONES DE CONTAINERS
 
@@ -53,6 +54,7 @@ function App() {
               {/* es accesible a todos pero cuando quiera comprar debemos indicarle que debe registrarle */}
 
               <Route path='/products' element={<Products />} />
+              <Route path='/mi-carrito' element={<MyCarrito />} />
 
             </Route>
 
@@ -84,11 +86,12 @@ function App() {
 
 
         </ContextUserProvider>
+        <BuyButton />
         
       </BrowserRouter>
 
       
-    <BuyButton />
+   
       <Footer />
 
 
