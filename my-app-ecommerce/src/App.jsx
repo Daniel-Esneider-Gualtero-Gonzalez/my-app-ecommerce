@@ -9,6 +9,8 @@ import { ContextUserProvider } from './contexts/contextAuth.jsx'
 
 // IMPORTACIONES DE CONTAINERS
 import Home from './containers/Home'
+import Products from './containers/Products.jsx'
+import ProductDetailLayout from './components/containers/products/ProductDetailLayout.jsx'
 import AboutAs from './containers/AboutAs.jsx'
 import Login from './containers/Login'
 import Recharge from './containers/Recharge.jsx'
@@ -27,8 +29,9 @@ import Header from './components/Header'
 import SeccionHome from './components/SeccionHome'
 import NavBar from './components/NavBar.jsx'
 import Footer from './components/Footer.jsx'
-import Products from './containers/Products.jsx'
+
 import BuyButton from './components/buttons/BuyButton.jsx'
+
 
 
 
@@ -54,6 +57,7 @@ function App() {
               {/* es accesible a todos pero cuando quiera comprar debemos indicarle que debe registrarle */}
 
               <Route path='/products' element={<Products />} />
+              <Route path='/products/masinfo' element={<ProductDetailLayout />}/>
               <Route path='/mi-carrito' element={<MyCarrito />} />
 
             </Route>

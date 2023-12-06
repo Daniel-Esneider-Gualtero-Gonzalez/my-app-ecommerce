@@ -75,7 +75,7 @@ function SingInForm() {
 
                     <div className="mt-6 text-blue-500 text-center mb-10">
                         
-                        <Link className="hover:underline border-b border-black hover:border-none" to={"/register"}>Sign up Here</Link>
+                        <Link  className="hover:underline border-b border-black hover:border-none" to={"/singup"}>Sign up Here</Link>
                     </div>
 
                     <button type="submit" className="bg-blue-500 hover:bg-blue-600 text-white font-semibold rounded-md py-2 px-4 w-full">Login</button>

@@ -29,7 +29,7 @@ function NavBar() {
     } ,[])
     
     return (
-       <nav style={stylesNavScroll} className=" bg-blue-300 py-2 px-4 flex justify-between sm:grid sm:grid-cols-3 sm:gap-1">
+       <nav style={stylesNavScroll} className="w-screen bg-blue-300 py-2 px-4 flex justify-between sm:grid sm:grid-cols-3 sm:gap-1">
           
 
             <div className=''>

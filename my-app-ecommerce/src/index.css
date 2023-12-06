@@ -40,13 +40,13 @@ nav a:hover{
 
 
 /* Animacion para el CONTENEDOR DEL FORM REGISTER */
-#containerFormRegister:hover{
+#containerFormRegister{
     animation-name: form;
     animation-duration: 5s;
     animation-iteration-count: 1;
     
 }
-#containerFormSingin:hover{
+#containerFormSingin{
     animation-name: form;
     animation-duration: 5s;
     animation-iteration-count: 1;

@@ -21,16 +21,6 @@ function NavItems({className}) {
                 <NavLink to={"/aboutas"}>About as</NavLink>
             </li>
 
-
-            {/* ADMIN NAV ITEMS */}
-
-            {/* {user.role.admin ?  */}
-            <li>
-            <NavLink to={"/admin"}>Admin</NavLink>
-            </li> 
-            {/* :  */}
-            
-            {/* null} */}
         </ul>
 
     )

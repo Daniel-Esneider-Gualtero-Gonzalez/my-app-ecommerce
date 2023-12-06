@@ -68,7 +68,7 @@ function Carousel({listImages}) {
         <>
             <div ref={refCarrusel} className='border border-black relative h-[400px] flex justify-center items-center overflow-hidden   '>
                 
-                <img  className=' object-cover w-[900px] h-[300px] bg-white duration-700 transition-transform border border-black   ' src={images[next]} alt="" />
+                <img  className=' object-cover w-full h-full bg-white duration-700 transition-transform border border-black   ' src={images[next]} alt="" />
                 {next > 0 === true  ? <FcPrevious onClick={() => previusImg()}  className="absolute text-[100px] left-0 my-auto top-0 bottom-0 hover:text-[110px]"/> : null}
                 {next < images.length -1 ? <FcNext  onClick={() => nextImage()} className="absolute text-[100px] right-0 top-0 bottom-0 my-auto hover:text-[110px]" /> : null}
             </div>
