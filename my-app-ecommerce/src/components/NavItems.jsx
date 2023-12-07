@@ -15,9 +15,6 @@ function NavItems({className}) {
                 <NavLink  to={"/products"}>Products</NavLink>
             </li>
             <li>
-                <NavLink to={"/servicios"} >Servicios</NavLink>
-            </li>
-            <li>
                 <NavLink to={"/aboutas"}>About as</NavLink>
             </li>
 

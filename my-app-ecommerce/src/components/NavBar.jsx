@@ -1,5 +1,6 @@
 import SideBarUserProfile from "./SideBarUserProfile"
 import NavItems from "./NavItems"
+import ProductSearchBar from "./productSearchBar/ProductSearchBar"
 import BtnLogin from "./buttons/BtnLogin"
 import { useEffect, useRef, useState } from "react"
 import BtnRegister from "./buttons/BtnRegister"
@@ -29,7 +30,7 @@ function NavBar() {
     } ,[])
     
     return (
-       <nav style={stylesNavScroll} className="w-screen bg-blue-300 py-2 px-4 flex justify-between sm:grid sm:grid-cols-3 sm:gap-1">
+       <nav style={stylesNavScroll} className="w-screen bg-blue-300 py-2 px-4 flex justify-between sm:grid sm:grid-cols-4 sm:gap-1">
           
 
             <div className=''>
@@ -39,6 +40,9 @@ function NavBar() {
 
             <div className=' py-5 hidden md:block'>
                 <NavItems />
+           </div>
+           <div className="flex items-center">
+            <ProductSearchBar />
            </div>
 
             

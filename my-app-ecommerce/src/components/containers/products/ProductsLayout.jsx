@@ -6,7 +6,7 @@ import ProductOfWeek from "./ProductOfWeek"
 
 function ProductsLayout() {
   return (
-    <div className="border border-black px-3">
+    <div className="border border-black px-3 w-screen">
 
         <h1 className="font-medium text-2xl mt-2">Category of Products</h1>
         <ProductCategoryList />
