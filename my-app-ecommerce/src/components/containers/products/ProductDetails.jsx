@@ -16,7 +16,7 @@ function ProductDetails() {
 
                 <div className='w-fit mx-auto mt-5'>
                     <span>$7500</span>
-                    <button className='transition-all hover:ml-4 hover:scale-105 bg-ble-600 rounded border p-2 bg-blue-600 text-white font-semibold'>ADD TO CART</button>
+                    <button className='transition-all hover:ml-4 hover:shadow-md hover:scale-105 bg-ble-600 rounded border p-2 bg-blue-600 text-white font-semibold'>ADD TO CART</button>
                 </div>
             </div>
 

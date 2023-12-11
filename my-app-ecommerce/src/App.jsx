@@ -31,6 +31,7 @@ import NavBar from './components/NavBar.jsx'
 import Footer from './components/Footer.jsx'
 
 import BuyButton from './components/buttons/BuyButton.jsx'
+import ProductListPage from './containers/ProductListPage.jsx'
 
 
 
@@ -57,6 +58,7 @@ function App() {
               {/* es accesible a todos pero cuando quiera comprar debemos indicarle que debe registrarle */}
 
               <Route path='/products' element={<Products />} />
+              <Route path='/products/search/' element={<ProductListPage />}/>
               <Route path='/products/masinfo' element={<ProductDetailLayout />}/>
               <Route path='/mi-carrito' element={<MyCarrito />} />
 
