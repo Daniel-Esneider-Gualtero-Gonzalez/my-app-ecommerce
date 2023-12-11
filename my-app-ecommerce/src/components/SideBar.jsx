@@ -1,12 +1,10 @@
 
 
-function SideBar( {absolute = false , screenFull = true ,children}) {
-
-  const personality = ` ${absolute ? 'absolute' : '' } ${screenFull ? 'h-screen' : null}`
-  console.log("Personality sidebar", personality)
+function SideBar( {className="",children}) {
+  
   return (
-    <div className={`${personality} border border-black overflow-auto`}>
-        
+    <div className={className}>
+        {children}
     </div>
   )
 }
