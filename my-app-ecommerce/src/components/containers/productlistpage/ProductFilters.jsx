@@ -2,16 +2,26 @@ import { useEffect, useState } from "react"
 import useProductCategories from "../../../hooks/useProductCategories"
 
 
-function ProductFilters() {
+function ProductFilters({onChangePrice,onChangeCategory}) {
   const {categories,getCategories} = useProductCategories()
+  // dejamos este estado para no recibir la propiedad de categorya actual si no mantenerla en este componenete generando un nuevo estado
   const [category,setCategory] = useState(null)
 
   const handleChangeFilterCategory = (e)=>{
-
+    const category = e.target.value
     if(e.target.checked){
-      setCategory(e.target.value)
-    }else setCategory(null)
+      onChangeCategory(category)
+      setCategory(category)
+    }else{
+      onChangeCategory(null)
+      setCategory(null)
+    }
 
+  }
+
+  const handleChangeFilterPrice = (e)=>{
+    
+    return onChangePrice(e.target.value)
   }
 
   useEffect(()=> {
@@ -22,14 +32,14 @@ function ProductFilters() {
       Products Filter
       <div className="flex border-black border-b  p-1">
         <h1>Price:</h1>
-        <input onChange={(e) => { console.log("filter product price", e.target.value) }} className="ml-5" max={10} type="range" />
+        <input onChange={handleChangeFilterPrice} className="ml-5" max={500} type="range" />
       </div>
 
       <div className="mt-6 border-b border-black p-1">
-        <span>Category</span>
+        <span className="flex font-semibold mb-1">Category</span>
         <div>
           {categories ? categories.map(cate=>{
-            return <div><input onChange={handleChangeFilterCategory} type="checkbox"  checked={category === cate} value={cate}  id={cate} /><label htmlFor={cate}  className="ml-1 capitalize font-semibold">{cate}</label></div>
+            return <div key={cate}><input onChange={handleChangeFilterCategory} type="checkbox"  checked={category === cate} value={cate}  id={cate} /><label htmlFor={cate}  className="ml-1 capitalize ">{cate}</label></div>
           }): null}
 
           {category}

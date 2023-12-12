@@ -5,12 +5,15 @@ import ProductCardList from "../products/ProductCardList"
 import ProductFilters from "./ProductFilters"
 import useGetProducts from "../../../hooks/useGetProducts"
 import { useEffect } from "react"
+import useFiltersProducts from "../../../hooks/useFiltersProducts"
 
 function ProductListPageLayout() {
   const { search } = useLocation()
   console.log("bucamos el parametro de consult que es un nombre de producto")
   const query = new URLSearchParams(search).get("q")
   const {error,products,getProducts} = useGetProducts()
+  const {onChangeName,onChangeCategory,onChangePrice,productsFilters} = useFiltersProducts(products)
+
   useEffect(()=>{
     getProducts()
   } ,[])
@@ -19,18 +22,18 @@ function ProductListPageLayout() {
     <>
       <div className="grid  grid-cols-4 h-screen">
         <SideBar className="p-4">
-          <ProductFilters />
+          <ProductFilters onChangePrice={onChangePrice}  onChangeCategory={onChangeCategory}/>
         </SideBar>
 
         <div className="bg-green-500 col-span-3 border flex flex-wrap overflow-y-auto  border-black  p-4">  
-          <ProductCardList  productList={products}/>
+          <ProductCardList  productList={productsFilters ? productsFilters : products}/>
         </div>
        
       </div>
 
 
       <div className="mt-3 border border-red-600">
-        <h1 className="text-5xl">Resultados para <span className="border-b bg-green-300 border-black">{query}</span></h1>
+        <h1 className="text-1xl">Resultados para <span className="border-b bg-green-300 border-black">{query}</span></h1>
 
       </div></>
   )
