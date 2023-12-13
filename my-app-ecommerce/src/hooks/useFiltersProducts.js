@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 
 const filterNameProduct = (nameProduct,nameToFilter)=>{
-    console.log(nameProduct,nameToFilter , "filter name")
+    
     if(nameProduct.toLocaleLowerCase().includes(nameToFilter.toLocaleLowerCase())) return true
     return false 
     
@@ -22,6 +22,7 @@ function useFiltersProducts(products) {
     const [filterPrice,setFilterPrice] = useState(null)
     const [filterCategoy,setFilterCategory] = useState(null)
     const [productsFilters,setProductsFilter] = useState(null)
+
     const onChangeName = (name) => setFilterName(name)
     
     const onChangePrice = (price)=>  setFilterPrice(price)
@@ -33,7 +34,7 @@ function useFiltersProducts(products) {
 
     useEffect(()=> {
 
-        if(products){
+        if(products && products.length > 0){
             setProductsFilter(
                 products.filter(product=>{
                     
@@ -56,6 +57,7 @@ function useFiltersProducts(products) {
 
 
     }, [filterName,filterPrice,filterCategoy])
+
   return {onChangeName, onChangePrice, onChangeCategory,productsFilters}
 }
 
