@@ -19,46 +19,51 @@ const filterProductCategory = (categoryProduct,categoryToFilter)=>{
 
 function useFiltersProducts(products) {
     const [filterName,setFilterName] = useState(null)
-    const [filterPrice,setFilterPrice] = useState(null)
-    const [filterCategoy,setFilterCategory] = useState(null)
+    const [price,setPrice] = useState(null)
+    const [category,setCategory] = useState(null)
     const [productsFilters,setProductsFilter] = useState(null)
 
     const onChangeName = (name) => setFilterName(name)
     
-    const onChangePrice = (price)=>  setFilterPrice(price)
+    const onChangePrice = (price)=>  setPrice(price)
     
-    const onChangeCategory = (category)=> setFilterCategory(category)
+    const onChangeCategory = (category)=> setCategory(category)
     
 
     // const 
 
     useEffect(()=> {
 
-        if(products && products.length > 0){
-            setProductsFilter(
-                products.filter(product=>{
+        if(products && products.length > 0  ){
+            setProductsFilter(prevProFilters=>{
+                return  products.filter(product=>{
                     
                     if(filterName) {
                         if(filterNameProduct(product.title,filterName) === false) return  false 
                     }
                     // if(filterProductPrice(product.price,filterPrice) && filterPrice !== null) cumpleFiltros = false
-                    if(filterPrice){
-                        if(filterProductPrice(product.price,filterPrice) === false) return false
+                    if(price){
+                        if(filterProductPrice(product.price,price) === false) return false
                     }
-                    if(filterCategoy){
-                        if(filterProductCategory(product.category,filterCategoy) === false) return false
+                    if(category){
+                        if(filterProductCategory(product.category,category) === false) return false
                     }
 
+                    
                     return true
+                    
 
                 })
-            )
+            })
         }
 
 
-    }, [filterName,filterPrice,filterCategoy])
+    }, [filterName,price,category,products])
+    useEffect(()=>{
+        console.log("PRODUCT FILTERS",productsFilters)
+    } , [productsFilters])
 
-  return {onChangeName, onChangePrice, onChangeCategory,productsFilters}
+  return {onChangeName, onChangePrice, price, onChangeCategory,category,productsFilters}
 }
 
 export default useFiltersProducts

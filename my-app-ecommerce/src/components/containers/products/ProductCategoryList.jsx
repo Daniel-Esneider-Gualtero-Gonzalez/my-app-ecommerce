@@ -2,6 +2,7 @@ import { useEffect } from "react"
 import useProductCategories from "../../../hooks/useProductCategories"
 import CategoryItem from "./CategoryItem"
 import SkeletonCategoryProdut from "./SkeletonCategoryProdut"
+import { Link } from "react-router-dom"
 
 
 function ProductCategoryList() {
@@ -21,7 +22,7 @@ function ProductCategoryList() {
   return (
     <div className="border flex justify-center p-1 border-green-600">
          {categories && categories.map((category,index)=>{
-            return <CategoryItem  img={imageCategories[index]} title={category}/>
+            return <Link to={`/products/search?category=${category}`} ><CategoryItem  img={imageCategories[index]} title={category}/></Link>
         }) } 
 
         {loading && !categories ?  <SkeletonCategoryProdut />  : null}

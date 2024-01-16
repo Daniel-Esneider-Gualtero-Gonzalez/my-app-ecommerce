@@ -2,19 +2,19 @@ import { useEffect, useState } from "react"
 import useProductCategories from "../../../hooks/useProductCategories"
 
 
-function ProductFilters({onChangePrice,onChangeCategory}) {
+function ProductFilters({onChangePrice,onChangeCategory,category,price}) {
   const {categories,getCategories} = useProductCategories()
   // dejamos este estado para no recibir la propiedad de categorya actual si no mantenerla en este componenete generando un nuevo estado
-  const [category,setCategory] = useState(null)
+  
 
   const handleChangeFilterCategory = (e)=>{
     const category = e.target.value
     if(e.target.checked){
       onChangeCategory(category)
-      setCategory(category)
+     
     }else{
       onChangeCategory(null)
-      setCategory(null)
+      
     }
 
   }
@@ -33,6 +33,7 @@ function ProductFilters({onChangePrice,onChangeCategory}) {
       <div className="flex border-black border-b  p-1">
         <h1>Price:</h1>
         <input onChange={handleChangeFilterPrice} className="ml-5" max={500} type="range" />
+        {price}
       </div>
 
       <div className="mt-6 border-b border-black p-1">

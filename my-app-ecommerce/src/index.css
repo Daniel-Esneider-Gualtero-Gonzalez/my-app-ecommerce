@@ -11,7 +11,9 @@
     color-scheme: dark;
 } */
 
-
+body{
+    overflow-x: hidden;
+}
 nav a{
     margin: 0 8px;
     font-weight: 400;
@@ -88,6 +90,8 @@ nav a:hover{
     animation-iteration-count: 1;
     animation-timing-function:  ease-out;
 }
+
+
 
 .animationLeft{
     animation-name:animationLeft ;

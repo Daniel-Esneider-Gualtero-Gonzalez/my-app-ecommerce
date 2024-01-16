@@ -10,36 +10,41 @@ import Prefetching from "./Prefetching.jsx"
 
 function ProductListPageLayout() {
   const { search } = useLocation()
-  const query = new URLSearchParams(search).get("q")
-  const { loading, error, products, getProducts } = useGetProducts()
-  const { onChangeName, onChangeCategory, onChangePrice, productsFilters } = useFiltersProducts(products)
+  const queryName = new URLSearchParams(search).get("q")
+  const queryCategory = new URLSearchParams(search).get("category")
+  const { loading, error, products, getProducts,prefetching } = useGetProducts()
+  const { onChangeName, onChangeCategory, category, onChangePrice,price, productsFilters } = useFiltersProducts(products)
+
+  useEffect(()=>{
+    onChangeCategory(queryCategory)
+  } ,[])
 
   useEffect(() => {
     getProducts()
   }, [])
+ 
 
   useEffect(() => {
-    onChangeName(query)
+    onChangeName(queryName)
   }, [search])
 
   return (
     <>
       <div className="grid  grid-cols-4 h-screen">
         <SideBar className="p-4">
-          <ProductFilters onChangePrice={onChangePrice} onChangeCategory={onChangeCategory} />
+          <ProductFilters onChangePrice={onChangePrice} onChangeCategory={onChangeCategory} category={category} price={price} />
+          <span className="mt-1 flex">Filter by name: {queryName}</span>
         </SideBar>
-
-        <Prefetching className="col-span-3 border flex flex-wrap overflow-y-auto  border-black  p-4 " >
-          <ProductCardList productList={productsFilters ? productsFilters : products} />
+        
+        <Prefetching handlePrefetching={prefetching} className="col-span-3 border flex flex-wrap overflow-y-auto  border-black  p-4 " >
+          <ProductCardList productList={productsFilters && productsFilters.length ? productsFilters : products} />
+          {loading ? <span>Cargardo productos</span> : null}
         </Prefetching>
 
       </div>
 
 
-      <div className="mt-3 border border-red-600">
-        <h1 className="text-1xl">Resultados para <span className="border-b bg-green-300 border-black">{query}</span></h1>
-
-      </div></>
+      </>
   )
 }
 
