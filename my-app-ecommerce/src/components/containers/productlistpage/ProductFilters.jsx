@@ -9,14 +9,9 @@ function ProductFilters({onChangePrice,onChangeCategory,category,price}) {
 
   const handleChangeFilterCategory = (e)=>{
     const category = e.target.value
-    if(e.target.checked){
-      onChangeCategory(category)
-     
-    }else{
-      onChangeCategory(null)
-      
-    }
 
+      onChangeCategory(category)
+  
   }
 
   const handleChangeFilterPrice = (e)=>{
@@ -40,7 +35,7 @@ function ProductFilters({onChangePrice,onChangeCategory,category,price}) {
         <span className="flex font-semibold mb-1">Category</span>
         <div>
           {categories ? categories.map(cate=>{
-            return <div key={cate}><input onChange={handleChangeFilterCategory} type="checkbox"  checked={category === cate} value={cate}  id={cate} /><label htmlFor={cate}  className="ml-1 capitalize ">{cate}</label></div>
+            return <div key={cate}><input onChange={handleChangeFilterCategory} type="checkbox"  checked={category.includes(cate)} value={cate}  id={cate} /><label htmlFor={cate}  className="ml-1 capitalize ">{cate}</label></div>
           }): null}
 
           {category}

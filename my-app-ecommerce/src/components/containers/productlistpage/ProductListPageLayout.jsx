@@ -13,7 +13,7 @@ function ProductListPageLayout() {
   const queryName = new URLSearchParams(search).get("q")
   const queryCategory = new URLSearchParams(search).get("category")
   const { loading, error, products, getProducts,prefetching } = useGetProducts()
-  const { onChangeName, onChangeCategory, category, onChangePrice,price, productsFilters } = useFiltersProducts(products)
+  const { isFilter,onChangeName, onChangeCategory, category, onChangePrice,price, productsFilters } = useFiltersProducts(products)
 
   useEffect(()=>{
     onChangeCategory(queryCategory)
@@ -28,6 +28,7 @@ function ProductListPageLayout() {
     onChangeName(queryName)
   }, [search])
 
+ 
   return (
     <>
       <div className="grid  grid-cols-4 h-screen">
@@ -37,7 +38,12 @@ function ProductListPageLayout() {
         </SideBar>
         
         <Prefetching handlePrefetching={prefetching} className="col-span-3 border flex flex-wrap overflow-y-auto  border-black  p-4 " >
-          <ProductCardList productList={productsFilters && productsFilters.length ? productsFilters : products} />
+          {isFilter  && productsFilters.length > 0  && <ProductCardList productList={productsFilters} /> }
+
+          {isFilter && productsFilters.length === 0 && <h1>No se encontraron resultados</h1>}
+          
+
+          {!isFilter && <ProductCardList productList={products} />}
           {loading ? <span>Cargardo productos</span> : null}
         </Prefetching>
 
