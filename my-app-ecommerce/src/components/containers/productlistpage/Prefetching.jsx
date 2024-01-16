@@ -11,10 +11,9 @@ function Prefetching({className="", handlePrefetching={},children}) {
 
       const scrollCurrent = scrollTop + clientHeight
 
-      if(scrollCurrent >= scrollHeight  && isPrefetching === false    ) {
-       
+      if(scrollCurrent >= scrollHeight  && isPrefetching === false ) {
+      
         isPrefetching = true
-        
          handlePrefetching().finally(()=>isPrefetching = false)
 
       }
