@@ -20,7 +20,7 @@ function ProductCategoryList() {
 
     
   return (
-    <div className="border flex justify-center p-1 border-green-600">
+    <div className="flex flex-wrap w-screen justify-center p-1 ">
          {categories && categories.map((category,index)=>{
             return <Link to={`/products/search?category=${category}`} ><CategoryItem  img={imageCategories[index]} title={category}/></Link>
         }) } 

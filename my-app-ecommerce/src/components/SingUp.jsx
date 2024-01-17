@@ -44,17 +44,17 @@ function SingUp() {
       </Modal>
 
 
-      <div className='flex h-screen  sm:justify-center sm:py-2 '>
-        <div className='w-[500px] py-2 my-auto hidden md:block '>
-          <img className='rounded-[800px] w-[150px] h-[150px] mx-auto ' src={avatar >= 0 ? `${avatars[avatar].image}` : "https://cdn.pixabay.com/photo/2023/09/21/17/05/european-shorthair-8267220_1280.jpg"} alt="" />
-          <button disabled={avatarsLoading ? true : null} onClick={() => openModal()} className='mx-auto bg-blue-500 text-white font-bold text-md hover:bg-blue-600 hover:scale-105 flex mt-5 border px-5 items-center py-2 justify-center rounded'>
+      <div className='w-full mt-10 lg:mt-14 place-content-center gap-1  grid xl:grid-cols-2 sm:py-2 '>
+        <div className='my-2 lg:mb-4 grid place-content-center  '>
+          <img className='rounded-[800px] w-[100px] h-[100px] sm:w-[150px] sm:h-[150px] mx-auto ' src={avatar >= 0 ? `${avatars[avatar].image}` : "https://cdn.pixabay.com/photo/2023/09/21/17/05/european-shorthair-8267220_1280.jpg"} alt="" />
+          <button disabled={avatarsLoading ? true : null} onClick={() => openModal()} className='mx-auto bg-blue-500 text-white font-bold text-md hover:bg-blue-600 hover:scale-105 flex mt-5 border p-1 sm:px-5 items-center py-2 justify-center rounded'>
             {avatarsLoading ? '..cargando avatars' : 'Selecciona Avatar'}
           </button>
         </div>
 
 
 
-        <div id="containerFormRegister" className='w-full my-auto border animation-form animation-duration-3000  rounded   sm:w-[500px] '>
+        <div id="containerFormRegister" className='w-full my-auto border animation-form animation-duration-3000  rounded    '>
           <RegisterForm handleRegisterUser={handleRegisterUser} />
         </div>
 

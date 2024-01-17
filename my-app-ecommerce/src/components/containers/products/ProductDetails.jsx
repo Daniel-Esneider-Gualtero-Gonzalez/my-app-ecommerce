@@ -2,7 +2,7 @@ import React from 'react'
 
 function ProductDetails() {
     return (
-        <div className='w-screen h-screen flex justify-between my-5 bg-gradient-to-b from-transparent via-transparent to-blue-100'>
+        <div className='w-screen h-screen  grid grid-cols-3 gap-1 border p-5 my-5 bg-gradient-to-b from-transparent via-transparent to-blue-100'>
             <div className='border px-2 '>
                 <h1 className='text-6xl '>Libero X250</h1>
                 <h2 className='text-xl'>250 Watt Electric Scooter</h2>
@@ -20,7 +20,7 @@ function ProductDetails() {
                 </div>
             </div>
 
-            <div>
+            <div className='border '>
                 <img className='object-cover w-full ' src="https://websitedemos.net/electric-scooter-04/wp-content/uploads/sites/1113/2022/07/scooter-01.png" alt="" />
             </div>
 

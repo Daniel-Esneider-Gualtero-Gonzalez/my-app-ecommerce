@@ -31,13 +31,13 @@ function ProductListPageLayout() {
  
   return (
     <>
-      <section className="grid  xl:grid-cols-4 h-screen">
+      <section className="grid  xl:grid-cols-4 h-screen p-4">
         <SideBar className="p-4 col-span-1">
           <ProductFilters onChangePrice={onChangePrice} onChangeCategory={onChangeCategory} category={category} price={price} />
           <span className="mt-1 flex">Filter by name: {queryName}</span>
         </SideBar>
         
-        <Prefetching handlePrefetching={prefetching} className="md:col-span-3  border grid md:grid-cols-2 lg:grid-cols-3 m-auto  max-h-[600px]     overflow-y-auto  border-black  p-4 " >
+        <Prefetching handlePrefetching={prefetching} className="md:col-span-3 grid md:grid-cols-2 lg:grid-cols-3 m-auto  max-h-[600px]     overflow-y-auto  " >
           {isFilter  && productsFilters.length > 0  && <ProductCardList productList={productsFilters} /> }
 
           {isFilter && productsFilters.length === 0 && <h1>No se encontraron resultados</h1>}

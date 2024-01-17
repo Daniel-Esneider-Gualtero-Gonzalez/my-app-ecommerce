@@ -37,11 +37,11 @@ function RegisterForm({handleRegisterUser=Function}) {
                 <h1 className='w-fit mx-auto text-xl font-bold border-b-2 border-blue-500'>Registrate</h1>
                 <span className='flex w-fit mt-1 mx-auto text-sm'>Es genial que te registres</span>
 
-                <div className='mt-4 flex gap-10'>
-                    <div className=''>
+                <div className='mt-4 flex   xl:justify-between   gap-10'>
+                    <div className=' '>
                         <label>First Name</label>
                         <div className='mt-2'>
-                            <div className='mt-1 flex  items-center -gray-600'><div className='ml-1 absolute'>🧑</div> <input {...register("names")} required maxLength={10} name="names" className='w-full border border-black rounded h-[45px] px-8 focus:outline-none focus:border-blue-500' type="text" /> </div>
+                            <div className='mt-1 flex items-center '><div className='ml-1 absolute'>🧑</div> <input {...register("names")} required maxLength={10} name="names" className='w-full border border-black rounded h-[45px] px-8 focus:outline-none focus:border-blue-500' type="text" /> </div>
                         </div>
                     </div>
 
