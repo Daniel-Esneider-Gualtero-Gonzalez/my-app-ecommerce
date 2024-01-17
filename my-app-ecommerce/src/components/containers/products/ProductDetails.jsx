@@ -2,7 +2,7 @@ import React from 'react'
 
 function ProductDetails() {
     return (
-        <div className='w-screen h-screen  grid grid-cols-3 gap-1 border p-5 my-5 bg-gradient-to-b from-transparent via-transparent to-blue-100'>
+        <div className='gap-1 border grid lg:grid-cols-3  bg-gradient-to-b from-transparent via-transparent to-blue-100'>
             <div className='border px-2 '>
                 <h1 className='text-6xl '>Libero X250</h1>
                 <h2 className='text-xl'>250 Watt Electric Scooter</h2>
@@ -20,20 +20,22 @@ function ProductDetails() {
                 </div>
             </div>
 
-            <div className='border '>
-                <img className='object-cover w-full ' src="https://websitedemos.net/electric-scooter-04/wp-content/uploads/sites/1113/2022/07/scooter-01.png" alt="" />
+            <div className=' p-3 '>
+                <img className='object-cover  w-full ' src="https://websitedemos.net/electric-scooter-04/wp-content/uploads/sites/1113/2022/07/scooter-01.png" alt="" />
             </div>
 
-            <div className=''>
-                more images
-                <div className='flex'>
+            <div className='md:grid md:grid-cols-2  lg:grid-cols-1 p-3'>
+                {/* more images */}
+                <div className='flex  h-fit'>
                     <div className='w-[80px] mx-1 bg-blue-600 h-[100px] rounded'></div>
                     <div className='w-[80px] mx-1 bg-violet-600 h-[100px] rounded'></div>
                     <div className='w-[80px] mx-1 bg-yellow-400 h-[100px] rounded'></div>
                 </div>
 
-                <h2 className='font-bold mt-5'>Description</h2>
-                <p className='max-w-[300px]'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum magni impedit ab. Quisquam corrupti dolor itaque officia nisi, numquam suscipit, ipsa accusamus labore, ea et aliquid debitis fuga veritatis culpa.</p>
+                <article className=''>
+                    <h2 className='font-bold '>Description</h2>
+                    <p className='max-w-[300px]'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum magni impedit ab. Quisquam corrupti dolor itaque officia nisi, numquam suscipit, ipsa accusamus labore, ea et aliquid debitis fuga veritatis culpa.</p>
+                </article>
             </div>
 
         </div>
