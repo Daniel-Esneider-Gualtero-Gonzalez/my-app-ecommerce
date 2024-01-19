@@ -51,7 +51,7 @@ function NavBar() {
                 <BtnLogin />
                 <BtnRegister />
                 
-                <button className='p-2 flex justify-center items-center animationBurbuje rounded mx-1 text-2xl border ' onClick={()=>setShowBarUser(true)}>
+                <button className='p-2 flex justify-center items-center bg-white animationBurbuje border mx-1 text-2xl ' onClick={()=>setShowBarUser(true)}>
                 <GrMenu  className=" text-[30px]"/>
                 </button>
                 {showsBarUser ? <SideBarUserProfile showBarSideUser={setShowBarUser} />  : null}
