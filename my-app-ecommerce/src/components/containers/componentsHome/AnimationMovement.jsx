@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 
-function AnimationMovement({backgroundColor}) {
+function AnimationMovement({backgroundColor,children},...props) {
     
     const refContainer = useRef()
     
@@ -29,7 +29,9 @@ function AnimationMovement({backgroundColor}) {
     
   return (
 
-        <div ref={refContainer} className={`ml-5 w-[80px]  ${backgroundColor} transition-transform duration-[9s]  ease-linear h-[80px] rounded-full absolute `}></div>
+        <div {...props} ref={refContainer} className={`ml-5 w-[80px]  ${backgroundColor} transition-transform duration-[9s]  ease-linear h-[80px] rounded-full absolute `}>
+            {children}
+        </div>
     
   )
 }
