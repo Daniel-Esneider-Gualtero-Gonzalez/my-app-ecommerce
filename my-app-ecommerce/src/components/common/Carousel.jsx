@@ -9,73 +9,43 @@ const imagesInitial = [
 
 ]
 
-function Carousel({listImages}) {
+function Carousel({ listImages=imagesInitial ,...props} ) {
     const refCarrusel = useRef()
-    const [images, setImages] = useState([...imagesInitial])
+    const [images, setImages] = useState([...listImages])
     const [next, setNext] = useState(0)
-    // const refImgCurrent = useRef(next)
     
+    
+    const nextImage = () => {
 
+        setNext(e => {
+            if (e + 1 <= images.length - 1) return e + 1
 
+            return e
+        })
 
-    useEffect(()=> {
-
-        
-        if (next>=0) {
-            refCarrusel.current.firstElementChild.style.display = "block"
-            const widthImg = refCarrusel.current.firstElementChild.clientWidth
-            refCarrusel.current.firstElementChild.style.transform = "translateX(0%)"
-            
-        }
-        
-    },[next])
-
-    const nextImage = ()=>{
-        if(next < images.length - 1 === false) return 
-        // calcular bien el translate
-        refCarrusel.current.firstElementChild.style.transform = "translateX(-500%)"
-
-        setTimeout(()=> {
-            refCarrusel.current.firstElementChild.style.display="none" 
-            refCarrusel.current.firstElementChild.style.transform = `translateX(1000%)`
-
-            // calcular  bien cuanto se demora en realizar el tranlate  de arriba ⬆️ en cambiar de imagen 
-            setTimeout(()=> setNext(e=> e+1) , 200)
-
-            // calcular tambien mejor el  tiempo en que se tarda para realizar el tranlate de la imagen o elemento que sale
-        } , 200)
     }
-    const previusImg = ()=>{
-        if(next > 0 === false) return 
-        // calcular bien el translate
-        refCarrusel.current.firstElementChild.style.transform = "translateX(500%)"
-        
-        
+    const previusImg = () => {
 
-        setTimeout(()=> {
-            refCarrusel.current.firstElementChild.style.display="none" 
-            refCarrusel.current.firstElementChild.style.transform = `translateX(-1000%)`
+        setNext(e => {
+            if (e - 1 >= 0 ) return e - 1
 
-            // calcular  bien cuanto se demora en realizar el tranlate  de arriba ⬆️ en cambiar de imagen 
-            setTimeout(()=> setNext(e=> e-1) , 200)
-
-            // calcular tambien mejor el  tiempo en que se tarda para realizar el tranlate de la imagen o elemento que sale
-        } , 200)
+            return e
+        })
     }
-   
+
 
     return (
         <>
-            <div ref={refCarrusel} className='border border-black relative h-[400px] flex justify-center items-center overflow-hidden   '>
-                
-                <img  className=' object-cover w-full h-full bg-white duration-700 transition-transform border border-black   ' src={images[next]} alt="" />
-                {next > 0 === true  ? <FcPrevious onClick={() => previusImg()}  className="absolute text-[100px] left-0 my-auto top-0 bottom-0 hover:text-[110px]"/> : null}
-                {next < images.length -1 ? <FcNext  onClick={() => nextImage()} className="absolute text-[100px] right-0 top-0 bottom-0 my-auto hover:text-[110px]" /> : null}
+            <div {...props}  ref={refCarrusel}  >
+
+                <img className='object-cover w-full h-full bg-white duration-700 transition-transform  ' src={images[next]} alt="" />
+                {next > 0 && <FcPrevious onClick={() => previusImg()} className="absolute text-[100px] left-0 my-auto top-0 bottom-0 hover:text-[110px]" /> }
+                {next !== images.length - 1 ? <FcNext onClick={() => nextImage()} className="absolute text-[100px] right-0 top-0 bottom-0 my-auto hover:text-[110px]" /> : null}
             </div>
 
         </>
 
     )
-}   
+}
 
 export default Carousel
