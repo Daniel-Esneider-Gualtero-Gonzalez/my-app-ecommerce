@@ -16,9 +16,9 @@ function Home() {
        </div>
 
        <div className="mt-[100px] ml-5 absolute border-black w-fit px-2 ">
-        <h1 className="text-2xl md:text-4xl xl:text-7xl whitespace-normal w-[600px]">Shopping App for Gdgets and Gifts</h1>
-        <p className="mt-3">Get 10% off your first order when you spend over $40 on any product!</p>
-        <button className="p-2 flex bg-blue-600 text-white font-bold hover:scale-105 hover:bg-blue-700 transition-transform duration-200 mt-2 justify-center items-center border rounded ">Download App</button>
+        <h1 className="text-xl md:text-4xl   whitespace-normal max-w-[600px]">Descubre el Mundo del E-commerce: Recarga y Compra con Nosotros</h1>
+        <p className="mt-3 max-w-[400px]">¡Bienvenido a nuestro emocionante mundo de compras didácticas! En este espacio interactivo, te invitamos a recargar tu saldo virtual y sumergirte en una experiencia única de comercio electrónico.!</p>
+        <button className="p-2 flex bg-blue-600 text-white font-bold hover:scale-105 hover:bg-blue-700 transition-transform duration-200 mt-2 justify-center items-center border rounded ">Comenzar</button>
        </div>
        {/* <img className="absolute right-0 w-[500px]" src="https://img.freepik.com/vector-gratis/descuentos-venta-temporada-presenta-compra-visita-boutiques-compras-lujo-cupones-promocionales-reduccion-precio-ofertas-especiales-vacaciones-ilustracion-metafora-concepto-aislado-vector_335657-2766.jpg?size=626&ext=jpg" alt="" /> */}
         
