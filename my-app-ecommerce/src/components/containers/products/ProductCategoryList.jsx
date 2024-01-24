@@ -22,7 +22,7 @@ function ProductCategoryList() {
   return (
     <div className="flex flex-wrap w-screen justify-center p-1 ">
          {categories && categories.map((category,index)=>{
-            return <Link to={`/products/search?category=${category}`} ><CategoryItem  img={imageCategories[index]} title={category}/></Link>
+            return <Link key={index} to={`/products/search?category=${category}`} ><CategoryItem  img={imageCategories[index]} title={category}/></Link>
         }) } 
 
         {loading && !categories ?  <SkeletonCategoryProdut />  : null}

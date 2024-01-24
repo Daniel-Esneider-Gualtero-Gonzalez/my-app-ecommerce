@@ -16,21 +16,21 @@ function ProductOfWeek() {
 
     }
   return (
-    <div className='flex gap-1'>
-        <div className='  h-[400px] w-[50%]'>
+    <div className=' md:flex gap-1'>
+        <div className='h-[200px]  md:h-[400px] md:w-[50%]'>
             <img ref={refImageBig} className=" w-full rounded h-full object-cover" src={imgProductOfWeek[0]} alt="" />
         </div>
-        <div className='  h-[400px] w-[70%]  '>
+        <div className='w-full mt-1 md:mt-0  h-[400px] md:w-[70%]  '>
 
             <div className="flex gap-1 h-[50%]  border-red-500">
-                <div className="w-[50%] h-full"><img onClick={handleChangeImage} className="rounded w-full h-full object-cover" src={imgProductOfWeek[1]} alt="" /></div>
-                <div className="w-[50%] h-full"><img onClick={handleChangeImage} className="rounded w-full h-full object-cover" src={imgProductOfWeek[2]} alt="" /></div>
+                <div className="w-[50%] h-[170px] md:h-full"><img onClick={handleChangeImage} className="rounded w-full h-full object-cover" src={imgProductOfWeek[1]} alt="" /></div>
+                <div className="w-[50%] h-[170px] md:h-full"><img onClick={handleChangeImage} className="rounded w-full h-full object-cover" src={imgProductOfWeek[2]} alt="" /></div>
 
             </div>
 
-            <div className="mt-3 ">
+            <div className="mt-3 "> 
                 <h3 className="font-semibold">Title product of the week</h3>
-                <p className="text-md">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque ad aliquam molestiae quos! Velit aliquam eius quo quaerat odit, doloribus nulla veniam ea voluptas dignissimos. Rem nesciunt molestias doloremque saepe.</p>
+                <p className="text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque ad aliquam molestiae quos! Velit aliquam eius quo quaerat odit, doloribus nulla veniam ea voluptas dignissimos. Rem nesciunt molestias doloremque saepe.</p>
             </div>
 
 
