@@ -82,7 +82,7 @@ function ProductSearchBar() {
 
 
   return (
-    <form onSubmit={handleSearchProducts} className=" md:focus-within:w-[450px]  transition-all duration-600 ease-linear md:focus-within:absolute focus-within:border-[2px] focus-within:border-blue-400 z-[99] md:focus-within:m-auto md:focus-within:top-0 right-0 left-0 bottom-0 md:focus-within:h-fit    bg-white rounded p-1 ">
+    <form onSubmit={handleSearchProducts} className=" md:focus-within:w-[450px]  transition-all duration-600 ease-linear md:focus-within:absolute focus-within:border-[2px] focus-within:border-blue-400 focus-within:z-[99] md:focus-within:m-auto md:focus-within:top-0 right-0 left-0 bottom-0 md:focus-within:h-fit    bg-white rounded p-1 ">
       <article className='flex items-center'>
         <input onBlur={isActiveEvents ? () => handleBlur() : () => { }} onFocus={isActiveEvents ? handleFocus : () => { }} onChange={handleSearchProducts} placeholder="Search Products" id='searchProduct' name="searchProduct" className='w-full outline-none  border-b border-violet-600 pl-2 py-1   ' type="text" />
         <button className="border w-fit text-violet-600 flex h-full ">
