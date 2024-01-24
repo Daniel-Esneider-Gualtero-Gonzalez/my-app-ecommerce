@@ -9,7 +9,7 @@ function BtnRegister({className}) {
     urlActual = urlActual[urlActual.length - 1].toLocaleLowerCase()
   return (
     <>
-    {!user && urlActual !== "singup"? <button onClick={()=> navigate("/singup")} className='mt-1 h-[40px] bg-white text-black py-2 px-2 w-[100px] rounded flex justify-center items-center '>Register</button> : null }
+    {!user && urlActual !== "singup"? <button onClick={()=> navigate("/singup")} className='mt-1 h-[40px] bg-white text-black p-2  w-full lg:block  rounded flex justify-center items-center '>Register</button> : null }
     </>
   )
 }

@@ -11,7 +11,7 @@ function BtnLogin({width = "w-100px"}) {
     
   return (
     <>
-    {!user && urlActual !== "login" ? <button onClick={()=> navigate("/login")} className={`mt-1 ${width}   h-[40px] bg-white text-black   w-[100px] rounded mx-1 sm:flex justify-center items-center `}>Login</button> : null }
+    {!user && urlActual !== "login" ? <button onClick={()=> navigate("/login")} className={`mt-1 ${width}   h-[40px] bg-white text-black w-full  lg:block rounded   justify-center items-center `}>Login</button> : null }
     </>
   )
 }
