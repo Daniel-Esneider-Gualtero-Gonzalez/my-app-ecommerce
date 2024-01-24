@@ -4,22 +4,22 @@ import CategoryItem from './CategoryItem'
 function SkeletonCategoryProdut() {
   return (
     <>
-    <div className="mx-1  w-fit  justify-center p-1 ">
-         <h1 className="skeletonCategoriTitle h-[10px] mb-2 rounded border"></h1>
-        <img className="skeletonCategoriImage w-[150px] mx-auto h-[150px] rounded-full border border-gray-400" src="" alt="" />
-    </div>
-    <div className="mx-1  w-fit  justify-center p-1 ">
-         <h1 className="skeletonCategoriTitle h-[10px] mb-2 rounded border"></h1>
-        <img className="skeletonCategoriImage w-[150px] mx-auto h-[150px] rounded-full border border-gray-400" src="" alt="" />
-    </div>
-    <div className="mx-1  w-fit  justify-center p-1 ">
-         <h1 className="skeletonCategoriTitle h-[10px] mb-2 rounded border"></h1>
-        <img className="skeletonCategoriImage w-[150px] mx-auto h-[150px] rounded-full border border-gray-400" src="" alt="" />
-    </div>
-    <div className="mx-1  w-fit  justify-center p-1 ">
-         <h1 className="skeletonCategoriTitle h-[10px] mb-2 rounded border"></h1>
-        <img className="skeletonCategoriImage w-[150px] mx-auto h-[150px] rounded-full border border-gray-400" src="" alt="" />
-    </div>
+      <div className="mx-1  w-fit  justify-center p-1 ">
+        <h1 className="skeletonCategoriTitle h-[10px] mb-2 rounded border"></h1>
+        <div className="skeletonCategoriImage w-[60px] h-[60px] md:w-[90px] md:h-[90px] lg:w-[110px] lg:h-[110px] mx-auto  rounded-full border border-gray-400" src="" alt="" />
+      </div>
+      <div className="mx-1  w-fit  justify-center p-1 ">
+        <h1 className="skeletonCategoriTitle h-[10px] mb-2 rounded border"></h1>
+        <div className="skeletonCategoriImage w-[60px] h-[60px] md:w-[90px] md:h-[90px] lg:w-[110px] lg:h-[110px] mx-auto  rounded-full border border-gray-400" src="" alt="" />
+      </div>
+      <div className="mx-1  w-fit  justify-center p-1 ">
+        <h1 className="skeletonCategoriTitle h-[10px] mb-2 rounded border"></h1>
+        <div className="skeletonCategoriImage w-[60px] h-[60px] md:w-[90px] md:h-[90px] lg:w-[110px] lg:h-[110px] mx-auto  rounded-full border border-gray-400" src="" alt="" />
+      </div>
+      <div className="mx-1  w-fit  justify-center p-1 ">
+        <h1 className="skeletonCategoriTitle h-[10px] mb-2 rounded border"></h1>
+        <div className="skeletonCategoriImage w-[60px] h-[60px] md:w-[90px] md:h-[90px] lg:w-[110px] lg:h-[110px] mx-auto  rounded-full border border-gray-400" src="" alt="" />
+      </div>
     </>
   )
 }
