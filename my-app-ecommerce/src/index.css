@@ -4,41 +4,85 @@
 @tailwind utilities;
 
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+p {
+    text-wrap: pretty;
+}
 
 
+body {
+    line-height: 1.5;
+}
 
-/* :root{
-    color-scheme: dark;
-} */
+ul,li,
+ol {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+}
+
+button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+h1,h2,h3{
+    display: flex;
+    align-items: center;
+}
 
 body{
-    overflow-x: hidden;
-}
-nav a{
-    margin: 0 8px;
-    font-weight: 400;
+    padding: 0.5rem;
+    
 }
 
-/* los componentes navlink pone por defecto esat clase a esos links */
+section {
+    margin-bottom: 0.2rem;
+}
+label{
+    display: flex;
+    align-items: center;
+    gap: 0.2rem;
+}
+input{
+    padding: 0.25rem;
+}
+
+
+
+
+
+/* stylos de navbar */
 .active{
-    border-bottom: 2px solid white;
+    border-bottom: 1px solid green;
 }
 
 nav a:hover{
    
-    border-bottom: 2px solid white;
+    border-bottom: 1px solid ;
 }
 
-
-/* estylos de los mismos items del navbar pero en la SideBarUserProfile */
-
-.navItemsProfile li {
-    margin: 0px;
-    border: 1px solid black;
-    width: 100%;
-    margin: 4px 0px;
-    padding: 5px 0px;
+nav ul{
+    padding: 0 0.3rem;
+    
 }
+
+nav ul li,a,button{
+    padding: 0.2em;
+    
+   
+}
+
 
 
 /* Animacion para el CONTENEDOR DEL FORM REGISTER */
@@ -81,14 +125,12 @@ nav a:hover{
 
 
 
-
-
-
 .modal{
     animation-name:animationButton ;
-    animation-duration: 1s;
+    animation-duration: 600ms;
     animation-iteration-count: 1;
-    animation-timing-function:  ease-out;
+    animation-timing-function:  ease-in-out;
+    
 }
 
 
@@ -210,43 +252,29 @@ nav a:hover{
 }
 
 
-/* stylos de burbuja para cualquier elemento */
-.animationBurbuje{
-    animation: burbujeTopRight 1.8s ease-out  infinite alternate , 
-     burbujeBottonRight 2.3s ease-out  2s infinite alternate,
-    burbujeBottonLeft 3s ease-out 1.2s infinite  alternate,
-    burbujeTopLeft 2.3s ease-out 1.8s infinite alternate
-    ;
-}
+/* animatio delete product*/
 
 
-@keyframes burbujeTopRight {
-
-    from{
-        border-top-right-radius:20px;
-    }
+.animationDeleteProduct{
+    transition: transform 800ms ease-in-out;
+    transform: translateX(-100%);
+     animation-name: deleteProduct;
     
+    animation-duration: 800ms;
 }
-@keyframes burbujeBottonRight {
 
-    from{
-        border-bottom-right-radius:20px;
-    }
-    
-}
-@keyframes burbujeBottonLeft {
+@keyframes deleteProduct {
 
-    from{
-        border-bottom-left-radius:20px;
-    }
+   
     
-}
-@keyframes burbujeTopLeft {
+    from{
+        opacity: 1;
+        /* transform: translateX(0); */
+    }
+
     to{
-
-    }
-    from{
-        border-top-left-radius:20px;
+        opacity: 0;
+        /* transform: translateX(-100%); */
     }
     
 }
