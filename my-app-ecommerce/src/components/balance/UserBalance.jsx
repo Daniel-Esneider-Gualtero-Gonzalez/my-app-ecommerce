@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import useGetUserBalance from '../../hooks/useGetUserBalance'
+import { GiCash } from "react-icons/gi";
 
 function UserBalance() {
 
@@ -9,8 +10,7 @@ function UserBalance() {
     },[])
   return (
     <>
-    {loading ? <div>UserBalance : cargando..</div> : null}
-    {balance ? <div>UserBalance : {balance}</div> : null}
+      <span className='flex gap-1 items-center'><GiCash /> {loading && "...cargando"} {balance && balance} </span>
     </>
   )
 }

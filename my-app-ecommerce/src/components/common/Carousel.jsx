@@ -1,5 +1,5 @@
-import { FcPrevious } from "react-icons/fc";
-import { FcNext } from "react-icons/fc";
+import { IoIosArrowBack } from "react-icons/io";
+import { IoIosArrowForward } from "react-icons/io";
 import React, { useEffect, useRef, useState } from 'react'
 
 const imagesInitial = [
@@ -9,12 +9,12 @@ const imagesInitial = [
 
 ]
 
-function Carousel({ listImages=imagesInitial ,...props} ) {
+function Carousel({ listImages = imagesInitial, ...props }) {
     const refCarrusel = useRef()
-    const [images, setImages] = useState([...listImages])
+    const [images, setImages] = useState(listImages)
     const [next, setNext] = useState(0)
-    
-    
+
+
     const nextImage = () => {
 
         setNext(e => {
@@ -27,7 +27,7 @@ function Carousel({ listImages=imagesInitial ,...props} ) {
     const previusImg = () => {
 
         setNext(e => {
-            if (e - 1 >= 0 ) return e - 1
+            if (e - 1 >= 0) return e - 1
 
             return e
         })
@@ -36,16 +36,16 @@ function Carousel({ listImages=imagesInitial ,...props} ) {
 
     return (
         <>
-            <div {...props}  ref={refCarrusel}  >
-
-                <img className='object-cover w-full h-full bg-white duration-700 transition-transform  ' src={images[next]} alt="" />
-                {next > 0 && <FcPrevious onClick={() => previusImg()} className="absolute text-[100px] left-0 my-auto top-0 bottom-0 hover:text-[110px]" /> }
-                {next !== images.length - 1 ? <FcNext onClick={() => nextImage()} className="absolute text-[100px] right-0 top-0 bottom-0 my-auto hover:text-[110px]" /> : null}
-            </div>
+            <article className="w-full h-full relative " {...props} ref={refCarrusel}  >
+                <img className="w-full h-full object-cover border rounded-lg" src={images[0]} alt="" />
+                <button className="bg-blue-600 text-xl absolute left-0 bottom-0  top-0 h-fit my-auto border rounded-full"><IoIosArrowBack /></button>
+                <button className=" bg-blue-600 text-xl absolute right-0 bottom-0 top-0 h-fit my-auto border rounded-full"> <IoIosArrowForward /></button>
+            </article>
 
         </>
-
     )
+
+        
 }
 
 export default Carousel

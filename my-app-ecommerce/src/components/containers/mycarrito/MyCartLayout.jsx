@@ -5,21 +5,24 @@ import OrderSummary from "./OrderSummary"
 function MyCartLayout() {
   return (
     <>
-      <h1 className='text-2xl font font-semibold'>Shopping Cart</h1>
-      <div className="md:grid md:grid-cols-3 border border-black">
-
-        <div className="grid col-span-2 p-1 max-h-screen overflow-auto">
-        <ItemsInCart />
-        </div>
-
-      
-          
-          <div className=" grid grid-cols-1 p-1 ">
-            <OrderSummary />
-          </div>
+      <section className="border h-screen grid gap-1 md:mx-auto md:w-[900px] sm:grid-cols-2 p-1 rounded-lg">
+        
         
 
-      </div>
+          <div className=" flex flex-col gap-1 overflow-auto">
+            <ItemsInCart />
+            <ItemsInCart />
+            <ItemsInCart />
+            <ItemsInCart />
+          </div>
+
+          <article className="">
+            <OrderSummary />
+          </article>
+
+
+   
+      </section>
     </>
   )
 }

@@ -1,20 +1,15 @@
 
+import { MdCancel } from "react-icons/md";
 
-function InfoUserCard({showBarSideUser}) {
+function InfoUserCard({ showBarSideUser }) {
   return (
-    <div className=" border py-1 px-1  border-fuchsia-500 relative">
-        <div className="flex   border border-green-500">
-            <div className="w-[60px] border border-black">
-                <img className="object-cover" src="https://th.bing.com/th/id/OIP.4j7CC_PvAEE-P1obTZP6hgHaG-?w=180&h=180&c=7&r=0&o=5&pid=1.7" alt="" />
-            </div>
-            <div className="ml-1 px-1 border border-black">
-                <span className="font-bold">Daniel Gualtero</span>
-                <div className="text-sm">Programmin</div>
-            </div>
-            <button onClick={()=>showBarSideUser(false)} className="border border-black ml-5  w-[50px]">❌</button>
-        </div>
-        
-    </div>
+    <article className=" flex justify-between items-center">
+      <div className="flex flex-col">
+        <span className="">Daniel Gualtero</span>
+        <span className="text-sm">Programmin</span>
+      </div>
+      <button onClick={() => showBarSideUser(false)} className="border border-black rounded-lg h-fit hover:bg-red-600 hover:text-white text-xl  "><MdCancel/></button>
+    </article>
   )
 }
 

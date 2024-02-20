@@ -1,25 +1,16 @@
-import React from 'react'
-import CategoryItem from './CategoryItem'
+import { CiImageOn } from "react-icons/ci";
 
-function SkeletonCategoryProdut() {
+function SkeletonCategoryProdut({...props}) {
   return (
     <>
-      <div className="mx-1  w-fit  justify-center p-1 ">
-        <h1 className="skeletonCategoriTitle h-[10px] mb-2 rounded border"></h1>
-        <div className="skeletonCategoriImage w-[60px] h-[60px] md:w-[90px] md:h-[90px] lg:w-[110px] lg:h-[110px] mx-auto  rounded-full border border-gray-400" src="" alt="" />
-      </div>
-      <div className="mx-1  w-fit  justify-center p-1 ">
-        <h1 className="skeletonCategoriTitle h-[10px] mb-2 rounded border"></h1>
-        <div className="skeletonCategoriImage w-[60px] h-[60px] md:w-[90px] md:h-[90px] lg:w-[110px] lg:h-[110px] mx-auto  rounded-full border border-gray-400" src="" alt="" />
-      </div>
-      <div className="mx-1  w-fit  justify-center p-1 ">
-        <h1 className="skeletonCategoriTitle h-[10px] mb-2 rounded border"></h1>
-        <div className="skeletonCategoriImage w-[60px] h-[60px] md:w-[90px] md:h-[90px] lg:w-[110px] lg:h-[110px] mx-auto  rounded-full border border-gray-400" src="" alt="" />
-      </div>
-      <div className="mx-1  w-fit  justify-center p-1 ">
-        <h1 className="skeletonCategoriTitle h-[10px] mb-2 rounded border"></h1>
-        <div className="skeletonCategoriImage w-[60px] h-[60px] md:w-[90px] md:h-[90px] lg:w-[110px] lg:h-[110px] mx-auto  rounded-full border border-gray-400" src="" alt="" />
-      </div>
+      <article {...props} className="border flex flex-col gap-1 rounded-lg  animate-pulse duration-1000  p-1 border-gray-400  ">
+
+        <div className=" mx-auto flex place-content-center place-items-center w-[50px] h-[50px] md:w-[100px] md:h-[100px] rounded-full border border-gray-400 text-gray-400 ">
+          <CiImageOn className="w-[50%] h-[50%]" />
+        </div>
+        <h1 className="w-[50%] mx-auto h-[8px]  rounded border bg-gray-300 border-gray-300"></h1>
+      </article>
+
     </>
   )
 }

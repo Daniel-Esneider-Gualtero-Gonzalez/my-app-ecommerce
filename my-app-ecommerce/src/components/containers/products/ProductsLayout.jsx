@@ -7,39 +7,48 @@ import ProductOfWeek from "./ProductOfWeek"
 
 function ProductsLayout() {
   return (
-    <section className=" w-screen p-5"> 
+    <section className=" border p-1 rounded-lg">
 
-      <h1 className="font-medium text-2xl mt-2">Category of Products</h1>
-      <ProductCategoryList />
-      <div className="mt-1 mb-5 flex justify-between items-center">
-        <h2 className="mt-4 text-xl">Some products Interesting</h2>
-        <Link className="border p-2 rounded">Ver más</Link>
-      </div>
-      <div className="w-screen grid sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 p-9 place-items-center ">
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-      </div>
-      <h2 className="mt-4 text-xl mb-1">Product of the week</h2>
-      <ProductOfWeek />
+      <section className="gap-1 grid grid-cols-3 md:grid-cols-4  md:max-w-[70%]  md:m-auto">
+       
+        <ProductCategoryList />
 
-      <div className="mt-5 flex justify-between items-center">
-        <h2 className="mt-4 text-xl">Featured Products</h2>
-        <Link className="border p-2 rounded">Ver más</Link>
-      </div>
-      <div className="w-screen grid sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4  p-9 place-items-center">
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-      </div>
+      </section>
+      
+      <section>
+        <h2 className="flex justify-between ">Some products Interesting <Link className="border p-2 rounded">Ver más</Link></h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-1 xl:grid-cols-4  ">
+          <ProductCard />
+          <ProductCard />
+          <ProductCard />
+          <ProductCard />
+        </div>
+      </section>
 
-      <div className="flex justify-between  mt-5">
-        <h1>Carrusel de images mas comprados</h1>
-        <Link className="border p-2 rounded">Ver más</Link>
-      </div>
-      <Carousel  className='max-w-[600px] mx-auto rounded relative h-[300px] flex justify-center items-center overflow-hidden ' />
+      <section>
+        <h2 className="">Producto de la semana</h2>
+        <ProductOfWeek />
+      </section>
+
+      <section>
+        <h2 className=" justify-between ">Featured Products <Link className="border p-2 rounded">Ver más</Link></h2>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-1 xl:grid-cols-4 ">
+          <ProductCard />
+          <ProductCard />
+          <ProductCard />
+          <ProductCard />
+        </div>
+      </section>
+
+
+      <section className="border rounded-lg" >
+        <h1 className="justify-between">Carrusel de images mas comprados <Link className="border p-2 rounded">Ver más</Link></h1>
+
+        <div className="md:max-w-[80%] md:mx-auto h-[350px] " >
+          <Carousel />
+        </div>
+      </section>
 
 
     </section>

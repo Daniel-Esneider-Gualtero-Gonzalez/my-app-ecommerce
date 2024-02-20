@@ -16,7 +16,7 @@ function ProductOfWeek() {
 
     }
   return (
-    <div className=' md:flex gap-1'>
+    <article className=' md:flex gap-1'>
         <div className='h-[200px]  md:h-[400px] md:w-[50%]'>
             <img ref={refImageBig} className=" w-full rounded h-full object-cover" src={imgProductOfWeek[0]} alt="" />
         </div>
@@ -36,7 +36,7 @@ function ProductOfWeek() {
 
         </div>
 
-    </div>
+    </article>
   )
 }
 

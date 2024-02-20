@@ -26,6 +26,7 @@ function useGetProducts() {
     }
 
     const prefetching = async ()=>{
+        if(products) return
         setLoading(true)
         try {
             const newProducts = await fetch("https://fakestoreapi.com/products/")

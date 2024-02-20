@@ -5,6 +5,9 @@ import SideBar from "../../SideBar"
 import CardProfile from "./CardProfile"
 import { Link } from "react-router-dom"
 
+// icons card
+import { MdSpaceDashboard } from "react-icons/md";
+import { TbRecharging } from "react-icons/tb";
 
 
 function ProfileLayout() {
@@ -15,64 +18,72 @@ function ProfileLayout() {
 
     <>
 
-      <div className="px-10">
+      <section className=" border flex flex-col gap-1 p-1 rounded-lg md:w-[700px] md:mx-auto">
 
-        <div className=" mt-3 sm:mt-8  sm:flex justify-center">
-
-
-          <div className="animationRight  mt-2  sm:flex  justify-center  text-2xl   border-b-[2px]   sm:border-none border-blue-600">
-            <img className=" mx-auto  sm:mx-none border-black h-[200px]  animationTop " src="https://api.multiavatar.com/Binx.png" alt="" />
-            <div className="sm:ml-10 mx-auto  w-fit sm:my-auto">
-              <span className="font-bold">Daniel Esneider Gualtero Gonzalez</span>
-              <div className="text-sm">Programmin</div>
-            </div>
+        <article className=" flex justify-between items-center ">
+          <div className=" ">
+            <span className="font-bold">Daniel Esneider Gualtero Gonzalez</span>
+            <div className="text-sm">Programmin</div>
+            
           </div>
-
-          <button className="border mt-2 sm:my-auto  py-2 px-2 flex justify-center items-center h-[40px] rounded border-blue-600 bg-transition hover:bg-blue-600 hover:text-white  w-fit mx-auto">Editar Perfil</button>
-
-        </div>
+          <img className="  rounded-full  w-28 h-28 border-gray-300  animationTop " src="https://img.freepik.com/free-vector/mysterious-mafia-man-smoking-cigarette_52683-34828.jpg?size=626&ext=jpg" alt="" />
+        </article>
 
 
-        <div className="  flex flex-wrap mt-10  justify-center   ">
-          <CardProfile classNameContainer="bg-green-300 text-black">
-          <UserBalance />
-          </CardProfile>
 
-          <CardProfile classNameContainer="bg-yellow-400">
-            Historial
-          </CardProfile>
 
-          <Link to={"/user/recharge/"}>
-            <CardProfile classNameContainer="bg-green-800 text-white">
-            Recargar saldo
+        <article className="text-xl grid grid-cols-2 md:grid-cols-3 gap-1 ">
+          <Link >
+            <CardProfile className="border rounded flex place-content-center place-items-center bg-gray-200 h-[100px]">
+              <UserBalance />
             </CardProfile>
           </Link>
 
-          
-        </div>
+          <Link to={"/user/tablero"}>
+            <CardProfile className="rounded flex place-content-center place-items-center border bg-gray-200 h-[100px]">
+              <span className="flex items-center gap-1"><MdSpaceDashboard/> Tablero</span>
+            </CardProfile>
+          </Link>
+
+          <Link to={"/user/recharge/"}>
+            <CardProfile className="rounded flex place-content-center place-items-center border bg-gray-200 h-[100px] ">
+              <span className="flex items-center gap-1"><TbRecharging /> Recargar saldo </span> 
+            </CardProfile>
+          </Link>
 
 
+        </article>
 
-
-
-        <div className=" w-[500px] mx-auto  mt-5">
-          <ExpandableSection title="Account Information">
+        
+        <div className="   gap-1 grid sm:grid-cols-2">
+        <section className="flex flex-col gap-1">
+          <ExpandableSection title="Informacion de cuenta">
             <li>Email adres: <span className="font-bold">Daniel@gmail.com</span></li>
             <li>Telefono: <span className="font-bold">315-705-76-63</span></li>
           </ExpandableSection>
 
-          <ExpandableSection title="other Information">
+          <ExpandableSection title="¿Aquì puede ir una pregunta ?">
             <li>Email adres: <span className="font-bold">Daniel@gmail.com</span></li>
             <li>Telefono: <span className="font-bold">315-705-76-63</span></li>
           </ExpandableSection>
 
-          <ExpandableSection title="other Information">
+          <ExpandableSection title="Otra Informaciòn">
             <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veritatis dolore, quas ducimus, eaque ea, corrupti distinctio odio unde tempore perferendis nulla beatae incidunt eos debitis? Blanditiis illum natus impedit tempore.</p>
           </ExpandableSection>
 
+        </section>
+
+          <article className="border h-fit rounded" >
+            hola
+          </article>
+
+       
         </div>
 
-      </div>
+
+       
+
+      </section>
 
 
 

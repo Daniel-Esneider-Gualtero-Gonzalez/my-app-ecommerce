@@ -1,12 +1,13 @@
 import React, { useEffect, useRef } from 'react'
 
-// este componente realiza la logica del prefecthing con evnetos y ejecutando el prefething
-function Prefetching({className="", handlePrefetching={},children}) {
+// realiza la ejecuciond una funcion entorno al evento scroll cuando llegue al final
+function Prefetching({ handlePrefetching,...props}) {
   const refSCantScroll = useRef(0) // para registrar el scroll ya que no puede hacer prefetching scroleando hacia arriba
     let isPrefetching = false
     const containerPrefetching = useRef()
     const handleScrollPrefetching = (e)=>{
-           
+     
+      if(!handlePrefetching) return
       const {scrollHeight,scrollTop,clientHeight} = e.target
 
       const scrollCurrent = scrollTop + clientHeight
@@ -24,18 +25,17 @@ function Prefetching({className="", handlePrefetching={},children}) {
     useEffect(()=> {
       
 
-        const eventoPrefetchingContainer = containerPrefetching.current.addEventListener("scroll", handleScrollPrefetching)
+        containerPrefetching.current.addEventListener("scroll", handleScrollPrefetching)
         
-         return () => {
-          // limpiar el evento que se encarga del prefetching
-          // containerPrefetching.current.removeEventListener("scroll",handleScrollPrefetching);
-      };
+        //  return function () {
+        //   containerPrefetching.current.removeEventListener('scroll', handleScrollPrefetching);
+        //  }
         
     },[])
   return (
-    <div ref={containerPrefetching} className={className}>
-        {children}
-    </div>
+    <section ref={containerPrefetching} {...props}>
+        {props.children}
+    </section>
   )
 }
 

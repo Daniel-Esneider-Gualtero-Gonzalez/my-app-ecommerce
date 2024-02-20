@@ -1,9 +1,8 @@
-
-
-import { Navigate, redirect } from 'react-router-dom'
-
+import { useAuthUser } from '../hooks/useAuthUser'
+import { Navigate } from 'react-router-dom'
 import { useContextAuth } from '../contexts/contextAuth'
 import SingInForm from './forms/SingInForm'
+import Loading from './common/Loading'
 
 
 
@@ -15,20 +14,21 @@ function SingIn() {
   if (user) {
     return <Navigate to={"/"} />
   }
+  const { loading, error, userToken, getAuthUser } = useAuthUser()
+
+
+  // podemos parsar una funcion de callback que recibira la data en objeto del form
+  const onSubmitForm = (data) => {
+    getAuthUser(data)
+  }
 
 
   return (
     <>
-
-      <div className='flex py-10   justify-center  '>
-        
-
-        <div id='containerFormSingin' className='px-10 rounded py-10 w-full border     sm:w-[500px]  '>
-          <SingInForm />
-        </div>
-
-
-      </div>
+  
+      <section className='flex p-1  sm:mx-auto sm:w-[50%] md:w-[30%]  border rounded-lg justify-center '>
+          <SingInForm submitForm={onSubmitForm} />
+      </section>
 
     </>
 

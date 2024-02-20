@@ -1,22 +1,27 @@
 import InfoUserCard from "./InfoUserCard"
-import SingOut from "./buttons/singOut"
+import SingOut from "./buttons/SingOut";
 import NavItems from "./NavItems"
-import  BtnLogin from "./buttons/BtnLogin"
+import SingInLink from "./buttons/SingInLink"
 import { Link } from "react-router-dom"
-function SideBarUserProfile({showBarSideUser}) {
+function SideBarUserProfile({ showBarSideUser }) {
   return (
     <>
-    
-    <div className='bg-gray-300 border border-black h-screen right-0  z-50  absolute top-0  ml-2  py-1 px-1 rounded w-[300px]'>
-    <InfoUserCard showBarSideUser={showBarSideUser}/>
-    <li className="border border-black py-2"><Link to={"/userprofile"}>Your Profile</Link></li>
 
-    {/* le paso unos stylos ya que el navbar los tiene de otra manera  */}
-    <NavItems className={'navItemsProfile md:hidden'} />
-    <SingOut/>
+      <section className='bg-gray-300 border p-1 h-screen right-0  z-50  absolute top-0    p1 rounded w-[300px]'>
+        <InfoUserCard showBarSideUser={showBarSideUser} />
+        {/*  elementos dentro de la lista estaran solo visibles a partir */}
+        <ol className="flex md:hidden flex-col">
+          <NavItems />
+          <SingInLink />
+        </ol>
 
-    <BtnLogin width={"w-full"}/>
-    </div>
+        <ol>
+          <Link  className="border flex place-content-center w-full " to={"/user/userprofile"}>Profile</Link>
+        </ol>
+        
+
+        <SingOut className="border w-full gap-1 " />
+      </section>
     </>
   )
 }

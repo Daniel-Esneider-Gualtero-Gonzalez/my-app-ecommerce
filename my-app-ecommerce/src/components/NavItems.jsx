@@ -1,22 +1,23 @@
 import { NavLink } from "react-router-dom"
 import { useContextAuth } from "../contexts/contextAuth"
 
+
+const navItemsPath = {
+    Home: "/",
+    Products: "/products",
+    Aboutas : "/aboutas"
+    
+}
 function NavItems() {
 
     const { user } = useContextAuth()
     return (
 
         <>
-            {/* PUBLIC NAV ITEMS */}
-            <li>
-                <NavLink to={"/"} >Home</NavLink>
-            </li>
-            <li>
-                <NavLink to={"/products"}>Products</NavLink>
-            </li>
-            <li>
-                <NavLink to={"/aboutas"}>About as</NavLink>
-            </li>
+            {navItemsPath && Object.entries(navItemsPath).map(navItem=>{
+                const [name,path] = navItem
+                return <NavLink className={"border-b border-white"} key={name} to={path}>{name}</NavLink>
+            })}
 
         </>
 

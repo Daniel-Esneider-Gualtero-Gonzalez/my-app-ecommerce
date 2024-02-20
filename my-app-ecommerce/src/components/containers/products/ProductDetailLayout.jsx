@@ -12,22 +12,12 @@ function ProductDetailLayout() {
   }, [])
   return (
     <>
-      <section className=" p-2 w-full ">
+      <section className="h-screen border rounded-lg p-1 ">
         <ProductDetails />
-        <h1 className=" font-semibold">RELATED PRODUCTS</h1>
+        <h2 className=" font-semibold">Productos relacionados</h2>
       </section>
 
-      {/* <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 place-content-center">
-   {products ? products.map((product,index)=>{
-    if(index <= 3){
-      return <Link to={"/products/masinfo/1"}><ProductCard title={product.title} description={product.description} img={product.image} price={product.price} /></Link>
-    }
-    
-   }) : null}
   
-   </div> */}
-
-
     </>
   )
 }

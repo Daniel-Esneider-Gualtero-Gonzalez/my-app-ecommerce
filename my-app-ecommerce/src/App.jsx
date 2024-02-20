@@ -59,7 +59,7 @@ function App() {
 
               <Route path='/products' element={<Products />} />
               <Route path='/products/search/' element={<ProductListPage />}/>
-              <Route path='/products/masinfo' element={<ProductDetailLayout />}/>
+              <Route path='/product/masinfo/' element={<ProductDetailLayout />}/>
               <Route path='/mi-carrito' element={<MyCarrito />} />
 
             </Route>
@@ -68,7 +68,7 @@ function App() {
 
             <Route element={<PrivateRutes />}>
               <Route path='/privateroute' element={"Esta es una ruta privada solo si hay usuario"} />
-              <Route path='/userprofile' element={<Profile />} />
+              <Route path='/user/userprofile' element={<Profile />} />
               <Route path='user/recharge/' element={<Recharge />} />
 
             </Route>
