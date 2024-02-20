@@ -1,42 +1,45 @@
 
 
-export function animationBurbuja(element) {
+export function animationBurbuja(element,maxBorder = 10,minBorder=8) {
     const propsAnimate = ['borderTopLeftRadius','borderTopRightRadius','borderBottomRightRadius','borderBottomLeftRadius']
-    let idCleanAnimation = []
+    let idAnimation = null
     const options = {
         iterations: Infinity,
-        duration: 0,     // Duración de la animación en milisegundos.
-        easing: "ease-out", // Función de temporización.
+        duration: 3000, 
+        direction: 'alternate',    // Duración de la animación en milisegundos.
+        easing: "linear", // Función de temporización.
+    }
+
+    const genObjet = (nameProperty,value)=>{
+        const objet = {}
+        objet[nameProperty] = value
+        return objet
     }
     
+    const genRandomNum = ()=>{
+        return  Math.floor(Math.random() * (maxBorder - minBorder)) + minBorder;
+    }
+    
+    let keyFrames = []
+    for (let i = 0; i < 3; i++) {
+        // propiedades para redondear
+        const [topLeft,topRight,bottomRight,bottomLeft] = propsAnimate
 
-    for (let i = 0; i < 4; i++) {
-        //  numero ramdom entre 30 y 50
-        const randomPorcent = Math.floor(Math.random() * (50 - 30 + 1)) + 30;
-
-        const randomDuration = Math.floor(Math.random() * (9 - 2 + 1)) + 3
+        const currentKeyframe = {...genObjet(topLeft,`${genRandomNum() + "%"}`), ...genObjet(topRight,`${genRandomNum() + "%"}`) , ...genObjet(bottomRight,`${genRandomNum() + "%"}`) , ...genObjet(bottomLeft,`${genRandomNum() + "%"}`)}
         
-        options.duration =  Number(`${randomDuration}000`)  //`${randomDuration}000`
-        
-        
-        const keyFrame = [{ [propsAnimate[i]] : '0'} ,  {[propsAnimate[i]] :  `${randomPorcent}%`} , { [propsAnimate[i]] : '0'} ,]
+        keyFrames = [ ...keyFrames,currentKeyframe ]
 
         //  console.log(`${propsAnimate[i]}` , keyFrame, options)
-        idCleanAnimation = [...idCleanAnimation,element.animate(keyFrame,options)]
         
-
         
     }
 
-    const cleanAnimations = ()=>{
-        for (let i = 0; i < idCleanAnimation.length; i++) {
-            
-            idCleanAnimation[i].cancel()
-            
-        }
+    idAnimation = element.animate(keyFrames,options)
+    const cleanAnimation = ()=>{
+        idAnimation.cancel()
     }
 
-    return {cleanAnimations}
+    return {cleanAnimation}
 
 }
 
