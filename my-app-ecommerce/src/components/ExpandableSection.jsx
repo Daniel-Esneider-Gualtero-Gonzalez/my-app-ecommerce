@@ -18,7 +18,7 @@ function ExpandableSection({ title = "title of content", children }) {
 
     return (
         <article className='p-1 rounded border  '>
-            <div className= ' mb-0 flex justify-between items-center   '>
+            <div onClick={() => setShowContent(!showContent)} className= 'cursor-pointer mb-0 flex justify-between items-center   '>
                 <h1 className='mb-0'>{title}</h1>
                 <button onClick={() => setShowContent(!showContent)} className='border  rounded'>{showContent ? <IoIosArrowUp /> : <IoIosArrowDown />}</button>
             </div>
