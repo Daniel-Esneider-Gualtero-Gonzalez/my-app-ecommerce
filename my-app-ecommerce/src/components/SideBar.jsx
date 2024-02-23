@@ -1,11 +1,11 @@
 
 
-function SideBar( {className="",children}) {
+function SideBar( {className="",...props}) {
   
   return (
-    <div className={className}>
-        {children}
-    </div>
+    <aside className={className}>
+        {props.children}
+    </aside>
   )
 }
 
