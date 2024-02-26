@@ -1,4 +1,6 @@
 import { FaCartShopping } from "react-icons/fa6";
+import RemoveCartItemButton from "../../buttons/RemoveCartItemButton";
+import { useState } from "react";
 
 const product = {
     title: "title Product",
@@ -8,21 +10,26 @@ const product = {
 }
 
 
-function ProductCard({ title = product.title, description = product.description, image = product.image, price = product.price }) {
+function ProductCard({ title = product.title, description = product.description, image = product.image, price = product.price, onAddProduct = () => {}, onDeleteProduct = () => { }, isInCart = false }) {
+    
+
+
     return (
         <>
             <article className="w-full flex flex-col gap-2 rounded-lg border p-[0.3rem] ">
                 <img className="h-[200px] w-full min-w-full max-w-full  rounded-tl-lg rounded-tr-lg " src={image} alt="product" />
                 <div className="flex justify-between">
-                <h2 className="  font-bold  max-w-[60%]  overflow-hidden  text-ellipsis whitespace-nowrap text-gray-500">{title}</h2>
-                <span className="">${price}</span>
+                    <h2 className="  font-bold  max-w-[60%]  overflow-hidden  text-ellipsis whitespace-nowrap text-gray-500">{title}</h2>
+                    <span className="">${price}</span>
                 </div>
-                
+
                 <p className=" max-w-full h-[100px]  overflow-hidden  text-ellipsis  font-semibold text-gray-600">{description}</p>
                 <div className="flex  justify-end  ">
-                    <button className='flex place-content-center place-items-center border rounded-full  hover:bg-green-600 hover:text-white  p-2  '>
-                        <FaCartShopping  />
-                    </button>
+
+                    {isInCart === false && <button onClick={onAddProduct} className='flex place-content-center place-items-center border rounded-full  hover:bg-green-600 hover:text-white  p-2  '>
+                        <FaCartShopping />
+                    </button>}
+                    {isInCart && <RemoveCartItemButton onClick={onDeleteProduct} className={'flex place-content-center place-items-center border rounded-full p-2'} />}
                 </div>
 
 
