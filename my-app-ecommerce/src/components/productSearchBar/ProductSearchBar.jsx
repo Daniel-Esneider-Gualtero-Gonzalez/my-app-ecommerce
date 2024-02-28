@@ -2,32 +2,29 @@ import { useLocation, useNavigate } from 'react-router-dom'
 import { CiSearch } from "react-icons/ci";
 import { useEffect, useState } from 'react';
 import IndexedSearch from '../IndexedSearch';
-
-
-
-
-
-const opacityGlobal = (hidden = false) => {
-  const elementOpacity = document.getElementById("allscreenOpacity")
-  if (hidden) {
-    elementOpacity.style.display = "none"
-  } else {
-    elementOpacity.style.display = "block"
-  }
-}
+import OverlayScreen from '../OverlayScreen';
 
 function ProductSearchBar() {
   const navigate = useNavigate()
-  const [isActiveEvents, setIsActiveEvents] = useState(false)
-  const [asctiveSearchIndex, setActiveSearchIndex] = useState(false)
+  const [isFocus,setIsFocus] = useState(false)
+  const [isActiveOverlay, setIsActiveOverlay] = useState(false)
+  const [isActiveSearchIndex, setActiveSearchIndex] = useState(false)
 
-  const handleBlur = () => {
-    opacityGlobal(true)
+  
+  const cancelFocus = ()=>{
+    setIsFocus(false)
+    setIsActiveOverlay(false)
     setActiveSearchIndex(false)
   }
-  const handleFocus = (e) => {
-    opacityGlobal()
 
+  const handleBlur = ()=>{
+    setIsFocus(false)
+    setIsActiveOverlay(false)
+    setActiveSearchIndex(false)
+  }
+  const handleFocus = () => {
+    setIsFocus(true)
+    setIsActiveOverlay(true)
     // activamos la busqueda indexada
     setActiveSearchIndex(true)
   }
@@ -39,9 +36,12 @@ function ProductSearchBar() {
     // agregue los dos metodos ya que si no escribe mas y esta en otra pagina y no escribe si no le da enter tambien funcione
     if (e.target instanceof HTMLFormElement) {
       productToSearch = e.target.elements[0].value
-    } else {
-      productToSearch = e.target.value
-    }
+      if(!productToSearch) return
+      // una ves que se envie eliminamos el foco para que se restablescan los estados
+      cancelFocus()
+
+     
+    } 
 
     // Comprueba si la ruta actual es la página de búsqueda de productos Para reemplzar la url y asi no agregar mas al history
     const isThisPathProductSearch = window.location.pathname === "/products/search"
@@ -56,43 +56,30 @@ function ProductSearchBar() {
       document.querySelector("#searchProduct").value = query
     }
 
-    // ejecutamos la funcionalidad del index seacrh y la barra centrada solo si es diferente de productos
-
-   
-      const mediaQueryEventsInput = window.matchMedia('(min-width: 768px)')
-    
-      const handleMediaQueryChange = (e) => {
-        if (e.matches) {
-          // La ventana coincide con la media query
-          setIsActiveEvents(true)
-          isActiveEvents && opacityGlobal()
-  
-        } else {
-          // La ventana no coincide con la media query
-          opacityGlobal(true)
-          setIsActiveEvents(false)
-        }
-      }
-      mediaQueryEventsInput.addEventListener("change", handleMediaQueryChange)
-      // inicializar 
-      handleMediaQueryChange(mediaQueryEventsInput)
-    
 
   }, [])
 
+  const stylesFocus  = isFocus ? `focus-within:p-2 h-fit  focus-within:bg-white focus-within:border focus-within:rounded focus-within:w-[400px] focus-within:absolute  focus-within:mt-[10%] focus-within:top-0 focus-within:left-0 focus-within:right-0 focus-within:bottom-0` : ''
+
 
   return (
-    <form onSubmit={handleSearchProducts} className=" md:focus-within:w-[450px] md:focus-within:absolute focus-within:border-[2px] focus-within:border-blue-400 focus-within:z-[99] md:focus-within:m-auto md:focus-within:top-0 right-0 left-0 bottom-0 md:focus-within:h-fit     rounded  ">
-      <article className='flex items-center'>
-        <input onBlur={isActiveEvents ? () => handleBlur() : () => { }} onFocus={isActiveEvents ? handleFocus : () => { }} onChange={handleSearchProducts} placeholder="Search Products" id='searchProduct' name="searchProduct" className='w-full outline-none   ' type="text" />
-        <button className="border w-fit  ">
-          <CiSearch className="" />
-        </button>
-      </article>
-      {asctiveSearchIndex  && isActiveEvents ? <ul className='border mt-1 flex flex-col p-2'>
-        <IndexedSearch className='' search="hola" bdCoicidencias={["hola", "holaaaa"]} />
-      </ul> : null}
-    </form>
+    <>
+      <form onSubmit={handleSearchProducts} onBlur={handleBlur} onFocus={handleFocus} className={`${isFocus && stylesFocus} z-10  mx-auto border rounded `}>
+        <div className='flex '>
+          <input required  placeholder="Search Products" id='searchProduct' name="searchProduct" className='w-full focus:border-b border-blue-600 outline-none   ' type="text" />
+          <button className="dark:bg-secondary text-xl  ">
+            <CiSearch className="" />
+          </button>
+        </div>
+
+        {isActiveSearchIndex && <ul className='h-[200px] border rounded mt-2 '>
+
+        </ul>}
+
+      </form>
+
+      {isActiveOverlay && <OverlayScreen zIndex="50" />}
+    </>
   )
 }
 
