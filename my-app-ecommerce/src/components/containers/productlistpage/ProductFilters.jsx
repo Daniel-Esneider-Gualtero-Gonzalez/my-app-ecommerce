@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import useProductCategories from "../../../hooks/useProductCategories"
+import InteractiveRangeSlider from "../../interactiveRangeSlider"
 
 
 function ProductFilters({ onChangePrice, onChangeCategory, category, price }) {
@@ -14,9 +15,9 @@ function ProductFilters({ onChangePrice, onChangeCategory, category, price }) {
 
   }
 
-  const handleChangeFilterPrice = (e) => {
+  const handleChangeFilterPrice = (value) => {
 
-    return onChangePrice(e.target.value)
+    return onChangePrice(value)
   }
 
   useEffect(() => {
@@ -26,23 +27,23 @@ function ProductFilters({ onChangePrice, onChangeCategory, category, price }) {
     <>
       <article className="flex flex-col gap-1">
         <h2>Filtros</h2>
-        
-        <div className="flex justify-between  items-center">
-        <span>Precio</span>
-         <span>0 - $500</span>
+
+
+
+
+        <span className="flex font-semibold ">Categorías</span>
+
+        {categories ? categories.map(cate => {
+          return <label key={cate} htmlFor={cate} className="flex gap-1 items-center   capitalize "><input onChange={handleChangeFilterCategory} type="checkbox" checked={category.includes(cate)} value={cate} id={cate} />{cate}</label>
+        }) : null}
+
+        <div className=" border-t flex justify-between  items-center">
+          <span>Precio</span>
+          <span>{price} - $500</span>
         </div>
-        <input onChange={handleChangeFilterPrice} className="" value={price} max={500} type="range" />
+        <InteractiveRangeSlider  handleChangeInput={handleChangeFilterPrice}/>
 
-        
-          <span className="flex font-semibold ">Categorías</span>
-         
-            {categories ? categories.map(cate => {
-              return <label  key={cate} htmlFor={cate} className="flex gap-1 items-center   capitalize "><input onChange={handleChangeFilterCategory} type="checkbox" checked={category.includes(cate)} value={cate} id={cate} />{cate}</label>
-            }) : null}
 
-            {category}
-        
-       
       </article>
     </>
   )
