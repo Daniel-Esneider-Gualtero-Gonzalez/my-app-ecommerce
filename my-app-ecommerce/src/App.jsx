@@ -6,6 +6,7 @@ import PrivateRutes from './rutes/PrivateRutes.jsx'
 
 // CONTEXT
 import { ContextUserProvider } from './contexts/contextAuth.jsx'
+import { ContextCartProvider } from './contexts/contextCart.jsx'
 
 // IMPORTACIONES DE CONTAINERS
 import Home from './containers/Home'
@@ -14,11 +15,18 @@ import ProductDetailLayout from './components/containers/products/ProductDetailL
 import AboutAs from './containers/AboutAs.jsx'
 import Login from './containers/Login'
 import Recharge from './containers/Recharge.jsx'
+import Dashboard from './containers/Dashboard.jsx'
 import Register from './containers/Register'
 import Profile from './containers/Profile.jsx'
 import MyCarrito from './containers/MyCarrito.jsx'
 import NotFoundPage from './components/Errors/NotFoundPage.jsx'
 // FIN DE IMPORTACIONES DE CONTAINERS
+
+// INICIO DE IMPORTACIONES DE COMPONENTES DE DASHBOARD
+
+
+
+// FIN DE IMPORTACIONES DE COMPONENTES DE DASHBOARD
 
 
 // IMPORTACIONES DE COMPONENTES PARA OBSERVAR
@@ -36,6 +44,7 @@ import ProductListPage from './containers/ProductListPage.jsx'
 
 
 
+
 // FIN DE IMPORTACIONES DE COMPONENTES PARA OBSERVAR
 
 function App() {
@@ -45,59 +54,67 @@ function App() {
     <>
 
       <BrowserRouter>
-        <ContextUserProvider>
-          <NavBar />
-          <Routes>
-            {/* NO LE PONEMOS RUTA EN ESPECIFICO ESTARA ACCESIBLE A TODOS */}
-            <Route >
+        <ContextCartProvider>
+          <ContextUserProvider>
+            <NavBar />
+            <Routes>
+              {/* NO LE PONEMOS RUTA EN ESPECIFICO ESTARA ACCESIBLE A TODOS */}
+              <Route >
 
-              <Route path='/' element={<Home />} />
-              <Route path='/login' element={<Login />} />
-              <Route path='/singup' element={<Register />} />
-              <Route path='/aboutas' element={<AboutAs />} />
-              {/* es accesible a todos pero cuando quiera comprar debemos indicarle que debe registrarle */}
+                <Route path='/' element={<Home />} />
+                <Route path='/login' element={<Login />} />
+                <Route path='/singup' element={<Register />} />
+                <Route path='/aboutas' element={<AboutAs />} />
+                {/* es accesible a todos pero cuando quiera comprar debemos indicarle que debe registrarle */}
 
-              <Route path='/products' element={<Products />} />
-              <Route path='/products/search/' element={<ProductListPage />}/>
-              <Route path='/product/masinfo/' element={<ProductDetailLayout />}/>
-              <Route path='/mi-carrito' element={<MyCarrito />} />
+                <Route path='/products' element={<Products />} />
+                <Route path='/products/search/' element={<ProductListPage />} />
+                <Route path='/product/masinfo/' element={<ProductDetailLayout />} />
+                <Route path='/mi-carrito' element={<MyCarrito />} />
 
-            </Route>
-
-
-
-            <Route element={<PrivateRutes />}>
-              <Route path='/privateroute' element={"Esta es una ruta privada solo si hay usuario"} />
-              <Route path='/user/userprofile' element={<Profile />} />
-              <Route path='user/recharge/' element={<Recharge />} />
-
-            </Route>
-
-
-            <Route path='/lateralmenu' element={<LateralMenu />} />
-            <Route path='/header' element={<Header />} />
-            <Route path='/seccionhome' element={<SeccionHome />} />
-            <Route path='/sidebaruser' element={<SideBarUserProfile />} />
-            <Route path='/navbar' element={<NavBar />} />
+              </Route>
 
 
 
-            <Route path="*" element={<NotFoundPage />} />
+              <Route element={<PrivateRutes />}>
+                <Route path='/privateroute' element={"Esta es una ruta privada solo si hay usuario"} />
+                <Route path='/user/userprofile' element={<Profile />} />
+                <Route exact="true" path='/user/tablero/' element={<Dashboard />} >
+                  <Route path='analiticas' element="analiticas dahsboard" />
+                  <Route path='ajustes' element="ajustes de dashboard" />
+                </Route>
+
+                <Route path='user/recharge/' element={<Recharge />} />
+
+              </Route>
+
+
+              <Route path='/lateralmenu' element={<LateralMenu />} />
+              <Route path='/header' element={<Header />} />
+              <Route path='/seccionhome' element={<SeccionHome />} />
+              <Route path='/sidebaruser' element={<SideBarUserProfile />} />
+              <Route path='/navbar' element={<NavBar />} />
+
+
+
+              <Route path="*" element={<NotFoundPage />} />
 
 
 
 
 
-          </Routes>
+            </Routes>
 
 
-        </ContextUserProvider>
-        <BuyButton />
-        
+          </ContextUserProvider>
+          <BuyButton />
+        </ContextCartProvider>
+
+
       </BrowserRouter>
 
-      
-   
+
+
       <Footer />
 
 
