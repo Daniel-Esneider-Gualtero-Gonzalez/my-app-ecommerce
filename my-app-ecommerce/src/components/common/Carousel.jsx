@@ -36,11 +36,12 @@ function Carousel({ listImages = imagesInitial, ...props }) {
 
     return (
         <>
-            <article className="w-full h-full relative " {...props} ref={refCarrusel}  >
-                <img className="w-full h-full object-cover border rounded-lg" src={images[0]} alt="" />
-                <button className="bg-blue-600 text-xl absolute left-0 bottom-0  top-0 h-fit my-auto border rounded-full"><IoIosArrowBack /></button>
-                <button className=" bg-blue-600 text-xl absolute right-0 bottom-0 top-0 h-fit my-auto border rounded-full"> <IoIosArrowForward /></button>
-            </article>
+                <article className="  flex" {...props} ref={refCarrusel}  >
+                    
+                    <button className="bg-blue-600 text-xl  h-fit my-auto border rounded-full"><IoIosArrowBack /></button>
+                    <img className="w-[200px] object-cover border rounded-lg" src={images[0]} alt="" />
+                    <button className=" bg-blue-600 text-xl  h-fit my-auto border rounded-full"> <IoIosArrowForward /></button>
+                </article>
 
         </>
     )
