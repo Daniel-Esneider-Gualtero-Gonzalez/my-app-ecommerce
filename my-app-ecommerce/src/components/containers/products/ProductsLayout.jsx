@@ -45,9 +45,9 @@ function ProductsLayout() {
       <section className="border rounded-lg" >
         <h1 className="justify-between">Carrusel de images mas comprados <Link className="border p-2 rounded">Ver más</Link></h1>
 
-        <div className="md:max-w-[80%] md:mx-auto h-[350px] " >
+        
           <Carousel />
-        </div>
+       
       </section>
 
 

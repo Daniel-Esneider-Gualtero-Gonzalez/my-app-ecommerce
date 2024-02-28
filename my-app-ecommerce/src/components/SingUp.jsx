@@ -25,7 +25,7 @@ function SingUp() {
   }
 
   const onSubmitForm = (data) => {
-    console.log(data)
+    handleRegisterUser(data)
   }
 
   const onAceptModalAvatar = () => {
