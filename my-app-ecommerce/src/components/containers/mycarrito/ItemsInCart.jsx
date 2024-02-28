@@ -1,52 +1,53 @@
 import { useRef } from "react";
 import { MdDelete } from "react-icons/md";
+import { IoAddCircle } from "react-icons/io5";
+import { GrSubtractCircle } from "react-icons/gr";
 
-function ItemsInCart() {
+const product = {
+  title: "title Product",
+  description: "Aquí ira un breve texto de la descripcion de este producto",
+  price: 100,
+  image: "https://images.unsplash.com/photo-1580477371194-4593e3c7c6cf?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+}
+
+function ItemsInCart({ title = product.title, image = product.image, price = product.price, cant = 1, keyItemProduct = {}, onDeleteCantProduct = () => { }, onAddCantProduct = () => { }, onDeleteProduct = () => { }, }) {
+
   const refItem = useRef()
-  const onDelete = (e)=>{
-    
-    
-    function deleteElemet(){
-      
-      this.removeEventListener('transitionend', deleteElemet);
-      refItem.current.remove()
-      
-      
+  const onDelete = (e) => {
+
+    function deleteElement() {
+      this.removeEventListener('transitionend', deleteElement);
+      onDeleteProduct()
     }
-   
-    refItem.current.addEventListener('transitionend', deleteElemet);
+
+    refItem.current.addEventListener('transitionend', deleteElement);
     refItem.current.classList.add("animationDeleteProduct")
-    
+
   }
+
+
   return (
     <>
-      <article ref={refItem} className='border flex justify-between p-1     rounded'>
+      <article key={keyItemProduct} ref={refItem} className='border flex gap-1  p-1     rounded'>
 
-        <img className='w-[100px] h-[100px] rounded' src="https://img.freepik.com/foto-gratis/productos-belleza-surtido-destinatarios-sobre-piedras-grises_23-2148761390.jpg?size=626&ext=jpg" alt="" />
+        <img className='w-[100px] h-[100px] rounded ' src={image} alt={`imagen del producto ${title}`} />
 
-        <div className=''>
-          <h1 className='font-normal'>Name product</h1>
-          <span className='text-sm'>description</span>
+        <div className='border flex flex-col   p-2'>
+          <h1 className='font-normal  '>{title}</h1>
+
+          <div className="flex-1  flex gap-2 text-xl items-center">
+            <button onClick={onDeleteCantProduct} className={`${cant === 1 && 'collapse'} border  rounded p-1`}><GrSubtractCircle /></button>
+            <span>{cant}</span>
+            <button onClick={onAddCantProduct} className="border rounded p-1"><IoAddCircle /></button>
+          </div>
         </div>
 
-        <div className=" flex items-center">
-          <button>-</button> <input className='border rounded w-6 h-6' type="text" /> <button>+</button>
-        </div>
+        <span className='  h-fit my-auto mx-auto'>${price}</span>
 
-
-        <span className='  h-fit my-auto'>$450</span>
-
-        <button onClick={onDelete} className='h-fit  border rounded  w-10   hover:bg-red-600 hover:text-white'>
+        <button onClick={onDelete} className='h-fit    border rounded  w-10   hover:bg-red-600 hover:text-white'>
           <MdDelete />
         </button>
       </article>
-
-
-
-
-
-
-
 
 
     </>
