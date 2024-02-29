@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import useProductCategories from "../../../hooks/useProductCategories"
-import InteractiveRangeSlider from "../../interactiveRangeSlider"
+import InteractiveRangeSlider from "../../InteractiveRangeSlider"
 
 
 function ProductFilters({ onChangePrice, onChangeCategory, category, price }) {
