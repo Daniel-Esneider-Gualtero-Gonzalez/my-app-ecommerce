@@ -66,8 +66,8 @@ function ProductSearchBar() {
     <>
       <form onSubmit={handleSearchProducts} onBlur={handleBlur} onFocus={handleFocus} className={`${isFocus && stylesFocus} z-10  mx-auto border rounded `}>
         <div className='flex '>
-          <input required  placeholder="Search Products" id='searchProduct' name="searchProduct" className='w-full focus:border-b border-blue-600 outline-none   ' type="text" />
-          <button className="dark:bg-secondary text-xl  ">
+          <input required  placeholder="Search Products" id='searchProduct' name="searchProduct" className='w-full text-black focus:border-b border-blue-600 outline-none   ' type="text" />
+          <button className="dark:bg-secondary  text-xl  ">
             <CiSearch className="" />
           </button>
         </div>
@@ -78,7 +78,7 @@ function ProductSearchBar() {
 
       </form>
 
-      {isActiveOverlay && <OverlayScreen zIndex="50" />}
+      {isActiveOverlay && <OverlayScreen  zIndex="50" />}
     </>
   )
 }

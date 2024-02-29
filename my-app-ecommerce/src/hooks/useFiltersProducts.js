@@ -71,9 +71,9 @@ function useFiltersProducts(products) {
     }, [isFilter,filterName,price,category,products])
 
 
-    useEffect(()=>{
-        console.log("PRODUCT FILTERS",productsFilters)
-    } , [productsFilters])
+    // useEffect(()=>{
+    //     console.log("PRODUCT FILTERS",productsFilters)
+    // } , [productsFilters])
 
 
     // validar si estan filtrando

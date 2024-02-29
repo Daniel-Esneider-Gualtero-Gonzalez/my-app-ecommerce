@@ -7,9 +7,10 @@ function Footer() {
 
   return (
     <>
-      <footer className="border flex  flex-col gap-1 rounded lg p-1 md:flex-row md: justify-between">
+      <footer className="indexfooter  flex  flex-col gap-1 rounded lg p-1 md:flex-row md:justify-between">
         
-          <span >© 2024 <a href="https://flowbite.com/" >My ecommerce</a>. Casi todos los derechos reservados.</span>
+      <span className="flex items-center" >© 2024 <a href="https://flowbite.com/" >My ecommerce</a>. Casi todos los derechos reservados.</span>
+          
           <ul className="flex flex-wrap items-center  text-sm ">
             <li>
               <a href="#" >Products</a>

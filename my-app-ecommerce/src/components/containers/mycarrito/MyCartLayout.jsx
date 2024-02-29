@@ -13,7 +13,7 @@ function MyCartLayout() {
 
   return (
     <>
-      <section className=" border w-screen h-screen grid gap-1 md:mx-auto md:w-[900px] sm:grid-cols-2 p-1 rounded-lg">
+      <section className=" w-screen h-screen grid gap-1 md:mx-auto md:w-[900px] sm:grid-cols-2 p-1 rounded-lg">
 
         <div className=" flex flex-col gap-1 overflow-auto">
 

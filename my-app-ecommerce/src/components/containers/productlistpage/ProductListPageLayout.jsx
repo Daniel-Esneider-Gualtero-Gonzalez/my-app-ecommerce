@@ -33,7 +33,7 @@ function ProductListPageLayout() {
   return (
     <>
       <section className="grid gap-1 p-1  md:grid-cols-3 xl:grid-cols-8 border rounded-lg h-screen overflow-auto">
-        <SideBar className="p-1 h-fit md:col-span-1 xl:col-span-2 border rounded-lg ">
+        <SideBar className="p-1 h-fit md:col-span-1 xl:col-span-2  rounded-lg ">
           <ProductFilters onChangePrice={onChangePrice} onChangeCategory={onChangeCategory} category={category} price={price} />
           <span className="">Filter by name: {queryName}</span>
         </SideBar>

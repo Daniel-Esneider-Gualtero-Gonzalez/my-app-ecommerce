@@ -35,7 +35,7 @@ function ItemsInCart({ title = product.title, image = product.image, price = pro
         <div className='border flex flex-col   p-2'>
           <h1 className='font-normal  '>{title}</h1>
 
-          <div className="flex-1  flex gap-2 text-xl items-center">
+          <div className="flex-1  flex gap-2 text-md items-center">
             <button onClick={onDeleteCantProduct} className={`${cant === 1 && 'collapse'} border  rounded p-1`}><GrSubtractCircle /></button>
             <span>{cant}</span>
             <button onClick={onAddCantProduct} className="border rounded p-1"><IoAddCircle /></button>
@@ -44,7 +44,7 @@ function ItemsInCart({ title = product.title, image = product.image, price = pro
 
         <span className='  h-fit my-auto mx-auto'>${price}</span>
 
-        <button onClick={onDelete} className='h-fit    border rounded  w-10   hover:bg-red-600 hover:text-white'>
+        <button onClick={onDelete} className='h-fit  rounded btn-delete  w-10  '>
           <MdDelete />
         </button>
       </article>

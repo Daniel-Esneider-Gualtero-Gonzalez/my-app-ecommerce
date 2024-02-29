@@ -29,8 +29,10 @@ function ProductOfWeek() {
             </div>
 
             <div className="mt-3 "> 
-                <h3 className="font-semibold">Title product of the week</h3>
-                <p className="text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque ad aliquam molestiae quos! Velit aliquam eius quo quaerat odit, doloribus nulla veniam ea voluptas dignissimos. Rem nesciunt molestias doloremque saepe.</p>
+                <h3 className="font-semibold">Apple Watch Series 7 GPS, Caja de aluminio, Starlight Sport</h3>
+                <p className="text-sm max-w-[70%] overflow-hidden">Descubre el compañero perfecto para tu día a día con el Apple Watch Series 7 GPS. Con su elegante caja de aluminio en el distintivo tono Starlight y una correa deportiva que combina estilo y comodidad, este reloj te ofrece la tecnología más avanzada al alcance de tu muñeca.
+                </p>
+                <button className="btn-addToCart mt-2">Agregar al carrito</button>
             </div>
 
 

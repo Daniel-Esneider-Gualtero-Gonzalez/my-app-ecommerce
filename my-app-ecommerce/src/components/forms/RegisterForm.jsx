@@ -32,7 +32,7 @@ function RegisterForm({ submitForm = Function }) {
     return (
 
         <form onSubmit={onSubmitRegister} method="POST" className='w-full  flex flex-col gap-1'>
-            <h1 className='w-fit mx-auto font-bold mb-3 border-b-1 border-blue-500'>Registrate</h1>
+            <h1 className='w-fit mx-auto font-semibold mb-3 border-b-1 border-blue-500'>Registrate</h1>
 
             <div className='grid gap-1 sm:grid-cols-2'>
                 <div className=' '>
@@ -60,7 +60,7 @@ function RegisterForm({ submitForm = Function }) {
                 <input id="password" {...register("password")} name="password" className=' w-full border rounded focus:outline-none focus:border-blue-500' type="password" />
             </div>
 
-            {Object.keys(errors).length > 0 ? <span className="w-fit mx-auto flex mt-10">Por favor completar los campos</span> : <button className='w-full bg-blue-500 text-white  hover:bg-blue-600  items-center  justify-center rounded'>Enviar</button>}
+            {Object.keys(errors).length > 0 ? <span className="w-fit mx-auto flex mt-10">Por favor completar los campos</span> : <button className='w-full bg-blue-500 text-white dark:bg-secondary  dark:text-black  items-center  justify-center rounded'>Enviar</button>}
 
         </form>
 

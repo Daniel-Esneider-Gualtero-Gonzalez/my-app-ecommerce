@@ -65,7 +65,7 @@ function SingUp() {
 
         <div className='grid place-content-center '>
           <img className='rounded-full w-[80px] h-[80px]  sm:w-[100px] sm:h-[100px] mx-auto ' src={avatar >= 0 ? `${avatars[avatar].image}` : "https://cdn.pixabay.com/photo/2023/09/21/17/05/european-shorthair-8267220_1280.jpg"} alt="" />
-          <button disabled onClick={() => openModal()} className='mx-auto text-sm flex  border items-center justify-center rounded bg-blue-500 text-white font-bold  hover:bg-blue-600 '>
+          <button disabled={avatarsLoading ? true : false} onClick={() => openModal()} className='p-1 mt-1 mx-auto text-sm flex  dark:bg-secondary dark:text-black items-center justify-center rounded bg-blue-500 text-white font-semibold   '>
             {avatarsLoading ? '..cargando avatars' : 'Selecciona Avatar'}
           </button>
         </div>

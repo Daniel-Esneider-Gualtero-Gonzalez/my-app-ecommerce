@@ -6,9 +6,9 @@ function InfoUserCard({ showBarSideUser }) {
     <article className=" flex justify-between items-center">
       <div className="flex flex-col">
         <span className="">Daniel Gualtero</span>
-        <span className="text-sm">Programmin</span>
+        <span className="text-sm dark:text-secondary">Programmin</span>
       </div>
-      <button onClick={() => showBarSideUser(false)} className="border border-black rounded-lg h-fit hover:bg-red-600 hover:text-white text-xl  "><MdCancel/></button>
+      <button onClick={() => showBarSideUser(false)} className="p-2  rounded-lg h-fit bg-red-600 hover:bg-red-700 hover:text-white text-xl  "><MdCancel/></button>
     </article>
   )
 }

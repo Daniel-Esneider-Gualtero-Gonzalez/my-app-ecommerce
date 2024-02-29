@@ -31,7 +31,7 @@ function NavBar() {
     }, [])
 
     return (
-        <nav style={stylesNavScroll} className=" flex items-center justify-between p-1 border rounded-lg">
+        <nav style={stylesNavScroll} className=" flex items-center justify-between p-1  rounded-lg">
             <Logo className="max-h-7 rounded-full "/>
 
         {/* se ocultan aqui y de la misma manera en el sidebar */}
@@ -39,15 +39,15 @@ function NavBar() {
                 <NavItems />
             </ul>
 
-            <div className="hidden sm:flex border  items-center">
+            <div className="hidden sm:flex   items-center">
                 <ProductSearchBar />
             </div>
 
             <ul className='flex gap-2  '>
                 <SingInLink />
                 <RegisterLink />
-                <button className='' onClick={() => setShowBarUser(true)}>
-                    <GrMenu />
+                <button className='dark:bg-secondary rounded p-2' onClick={() => setShowBarUser(true)}>
+                    <GrMenu  className=""/>
                 </button>
             </ul>
 

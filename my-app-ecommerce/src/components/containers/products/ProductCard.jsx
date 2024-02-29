@@ -18,16 +18,19 @@ function ProductCard({ title = product.title, description = product.description,
         <>
 
 
-            <article className="w-full flex flex-col gap-1 max-w-sm p-1 border  rounded-lg shadow ">
+            <article className="w-full grid gap-1 max-w-sm p-1 border  rounded-lg shadow ">
 
-                <img className="w-full mx-auto rounded-t-lg h-[200px]" src={image} alt="product image" />
+                <img className=" w-full mx-auto rounded-t-lg h-[200px]" src={image} alt="product image" />
 
 
-                <h5 className="text-md h-20 overflow-hidden text-ellipsis font-semibold tracking-tight ">{title}</h5>
+                <h5 className=" text-md max-h-12 overflow-hidden text-ellipsis font-semibold tracking-tight ">{title}</h5>
+                
+                <p className=" text-sm max-h-16 overflow-hidden text-ellipsis">{description}</p>
 
-                <div className="flex items-center justify-between">
+                <div className="h-fit self-end  flex items-center justify-between">
                     <span className="text-xl font-semibold">${price}</span>
-                    <button  href="#" className="border rounded p-2"><FaCartShopping /></button>
+                    {isInCart === false && <button onClick={onAddProduct}  className="btn-addToCart"><FaCartShopping /></button>}
+                    {isInCart && <RemoveCartItemButton className={"btn-delete"} onClick={onDeleteProduct} />}
                 </div>
 
             </article>

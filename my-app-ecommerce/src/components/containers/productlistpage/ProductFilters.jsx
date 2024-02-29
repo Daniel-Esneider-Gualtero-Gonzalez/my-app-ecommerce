@@ -26,7 +26,7 @@ function ProductFilters({ onChangePrice, onChangeCategory, category, price }) {
   return (
     <>
       <article className="flex flex-col gap-1">
-        <h2>Filtros</h2>
+        <h2 className="dark:text-secondary w-fit mx-auto">Filtros</h2>
 
 
 
@@ -34,10 +34,12 @@ function ProductFilters({ onChangePrice, onChangeCategory, category, price }) {
         <span className="flex font-semibold ">Categorías</span>
 
         {categories ? categories.map(cate => {
-          return <label key={cate} htmlFor={cate} className="flex gap-1 items-center   capitalize "><input onChange={handleChangeFilterCategory} type="checkbox" checked={category.includes(cate)} value={cate} id={cate} />{cate}</label>
+          const isCategory = category.includes(cate)
+          const styleIsCategory = isCategory ? "text-secondary" : ""
+          return <label key={cate} htmlFor={cate} className={`${styleIsCategory} flex gap-1 items-center   capitalize ` }><input onChange={handleChangeFilterCategory} type="checkbox" checked={isCategory} value={cate} id={cate} />{cate}</label>
         }) : null}
 
-        <div className=" border-t flex justify-between  items-center">
+        <div className=" border-t dark:border-secondary flex justify-between  items-center">
           <span>Precio</span>
           <span>{price} - $500</span>
         </div>
