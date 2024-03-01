@@ -36,20 +36,19 @@ function RegisterForm({ submitForm = Function }) {
 
             <div className='grid gap-1 sm:grid-cols-2'>
                 <div className=' '>
-                    <label>First name</label>
-                    <input {...register("names")} required name="names" className='w-full border  rounded  focus:outline-none focus:border-blue-500' type="text" />
+                    <label>Primer nombre</label>
+                    <input {...register("names")} required name="names" className='w-full border rounded ' type="text" />
                 </div>
 
                 <div>
-                    <label>Last name</label>
-                    <input {...register("lastname")} name="lastname" required maxLength={10} className='w-full border  rounded  focus:outline-none focus:border-blue-500' type="text" />
-
+                    <label>Segundo nombre</label>
+                    <input {...register("lastname")} name="lastname" required maxLength={10} className='w-full border  rounded ' type="text" />
                 </div>
             </div>
 
             <div className=''>
                 <label htmlFor="">Correo</label>
-                <input onBlur={handleOnBlurCorreo} {...register("correo")} name="correo" className=' w-full border rounded focus:outline-none focus:border-blue-500' type="email" />
+                <input onBlur={handleOnBlurCorreo} {...register("correo")} name="correo" className=' w-full border rounded' type="email" />
 
                 {errors.correo?.dominio ? <span className="text-sm text-red-400">"Solo se permite el dominio de colombia"</span> : null}
 
@@ -57,7 +56,7 @@ function RegisterForm({ submitForm = Function }) {
 
             <div className=''>
                 <label htmlFor="">Password</label>
-                <input id="password" {...register("password")} name="password" className=' w-full border rounded focus:outline-none focus:border-blue-500' type="password" />
+                <input id="password" {...register("password")} name="password" className=' w-full border rounded ' type="password" />
             </div>
 
             {Object.keys(errors).length > 0 ? <span className="w-fit mx-auto flex mt-10">Por favor completar los campos</span> : <button className='w-full bg-blue-500 text-white dark:bg-secondary  dark:text-black  items-center  justify-center rounded'>Enviar</button>}

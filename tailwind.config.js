@@ -10,7 +10,7 @@ export default {
 
       },
       boxShadow:{
-        'shadowSection' : "0px 4px 8px rgba(0, 0, 0, 0.2)"
+        'shadowSection' : "0px 4px 8px rgba(0, 0, 0, 0.01)"
       }
     }
     

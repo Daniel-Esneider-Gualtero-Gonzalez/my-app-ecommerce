@@ -18,12 +18,12 @@ function ProfileLayout() {
 
     <>
 
-      <section className=" border flex flex-col gap-1 p-1 rounded-lg md:w-[700px] md:mx-auto">
+      <section className=" border flex flex-col gap-1 p-1 rounded-lg md:w-[700px] md:mx-auto ">
 
         <article className=" flex justify-between items-center ">
           <div className=" ">
-            <span className="font-bold">Daniel Esneider Gualtero Gonzalez</span>
-            <div className="text-sm">Programmin</div>
+            <h3 className="font-bold">Daniel Esneider Gualtero Gonzalez</h3>
+            <div className="text-sm dark:text-secondary text-blue-600">Programmin</div>
             
           </div>
           <img className="  rounded-full  w-28 h-28 border-gray-300  animationTop " src="https://img.freepik.com/free-vector/mysterious-mafia-man-smoking-cigarette_52683-34828.jpg?size=626&ext=jpg" alt="" />
@@ -34,19 +34,19 @@ function ProfileLayout() {
 
         <article className="text-xl grid grid-cols-2 md:grid-cols-3 gap-1 ">
           <Link >
-            <CardProfile className="border rounded flex place-content-center place-items-center bg-gray-200 h-[100px]">
+            <CardProfile className="border w-full rounded flex place-content-center place-items-center bg-gray-200 h-[100px] ">
               <UserBalance />
             </CardProfile>
           </Link>
 
           <Link to={"/user/tablero"}>
-            <CardProfile className="rounded flex place-content-center place-items-center border bg-gray-200 h-[100px]">
+            <CardProfile className="w-full rounded flex place-content-center place-items-center border bg-gray-200 h-[100px]">
               <span className="flex items-center gap-1"><MdSpaceDashboard/> Tablero</span>
             </CardProfile>
           </Link>
 
           <Link to={"/user/recharge/"}>
-            <CardProfile className="rounded flex place-content-center place-items-center border bg-gray-200 h-[100px] ">
+            <CardProfile className="w-full rounded flex place-content-center place-items-center border bg-gray-200 h-[100px] ">
               <span className="flex items-center gap-1"><TbRecharging /> Recargar saldo </span> 
             </CardProfile>
           </Link>

@@ -1,9 +1,10 @@
 import useForm from '../../hooks/useForm'
 import { Link } from 'react-router-dom'
+import Loading from '../common/Loading'
 
 
 
-function SingInForm({ submitForm }) {
+function SingInForm({ isLoading=false,submitForm }) {
     const { errors, register, registerError, cleanError, handleSubmitForm } = useForm()
 
 
@@ -31,12 +32,10 @@ function SingInForm({ submitForm }) {
     }
     return (
         <>
-
-
-            <form className='flex flex-col gap-2 w-full ' method='POST' onSubmit={submitLogin}>
+            <form className='flex flex-col gap-3 w-full ' method='POST' onSubmit={submitLogin}>
 
                 <h3 className='w-fit mx-auto font-semibold'>Iniciar Sesión</h3>
-                <label htmlFor="username" className="block text-gray-600">Correo</label>
+                <label htmlFor="username" className="block ">Correo</label>
 
                 <input onBlur={handleOnBlurCorreo} {...register("correo")} required type="gmail" id="username" name="correo" className=" w-full border rounded  focus:outline-none focus:border-blue-500" />
 
@@ -44,23 +43,23 @@ function SingInForm({ submitForm }) {
 
 
 
-                <label htmlFor="password" className="block text-gray-600">Contraseña</label>
+                <label htmlFor="password" className="block">Contraseña</label>
 
 
-                <input id="password" type="password" required {...register("password")} name="password" className=' w-full border rounded  focus:outline-none focus:border-blue-500' />
+                <input id="password" type="password" required {...register("password")} name="password" className=' w-full border rounded   ' />
 
 
 
-                <label htmlFor="remember" className="text-gray-600 ">
+                <label htmlFor="remember" className=" ">
                     <input type="checkbox" id="remember" name="remember" className="text-blue-500" />
                     Recordarme
                 </label>
 
-                <a href="#crear-servicio-de-recuperacion" className="mx-auto w-fit border-b">La olvido?</a>
+                <a href="#crear-servicio-de-recuperacion" className="mx-auto w-fit ">La olvido?</a>
 
-                <Link className="mx-auto w-fit flex  border-b  " to="/singup">Registrarse?</Link>
-
-                <button type="submit" className="bg-blue-500 dark:bg-secondary dark:text-black hover:bg-blue-600 text-white  rounded  w-full">Login</button>
+                <button disabled={isLoading} type="submit" className="bg-blue-500 dark:bg-secondary dark:text-black  text-white  rounded  w-full"> 
+                {isLoading && <Loading className={"w-4 m-1 h-4"}/>}
+                Iniciar Sesión</button>
             </form>
 
         </>

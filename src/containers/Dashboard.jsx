@@ -9,8 +9,8 @@ import IndexDashboardLayout from "../components/containers/dashboard/user/IndexD
 
 const rutesDashboard = {
     index: "/user/tablero",
-    analitics:"user/tablero/analiticas",
-    settings:"user/tablero/ajustes"
+    analitics: "user/tablero/analiticas",
+    settings: "user/tablero/ajustes"
 }
 
 function Dashboard() {
@@ -20,22 +20,22 @@ function Dashboard() {
         let stylesNavlinkBase = " hover:bg-slate-200 hover:bg-slate-300"
         return isActive ? "bg-slate-200 " + stylesNavlinkBase : stylesNavlinkBase
     }
-    
-    
+
+
     return (
         <section className="border p-1   grid grid-cols-12 rounded-lg h-screen" >
-            <SideBar className="flex flex-col bg-purple-400 relative border rounded-tl rounded-bl col-span-2" >
-                <div className=" ">
-                    <span className="text-sm font-bold">Daniel Esneider Gualtero Gonzalez</span>
+            <SideBar className="flex flex-col   relative border rounded-tl rounded-bl col-span-2" >
 
-                </div>
+                <span className="text-sm font-bold">Daniel Esneider Gualtero Gonzalez</span>
                 <NavLink exact="true" className={styledActiveLinkDashboard} to={"/user/tablero"}>Tablero</NavLink>
                 <NavLink className={styledActiveLinkDashboard} to={"analiticas"}>Analiticas</NavLink>
                 <NavLink className={styledActiveLinkDashboard} to={"ajustes"}>Ajustes</NavLink>
             </SideBar>
 
-            {rutesDashboard.index === location.pathname && <IndexDashboardLayout />}
-            <Outlet />
+            <section className="col-span-10 bg-slate-300">
+                {rutesDashboard.index === location.pathname && <IndexDashboardLayout  />}
+                <Outlet />
+            </section>
         </section>
     )
 }

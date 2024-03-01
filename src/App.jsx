@@ -110,12 +110,12 @@ function App() {
           <BuyButton />
         </ContextCartProvider>
 
-
+        <Footer />
       </BrowserRouter>
 
 
 
-      <Footer />
+     
 
 
 

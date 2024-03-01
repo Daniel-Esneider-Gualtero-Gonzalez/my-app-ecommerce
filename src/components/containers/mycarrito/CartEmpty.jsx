@@ -10,7 +10,7 @@ function CartEmpty() {
 
             <h1 className="text-4xl">Tu carrrito esta vacío</h1>
 
-            <button className="dark:bg-secondary rounded p-2 ">Comprar Ahora</button>
+            <button className="dark:bg-secondary bg-blue-600 text-white rounded p-2 ">Comprar Ahora</button>
 
         </section>
     )

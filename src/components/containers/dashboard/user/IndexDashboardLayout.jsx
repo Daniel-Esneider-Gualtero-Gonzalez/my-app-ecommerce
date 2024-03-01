@@ -3,7 +3,7 @@ import InvoiceTable from './InvoiceTable'
 
 function IndexDashboardLayout() {
   return (
-    <section className='border flex flex-col gap-2 col-span-10 mb-0 p-1'>
+    <div className='w-full border flex flex-col gap-2 col-span-10 mb-0 p-1'>
       <header className='col-span-full h-fit flex gap-1'>
         <article className='border rounded h-20 w-52'></article>
         <article className='border rounded h-20 w-52'></article>
@@ -17,7 +17,7 @@ function IndexDashboardLayout() {
       <footer>
         <InvoiceTable />
       </footer>
-    </section>
+    </div>
   )
 }
 

@@ -46,7 +46,7 @@ function NavBar() {
             <ul className='flex gap-2  '>
                 <SingInLink />
                 <RegisterLink />
-                <button className='dark:bg-secondary rounded p-2' onClick={() => setShowBarUser(true)}>
+                <button className='dark:bg-secondary bg-blue-600  rounded p-2' onClick={() => setShowBarUser(true)}>
                     <GrMenu  className=""/>
                 </button>
             </ul>

@@ -27,8 +27,9 @@ function SingIn() {
     <>
 
       <section className='flex p-1  sm:mx-auto sm:w-[50%] md:w-[30%]  border rounded-lg justify-center '>
-        <SingInForm submitForm={onSubmitForm} />
+        <SingInForm isLoading={loading} submitForm={onSubmitForm} />
       </section>
+      
 
     </>
 

@@ -113,13 +113,13 @@ nav a {
     border: none;
 }
 
-.active {
-    border-bottom: 1px solid var(--yellow-color);
+nav .active {
+    border-bottom: 1px solid var(--blue-color);
 }
 
 nav a:hover {
 
-    border-bottom: 1px solid var(--yellow-color);
+    border-bottom: 1px solid var(--blue-color);
 }
 
 nav ul {
@@ -134,6 +134,29 @@ button {
 
 
 }
+
+form input{
+
+}
+form input:focus{
+    outline: none;
+    border: 1px solid var(--blue-color);
+}
+
+.indexFooter a:hover{
+ border-bottom: 1px solid var(--blue-color);
+}
+
+
+
+/* aside */
+aside{
+    display: flex;
+    flex-direction: column;
+    
+    
+}
+
 
 
 
@@ -162,17 +185,23 @@ button {
         background-color: rgba(0, 0, 0, 0.9) !important;
 
     }
+    nav .active{
+        border-bottom: 1px solid var(--yellow-color) !important;
+    }
+    nav a:hover{
+        border-bottom: 1px solid var(--yellow-color);
+    }
 
     aside{
         background-color: rgba(0, 0, 0, 0.9) !important;
         color: white;
     }
-    .indexfooter{
+    .indexFooter{
         color: white;
         background-color: rgba(0, 0, 0, 0.9);
     }
-    .indexfooter a:hover{
-        border-bottom: 1px solid var(--yellow-color);
+    .indexFooter a:hover{
+        border-bottom: 1px solid yellow !important;
     }
 }
 

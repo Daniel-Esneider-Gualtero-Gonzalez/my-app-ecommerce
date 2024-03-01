@@ -26,7 +26,7 @@ function ProductFilters({ onChangePrice, onChangeCategory, category, price }) {
   return (
     <>
       <article className="flex flex-col gap-1">
-        <h2 className="dark:text-secondary w-fit mx-auto">Filtros</h2>
+        <h2 className="dark:text-secondary text-blue-600 w-fit mx-auto">Filtros</h2>
 
 
 
@@ -35,12 +35,12 @@ function ProductFilters({ onChangePrice, onChangeCategory, category, price }) {
 
         {categories ? categories.map(cate => {
           const isCategory = category.includes(cate)
-          const styleIsCategory = isCategory ? "text-secondary" : ""
+          const styleIsCategory = isCategory ? "dark:text-secondary  text-blue-600" : ""
           return <label key={cate} htmlFor={cate} className={`${styleIsCategory} flex gap-1 items-center   capitalize ` }><input onChange={handleChangeFilterCategory} type="checkbox" checked={isCategory} value={cate} id={cate} />{cate}</label>
         }) : null}
 
-        <div className=" border-t dark:border-secondary flex justify-between  items-center">
-          <span>Precio</span>
+        <div className="mt-2 border-t border-blue-600 dark:border-secondary flex justify-between  items-center">
+          <span className="font-semibold">Precio</span>
           <span>{price} - $500</span>
         </div>
         <InteractiveRangeSlider  handleChangeInput={handleChangeFilterPrice}/>

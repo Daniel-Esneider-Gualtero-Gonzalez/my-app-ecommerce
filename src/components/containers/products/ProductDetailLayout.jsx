@@ -12,7 +12,7 @@ function ProductDetailLayout() {
   }, [])
   return (
     <>
-      <section className="h-screen border rounded-lg p-1 ">
+      <section className="  rounded-lg p-1 ">
         <ProductDetails />
         <h2 className=" font-semibold">Productos relacionados</h2>
       </section>
