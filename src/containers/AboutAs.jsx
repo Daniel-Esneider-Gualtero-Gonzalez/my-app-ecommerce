@@ -3,7 +3,9 @@
 function AboutAs() {
   return (
    <>
-     <div>About as</div>
+     <section className="h-screen  border rounded-lg">
+
+     </section>
    </>
   )
 }

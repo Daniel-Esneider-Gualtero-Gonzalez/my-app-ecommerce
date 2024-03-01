@@ -7,7 +7,7 @@ function SideBarUserProfile({ showBarSideUser }) {
   return (
     <>
 
-      <aside className='bg-blue-600 p-2 h-screen right-0  z-50  absolute top-0 rounded w-[300px]'>
+      <aside className='sideBarUserProfile p-2 h-screen right-0  z-50  fixed top-0 rounded w-[300px]'>
         <InfoUserCard showBarSideUser={showBarSideUser} />
         {/*  elementos dentro de la lista estaran solo visibles a partir */}
         <ol className="flex md:hidden flex-col ">
@@ -20,7 +20,7 @@ function SideBarUserProfile({ showBarSideUser }) {
         </ol>
 
 
-        <SingOut className=" rounded w-full gap-1 " />
+        <SingOut className="  w-full gap-1 " />
       </aside>
     </>
   )

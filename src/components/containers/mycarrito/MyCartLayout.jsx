@@ -13,10 +13,9 @@ function MyCartLayout() {
 
   return (
     <>
-      <section className=" w-screen h-screen grid gap-1 md:mx-auto md:w-[900px] sm:grid-cols-2 p-1 rounded-lg">
+      <section className=" w-fit h-screen grid grid-cols-1 gap-1 sm:mx-auto sm:w-[600px] md:w-[800px] xl:w-[900px] md:grid-cols-3 p-1 rounded-lg">
 
-        <div className=" flex flex-col gap-1 overflow-auto">
-
+        <div className=" flex col-span-2 flex-col gap-1 overflow-auto">
           {productsInCart.map(product => {
             const keyProductItem = crypto.randomUUID()
             const addItem = () => addCantItemProduct(product.id)
@@ -27,8 +26,9 @@ function MyCartLayout() {
             />
           })}
 
+
         </div>
-        <OrderSummary subtotal={detailsPayout.subtotal} shipping={detailsPayout.shipping} iva={detailsPayout.iva} totalAmount={detailsPayout.totalAmount} />
+        <OrderSummary  subtotal={detailsPayout.subtotal} shipping={detailsPayout.shipping} iva={detailsPayout.iva} totalAmount={detailsPayout.totalAmount} />
 
       </section>
     </>

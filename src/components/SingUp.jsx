@@ -1,19 +1,18 @@
 
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import useModal from "../hooks/useModal"
 import Modal from "./common/Modal"
 import RegisterForm from "./forms/RegisterForm"
-import useForm from "../hooks/useForm"
+import AlertMessage from '../components/AlertMessage'
 import { useRegisterUser } from "../hooks/useAuthUser"
 import { Navigate } from "react-router-dom"
 import useGetAvatars from "../hooks/useGetAvatars"
-import Loading from "./common/Loading"
 import AvatarImage from "./AvatarImage"
 
 
 function SingUp() {
 
-  const { loading, error, isRegister, handleRegisterUser } = useRegisterUser()
+  const { loading, error, clearError, isRegister, handleRegisterUser } = useRegisterUser()
   const [avatar, setAvatar] = useState()
   const { modal, openModal, closeModal } = useModal()
   const { loading: avatarsLoading, error: avatarsError, avatars } = useGetAvatars()
@@ -39,27 +38,22 @@ function SingUp() {
 
 
 
+
   return (
     <>
+      {isRegister ? <AlertMessage succes={true} textMessage="Usuario Registrado exitosamente" /> : null}
+      {error ? <AlertMessage onDissmmisAlert={clearError} error={true} textMessage={`${error}`} /> : null}
 
       <section className=" md:h-[400px] grid md:place-content-center gap-1 sm:grid-cols-2 p-1 sm:mx-auto  sm:w-[90%]  xl:w-[50%] border rounded-lg  ">
-        {loading ? <Loading center={true} /> : null}
-        {isRegister ? <AlertMessage succes={true} textMessage="Usuario Registrado exitosamente" /> : null}
-        {error ? <AlertMessage error={true} textMessage={`${error}`} /> : null}
-
-
 
         <Modal status={modal} callbackAcept={onAceptModalAvatar} callbackCancel={onCancelModal} title="Selecciona tu avatar" closeModal={closeModal} >
           <div className="grid grid-cols-4 gap-1">
-            { avatars && avatars.length > 0 && avatars.map((numAvatar) => {
-              return <AvatarImage key={numAvatar} className="cursor-pointer" />
+            {avatars && avatars.length > 0 && avatars.map((numAvatar) => {
+              return <AvatarImage key={numAvatar} className="cursor-pointer hover:rounded-2xl hover:border-blue-600 hover:border" />
             })}
 
           </div>
         </Modal>
-
-
-
 
 
 
@@ -73,7 +67,7 @@ function SingUp() {
 
 
         <article className="h-fit">
-          <RegisterForm submitForm={onSubmitForm} />
+          <RegisterForm isLoading={loading} submitForm={onSubmitForm} />
         </article>
 
 

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { FaCartShopping } from "react-icons/fa6";
 
 
@@ -10,7 +11,7 @@ function CartEmpty() {
 
             <h1 className="text-4xl">Tu carrrito esta vacío</h1>
 
-            <button className="dark:bg-secondary bg-blue-600 text-white rounded p-2 ">Comprar Ahora</button>
+            <Link to={"/products/search/"} className="dark:bg-secondary bg-blue-600 text-white rounded p-2 ">Comprar Ahora</Link>
 
         </section>
     )

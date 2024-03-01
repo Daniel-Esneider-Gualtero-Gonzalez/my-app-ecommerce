@@ -34,7 +34,7 @@ function SingInForm({ isLoading=false,submitForm }) {
         <>
             <form className='flex flex-col gap-3 w-full ' method='POST' onSubmit={submitLogin}>
 
-                <h3 className='w-fit mx-auto font-semibold'>Iniciar Sesión</h3>
+                <h3 className='w-fit mx-auto text-xl border-b border-blue-600 font-semibold'>Iniciar Sesión</h3>
                 <label htmlFor="username" className="block ">Correo</label>
 
                 <input onBlur={handleOnBlurCorreo} {...register("correo")} required type="gmail" id="username" name="correo" className=" w-full border rounded  focus:outline-none focus:border-blue-500" />
@@ -57,8 +57,8 @@ function SingInForm({ isLoading=false,submitForm }) {
 
                 <a href="#crear-servicio-de-recuperacion" className="mx-auto w-fit ">La olvido?</a>
 
-                <button disabled={isLoading} type="submit" className="bg-blue-500 dark:bg-secondary dark:text-black  text-white  rounded  w-full"> 
-                {isLoading && <Loading className={"w-4 m-1 h-4"}/>}
+                <button disabled={isLoading} type="submit" className="p-1 bg-blue-500 dark:bg-secondary dark:text-black  text-white  rounded  w-full"> 
+                {isLoading && <Loading className={"mx-1 "}/>}
                 Iniciar Sesión</button>
             </form>
 

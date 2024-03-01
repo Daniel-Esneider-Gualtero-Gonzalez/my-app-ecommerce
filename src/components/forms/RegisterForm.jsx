@@ -1,7 +1,7 @@
-import { useState } from "react"
+import Loading from '../common/Loading'
 import useForm from "../../hooks/useForm"
 
-function RegisterForm({ submitForm = Function }) {
+function RegisterForm({ isLoading,submitForm = Function }) {
     const { errors, register, registerError, cleanError, handleSubmitForm } = useForm()
 
     const handleOnBlurCorreo = (e) => {
@@ -32,7 +32,7 @@ function RegisterForm({ submitForm = Function }) {
     return (
 
         <form onSubmit={onSubmitRegister} method="POST" className='w-full  flex flex-col gap-1'>
-            <h1 className='w-fit mx-auto font-semibold mb-3 border-b-1 border-blue-500'>Registrate</h1>
+            <h1 className='w-fit mx-auto font-semibold mb-3 text-xl  border-b border-blue-600'>Registrate</h1>
 
             <div className='grid gap-1 sm:grid-cols-2'>
                 <div className=' '>
@@ -48,7 +48,7 @@ function RegisterForm({ submitForm = Function }) {
 
             <div className=''>
                 <label htmlFor="">Correo</label>
-                <input onBlur={handleOnBlurCorreo} {...register("correo")} name="correo" className=' w-full border rounded' type="email" />
+                <input onBlur={handleOnBlurCorreo} {...register("correo")} required name="correo" className=' w-full border rounded' type="email" />
 
                 {errors.correo?.dominio ? <span className="text-sm text-red-400">"Solo se permite el dominio de colombia"</span> : null}
 
@@ -56,10 +56,14 @@ function RegisterForm({ submitForm = Function }) {
 
             <div className=''>
                 <label htmlFor="">Password</label>
-                <input id="password" {...register("password")} name="password" className=' w-full border rounded ' type="password" />
+                <input id="password" {...register("password")} name="password" required className=' w-full border rounded ' type="password" />
             </div>
 
-            {Object.keys(errors).length > 0 ? <span className="w-fit mx-auto flex mt-10">Por favor completar los campos</span> : <button className='w-full bg-blue-500 text-white dark:bg-secondary  dark:text-black  items-center  justify-center rounded'>Enviar</button>}
+            {Object.keys(errors).length > 0 ? <span className="w-fit mx-auto flex mt-10">Por favor completar los campos</span>
+             :
+             <button className='w-full bg-blue-500 text-white dark:bg-secondary  dark:text-black  items-center  justify-center rounded'>
+                {isLoading && <Loading className={"mx-2"} />}
+                  Enviar</button>}
 
         </form>
 

@@ -1,14 +1,25 @@
+import { useRef } from "react";
+import { BsXLg } from "react-icons/bs";
 
+function AlertMessage({ warning = Boolean, error = Boolean, succes = Boolean, textMessage = "" , onDissmmisAlert=()=>{}}) {
+  const refAlert = useRef()
 
-function AlertMessage({warning=Boolean,error=Boolean,succes=Boolean, textMessage=""}) {
+  const styles = warning === true ? 'bg-yellow-400 ' : error === true ? 'bg-red-400' : succes === true ? 'bg-green-400' : null
+  const dismmisAlert = ()=>{
+    refAlert.current.removeEventListener('transitionend', dismmisAlert);
+    // ejecutamos callback de onDissmis que pasen por prop
+    onDissmmisAlert()
 
-  const styles = warning===true ? 'bg-yellow-400 ' : error===true ? 'bg-red-400' : succes===true ? 'bg-green-400' : null
+  }
+  const onDissmiss = ()=>{
+    refAlert.current.classList.add('animationDissmissAlert')
+    refAlert.current.addEventListener('transitionend', dismmisAlert);
+  }
+
   return (
-    <div className={`flex items-center justify-center ${styles} rounded-lg p-4 mb-4 text-sm sm:text-md md:text-lg text-white`} role="alert">
-        <svg className="w-5 h-5 inline mr-3" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule ="evenodd"></path></svg>
-        <div>
-            <span className="font-semibold ">{textMessage}</span> 
-        </div>
+    <div ref={refAlert} className={`w-fit flex self-end items-center justify-between ${styles} rounded-lg p-3 mb-4 text-sm sm:text-md md:text-lg text-white`} role="alert">
+        <span className="font-semibold ">{textMessage}</span>
+      <button onClick={onDissmiss} className="ml-4  text-white rounded h-fit p-1"><BsXLg className="" /></button>
     </div>
   )
 }

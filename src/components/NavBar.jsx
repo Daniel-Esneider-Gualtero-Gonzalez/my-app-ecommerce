@@ -5,7 +5,7 @@ import SingInLink from "./buttons/SingInLink"
 import { useEffect, useRef, useState } from "react"
 import RegisterLink from "./buttons/RegisterLink"
 
-import { GrMenu } from "react-icons/gr";
+import { LuMenu } from "react-icons/lu";
 import Logo from "./Logo"
 
 function NavBar() {
@@ -15,6 +15,7 @@ function NavBar() {
 
     useEffect(() => {
         window.document.addEventListener("scroll", () => {
+            
             if (window.scrollY === 0) return setStylesNavScroll(null)
             if (window.scrollY < refScroll.current) {
                 setStylesNavScroll(
@@ -32,7 +33,7 @@ function NavBar() {
 
     return (
         <nav style={stylesNavScroll} className=" flex items-center justify-between p-1  rounded-lg">
-            <Logo className="max-h-7 rounded-full "/>
+            <Logo className="max-h-10  rounded-lg  "/>
 
         {/* se ocultan aqui y de la misma manera en el sidebar */}
             <ul className="hidden md:flex gap-2 ">
@@ -46,8 +47,8 @@ function NavBar() {
             <ul className='flex gap-2  '>
                 <SingInLink />
                 <RegisterLink />
-                <button className='dark:bg-secondary bg-blue-600  rounded p-2' onClick={() => setShowBarUser(true)}>
-                    <GrMenu  className=""/>
+                <button className='dark:bg-secondary bg-blue-600  text-white rounded p-2' onClick={() => setShowBarUser(true)}>
+                    <LuMenu />
                 </button>
             </ul>
 

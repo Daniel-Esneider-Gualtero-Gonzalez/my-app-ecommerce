@@ -34,19 +34,13 @@ export function useAuthUser() {
                 
             }
         }
-
-        
-        
-
-        
-       
-       
         
     }
+    const clearError = ()=> setError(null)
  
 
 
-    return {loading,error,thereUser,getAuthUser}
+    return {loading,error,clearError,thereUser,getAuthUser}
     
 }
 
@@ -87,9 +81,11 @@ export function useRegisterUser() {
        
         
     }
+
+    const clearError = ()=> setError(null)
  
 
 
-    return {loading,error,isRegister,handleRegisterUser}
+    return {loading,error,clearError,isRegister,handleRegisterUser}
     
 }

@@ -15,10 +15,10 @@ function Modal({ id=modal.id, title = modal.title, status = modal.status, callba
     
 
     return (
-        <dialog  id={id} className='modal  shadow-lg gap-1  p-2 activeModal  z-50 fixed flex flex-col mx-auto my-auto border rounded-lg     left-0 right-0 bottom-0 top-0    w-[340px] sm:w-[500px] h-[340px] md:w-[600px] md:h-[400px] '>
+        <dialog  id={id} className='modal  shadow-lg gap-2  p-2 activeModal  z-50 fixed flex flex-col mx-auto my-auto border rounded-lg     left-0 right-0 bottom-0 top-0    w-[340px] sm:w-[500px] h-[340px] md:w-[600px] md:h-[400px] '>
             <div className="h-fit flex  items-center justify-between">
-            <h1 className=' whitespace-nowrap text-ellipsis overflow-hidden  text-center  text-sm font-semibold '>{title}</h1>
-            <button className="border rounded" onClick={() => callbackCancel()} > <MdCancel /> </button>
+            <h1 className='text-md xl:text-xl whitespace-nowrap text-ellipsis overflow-hidden  text-center   font-semibold '>{title}</h1>
+            <button className="border rounded text-md xl:text-xl bg-red-600 text-white" onClick={() => callbackCancel()} > <MdCancel /> </button>
             </div>
 
 

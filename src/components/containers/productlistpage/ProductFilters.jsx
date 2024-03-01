@@ -26,7 +26,7 @@ function ProductFilters({ onChangePrice, onChangeCategory, category, price }) {
   return (
     <>
       <article className="flex flex-col gap-1">
-        <h2 className="dark:text-secondary text-blue-600 w-fit mx-auto">Filtros</h2>
+        <h2 className="dark:text-secondary text-blue-600 w-fit text-xl">Filtros</h2>
 
 
 

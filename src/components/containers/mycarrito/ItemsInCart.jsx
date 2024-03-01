@@ -28,11 +28,11 @@ function ItemsInCart({ title = product.title, image = product.image, price = pro
 
   return (
     <>
-      <article key={keyItemProduct} ref={refItem} className='border flex gap-1  p-1     rounded'>
+      <article key={keyItemProduct} ref={refItem} className='w-full border flex justify-between  gap-1  p-1     rounded'>
 
-        <img className='w-[100px] h-[100px] rounded ' src={image} alt={`imagen del producto ${title}`} />
+        <img className=' w-[100px] h-[100px] rounded ' src={image} alt={`imagen del producto ${title}`} />
 
-        <div className='border flex flex-col   p-2'>
+        <div className='max-w-[60%]  flex flex-col   p-2'>
           <h1 className='font-normal  '>{title}</h1>
 
           <div className="flex-1  flex gap-2 text-md items-center">
@@ -42,9 +42,9 @@ function ItemsInCart({ title = product.title, image = product.image, price = pro
           </div>
         </div>
 
-        <span className='  h-fit my-auto mx-auto'>${price}</span>
+        <span className=' h-fit my-auto font-semibold'>${price}</span>
 
-        <button onClick={onDelete} className='h-fit  rounded btn-delete  w-10  '>
+        <button onClick={onDelete} className='border  h-fit  rounded btn-delete  w-10  '>
           <MdDelete />
         </button>
       </article>

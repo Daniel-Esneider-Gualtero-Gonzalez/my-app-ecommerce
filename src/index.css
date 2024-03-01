@@ -150,11 +150,22 @@ form input:focus{
 
 
 /* aside */
-aside{
+.sideBarUserProfile{
     display: flex;
     flex-direction: column;
-    
-    
+    background-color: rgb(37 99 235 );
+}
+
+.sideBarUserProfile a,button{
+    border: 1px solid rgba(255,255,255, 0.4);
+    color: white;
+    border-radius: 2px;
+   
+}
+
+.sideBarUserProfile a:hover,aside button:hover{
+    background-color: rgba(255, 255, 255, 1);
+    color: black;
 }
 
 
@@ -343,12 +354,12 @@ aside{
 .animationDeleteProduct {
     transition: transform 800ms ease-in-out;
     transform: translateX(-100%);
-    animation-name: deleteProduct;
+    animation-name: fadeOut;
 
     animation-duration: 800ms;
 }
 
-@keyframes deleteProduct {
+@keyframes fadeOut {
 
 
 
@@ -363,3 +374,13 @@ aside{
     }
 
 }
+
+/* ANIMATION DISSMISS ALERT */
+.animationDissmissAlert{
+    transition: transform 800ms ease-in-out;
+    transform: translateX(100%);
+    animation-name: fadeOut;
+
+    animation-duration: 800ms;
+}
+
