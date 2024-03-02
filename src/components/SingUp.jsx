@@ -48,8 +48,8 @@ function SingUp() {
 
         <Modal status={modal} callbackAcept={onAceptModalAvatar} callbackCancel={onCancelModal} title="Selecciona tu avatar" closeModal={closeModal} >
           <div className="grid grid-cols-4 gap-1">
-            {avatars && avatars.length > 0 && avatars.map((numAvatar) => {
-              return <AvatarImage key={numAvatar} className="cursor-pointer hover:rounded-2xl hover:border-blue-600 hover:border" />
+            {avatars && avatars.length > 0 && avatars.map(avatar => {
+              return <AvatarImage key={avatar.name} name={avatar.name} image={avatar.image} className="cursor-pointer hover:rounded-2xl hover:border-blue-600 hover:border" />
             })}
 
           </div>
