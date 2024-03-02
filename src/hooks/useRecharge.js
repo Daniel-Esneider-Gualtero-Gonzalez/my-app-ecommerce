@@ -17,7 +17,7 @@ function useRecharge() {
        
         //  'Content-Type': 'application/json',
         try {
-            const recharge = await fetch("http://localhost:3000/user/balance/recharge/", {
+            const recharge = await fetch("https://backend-app-ecommerce.vercel.app/user/balance/recharge/", {
                 method: 'POST',
                 headers: headers,
                 body: JSON.stringify(dataRecharge)
