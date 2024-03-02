@@ -156,7 +156,7 @@ form input:focus{
     background-color: rgb(37 99 235 );
 }
 
-.sideBarUserProfile a,button{
+.sideBarUserProfile .sideBarUserProfile a, .sideBarUserProfile button{
     border: 1px solid rgba(255,255,255, 0.4);
     color: white;
     border-radius: 2px;

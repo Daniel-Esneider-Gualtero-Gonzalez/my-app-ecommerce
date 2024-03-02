@@ -41,6 +41,7 @@ function SingUp() {
 
   return (
     <>
+    {console.log(avatars)}
       {isRegister ? <AlertMessage succes={true} textMessage="Usuario Registrado exitosamente" /> : null}
       {error ? <AlertMessage onDissmmisAlert={clearError} error={true} textMessage={`${error}`} /> : null}
 
@@ -48,8 +49,8 @@ function SingUp() {
 
         <Modal status={modal} callbackAcept={onAceptModalAvatar} callbackCancel={onCancelModal} title="Selecciona tu avatar" closeModal={closeModal} >
           <div className="grid grid-cols-4 gap-1">
-            {avatars && avatars.length > 0 && avatars.map((numAvatar) => {
-              return <AvatarImage key={numAvatar} className="cursor-pointer hover:rounded-2xl hover:border-blue-600 hover:border" />
+            {avatars && avatars.length > 0 && avatars.map(avatar => {
+              return <AvatarImage name={avatar.name} image={avatar.image} key={avatar.name} className="cursor-pointer hover:rounded-2xl hover:border-blue-600 hover:border" />
             })}
 
           </div>
@@ -66,7 +67,7 @@ function SingUp() {
 
 
 
-        <article className="h-fit">
+        <article className="h-fit mt-5 sm:mt-0">
           <RegisterForm isLoading={loading} submitForm={onSubmitForm} />
         </article>
 
