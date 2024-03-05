@@ -67,7 +67,7 @@ function ProductSearchBar() {
       <form onSubmit={handleSearchProducts} onBlur={handleBlur} onFocus={handleFocus} className={`${isFocus && stylesFocus} z-10  mx-auto border rounded `}>
         <div className='flex '>
           <input required  placeholder="Search Products" id='searchProduct' name="searchProduct" className='w-full border-none text-black  focus:border-b focus:border-t-0 focus:border-l-0 focus:border-r-0 border-blue-600 dark:border-secondary outline-none   ' type="text" />
-          <button className="dark:bg-secondary bg-blue-600 text-white  text-xl  ">
+          <button className=" bg-blue-600 text-white  text-xl  ">
             <CiSearch className="" />
           </button>
         </div>

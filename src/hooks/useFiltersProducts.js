@@ -49,6 +49,7 @@ function useFiltersProducts(products) {
             setProductsFilter(prevProFilters=>{
                 return  products.filter(product=>{
                     
+                    
                     if(filterName) {
                         if(filterNameProduct(product.title,filterName) === false) return  false 
                     }
@@ -70,13 +71,6 @@ function useFiltersProducts(products) {
 
     }, [isFilter,filterName,price,category,products])
 
-
-    // useEffect(()=>{
-    //     console.log("PRODUCT FILTERS",productsFilters)
-    // } , [productsFilters])
-
-
-    // validar si estan filtrando
     useEffect(()=> {
         if(filterName || price !== 0 || category.length > 0) return setIsFilter(true)
 

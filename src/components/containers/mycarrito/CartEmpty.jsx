@@ -11,7 +11,7 @@ function CartEmpty() {
 
             <h1 className="text-4xl">Tu carrrito esta vacío</h1>
 
-            <Link to={"/products/search/"} className="dark:bg-secondary bg-blue-600 text-white rounded p-2 ">Comprar Ahora</Link>
+            <Link to={"/products/search/"} className=" bg-blue-600 text-white rounded p-2 ">Comprar Ahora</Link>
 
         </section>
     )

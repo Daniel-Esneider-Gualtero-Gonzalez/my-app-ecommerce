@@ -61,7 +61,7 @@ function RegisterForm({ isLoading,submitForm = Function }) {
 
             {Object.keys(errors).length > 0 ? <span className="w-fit mx-auto flex mt-10">Por favor completar los campos</span>
              :
-             <button className='w-full bg-blue-500 text-white dark:bg-secondary  dark:text-black  items-center  justify-center rounded'>
+             <button className='w-full bg-blue-500 text-white   items-center  justify-center rounded'>
                 {isLoading && <Loading className={"mx-2"} />}
                   Enviar</button>}
 
