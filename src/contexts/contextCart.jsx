@@ -69,6 +69,12 @@ export const ContextCartProvider = ({ children }) => {
         })
     }
 
+    const getCantItemProduct = (idProduct)=>{
+        const item = productsInCart.find(product=> product.id === idProduct)
+        if(!item) return 0
+        return item.cant
+    }
+
     const deleteCantItemProduct = (idProdut) => {
         return setProductsInCart(prev => {
             return prev.map(product => {
@@ -136,7 +142,7 @@ export const ContextCartProvider = ({ children }) => {
 
     return (
         <cartContext.Provider value={{
-            productsInCart, detailsPayout, addProductCart, deleteProductCart, addCantItemProduct
+            productsInCart, detailsPayout, addProductCart, deleteProductCart, getCantItemProduct,  addCantItemProduct
             , deleteCantItemProduct, isProductsInCart
         }}>
             {children}

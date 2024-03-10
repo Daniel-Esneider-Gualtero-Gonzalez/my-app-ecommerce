@@ -1,7 +1,7 @@
 import { useContextAuth } from "../../../contexts/contextAuth"
 import ExpandableSection from "../../ExpandableSection"
 import UserBalance from "../../balance/UserBalance"
-import SideBar from "../../SideBar"
+import SingOut from "../../buttons/SingOut"
 import CardProfile from "./CardProfile"
 import { Link } from "react-router-dom"
 
@@ -14,16 +14,12 @@ function ProfileLayout() {
   const { user } = useContextAuth()
   return (
 
-
-
     <>
-
       <section className=" border flex flex-col gap-1 p-1 rounded-lg md:w-[700px] md:mx-auto ">
 
         <article className=" flex justify-between items-center ">
           <div className=" ">
-            <h3 className="font-bold">Daniel Esneider Gualtero Gonzalez</h3>
-            <div className="text-sm dark:text-secondary text-blue-600">Programmin</div>
+            {user && <h2 className="font-bold text-md">{user.names} {user.last_name} </h2>}
             
           </div>
           <img className="  rounded-full  w-28 h-28 border-gray-300  animationTop " src="https://img.freepik.com/free-vector/mysterious-mafia-man-smoking-cigarette_52683-34828.jpg?size=626&ext=jpg" alt="" />
@@ -58,26 +54,22 @@ function ProfileLayout() {
         <div className="   gap-1 grid sm:grid-cols-2">
         <section className="flex flex-col gap-1">
           <ExpandableSection title="Informacion de cuenta">
-            <li>Email adres: <span className="font-bold">Daniel@gmail.com</span></li>
-            <li>Telefono: <span className="font-bold">315-705-76-63</span></li>
+            {user && <span>Correo: <span className="font-semibold">{user.correo}</span></span>}
+            
           </ExpandableSection>
 
-          <ExpandableSection title="¿Aquì puede ir una pregunta ?">
-            <li>Email adres: <span className="font-bold">Daniel@gmail.com</span></li>
-            <li>Telefono: <span className="font-bold">315-705-76-63</span></li>
+          <ExpandableSection title="¿Cuando te registraste ?">
+            {user && <span className="font-semibold">{user.created_at}</span>}
+            
           </ExpandableSection>
 
           <ExpandableSection title="Otra Informaciòn">
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veritatis dolore, quas ducimus, eaque ea, corrupti distinctio odio unde tempore perferendis nulla beatae incidunt eos debitis? Blanditiis illum natus impedit tempore.</p>
+            <p>Si tienes dudas reclamos y otras inquietudes no dudes en escribirnos al correo: <span className="font-semibold">myecommerce@help.com</span></p>
           </ExpandableSection>
 
         </section>
-
-          <article className="border h-fit rounded" >
-            hola
-          </article>
-
-       
+            <SingOut  className="border rounded text-xl h-fit"/>
+      
         </div>
 
 

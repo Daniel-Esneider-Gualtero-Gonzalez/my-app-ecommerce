@@ -33,7 +33,7 @@ function InteractiveRangeSlider({initialValue=0,valueMax=100,handleChangeInput =
     
   return (
     <div onResize={onChangeResize} className='relative flex flex-col w-[200px]  '>
-        <span ref={refSpanInfo} className="bg-blue-600 text-white text-xs w-fit border flex font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-secondary ">{refValueInput.current}</span>
+        <span ref={refSpanInfo} className="bg-blue-600 text-white text-xs w-fit border flex font-medium me-2 px-2.5 py-0.5 rounded-full  ">{refValueInput.current}</span>
         <input className='bg-gray-200 rounded-lg text-blue-600' onMouseMove={handleMouseMove} onChange={handleChangeInputRange} type="range" name="rangeValue" value={refValueInput ? refValueInput.current : initialValue}  max={valueMax} id="" />
         
     </div>

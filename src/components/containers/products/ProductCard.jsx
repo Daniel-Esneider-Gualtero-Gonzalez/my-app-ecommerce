@@ -10,15 +10,15 @@ const product = {
 }
 
 
-function ProductCard({ title = product.title, description = product.description, image = product.image, price = product.price, onAddProduct = () => { }, onDeleteProduct = () => { }, isInCart = false }) {
+function ProductCard({ title = product.title, description = product.description, image = product.image, price = product.price,  onSelect=()=>{},onAddProduct = () => { }, onDeleteProduct = () => { }, isInCart = false }) {
 
 
-
+    const handleClick = (callBack) => (e)=> {e.stopPropagation(), callBack()}
     return (
         <>
 
 
-            <article className="w-full grid gap-1 max-w-sm p-1 border  rounded-lg shadow ">
+            <article onClick={handleClick(onSelect)} className="w-full cursor-pointer  grid gap-1 max-w-sm p-1 border  rounded-lg  ">
 
                 <img className=" w-full mx-auto rounded-t-lg h-[200px]" src={image} alt="product image" />
 
@@ -29,8 +29,8 @@ function ProductCard({ title = product.title, description = product.description,
 
                 <div className="h-fit self-end  flex items-center justify-between">
                     <span className="text-xl font-semibold">${price}</span>
-                    {isInCart === false && <button onClick={onAddProduct}  className="btn-addToCart"><FaCartShopping /></button>}
-                    {isInCart && <RemoveCartItemButton className={"btn-delete"} onClick={onDeleteProduct} />}
+                    {isInCart === false && <button onClick={handleClick(onAddProduct)}  className="btn-addToCart"><FaCartShopping /></button>}
+                    {isInCart && <RemoveCartItemButton className={"btn-delete"} onClick={handleClick(onDeleteProduct)} />}
                 </div>
 
             </article>

@@ -15,7 +15,6 @@ function useGetProducts() {
             return setProducts(products)
                 
             
-            
         } catch (error) {
 
             return setError("Error al obtener los productos")
@@ -31,7 +30,6 @@ function useGetProducts() {
         try {
             const newProducts = await fetch("https://fakestoreapi.com/products/")
             if(!newProducts.ok){
-                console.log("error en el preteching la respuesta es diferente de 200")
                 return setError("Error al hacer el prefetching")
             }
             const data = await newProducts.json()
@@ -41,7 +39,6 @@ function useGetProducts() {
            })
             // console.log("product mas los nuevos del prefetching",produtcMasNuevos)
         } catch (error) {
-            console.log("error en el cath al hacer el prefetching",error)
             return setError("Error al hacer el prefetching")
         }finally{
             setLoading(false)
@@ -50,7 +47,7 @@ function useGetProducts() {
     }
 
     useEffect(()=>{
-        console.log("variable de productos",products)
+        // console.log("variable de productos",products)
     },[products])
 
   return{

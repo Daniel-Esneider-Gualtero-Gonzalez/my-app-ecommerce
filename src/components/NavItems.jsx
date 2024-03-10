@@ -8,15 +8,16 @@ const navItemsPath = {
     Aboutas : "/aboutas"
     
 }
-function NavItems() {
+function NavItems({classNameItemLink=""}) {
 
     const { user } = useContextAuth()
+    
     return (
 
         <>
             {navItemsPath && Object.entries(navItemsPath).map(navItem=>{
                 const [name,path] = navItem
-                return <NavLink className={"border-b border-white"} key={name} to={path}>{name}</NavLink>
+                return <NavLink className={classNameItemLink} key={name} to={path}>{name}</NavLink>
             })}
 
         </>

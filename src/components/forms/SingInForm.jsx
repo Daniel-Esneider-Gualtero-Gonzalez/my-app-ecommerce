@@ -57,7 +57,7 @@ function SingInForm({ isLoading=false,submitForm }) {
 
                 <a href="#crear-servicio-de-recuperacion" className="mx-auto w-fit ">La olvido?</a>
 
-                <button disabled={isLoading} type="submit" className="p-1 bg-blue-500 dark:bg-secondary dark:text-black  text-white  rounded  w-full"> 
+                <button disabled={isLoading} type="submit" className="p-1 bg-blue-500   text-white  rounded  w-full"> 
                 {isLoading && <Loading className={"mx-1 "}/>}
                 Iniciar Sesión</button>
             </form>

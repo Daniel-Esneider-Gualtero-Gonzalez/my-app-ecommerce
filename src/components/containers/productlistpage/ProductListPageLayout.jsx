@@ -9,12 +9,13 @@ import useFiltersProducts from "../../../hooks/useFiltersProducts"
 import Prefetching from "./Prefetching.jsx"
 import SkeletonProductCard from "../products/SkeletonProductCard.jsx"
 
+
 function ProductListPageLayout() {
   const { search } = useLocation()
   const queryName = new URLSearchParams(search).get("q")
   const queryCategory = new URLSearchParams(search).get("category")
   const { loading, error, products, getProducts, prefetching } = useGetProducts()
-  const { isFilter, onChangeName, onChangeCategory, category, onChangePrice, price, productsFilters } = useFiltersProducts(products)
+  const { name, category, price, onChangeName, onChangeCategory, onChangePrice, productsFilters } = useFiltersProducts(products)
 
   useEffect(() => {
     onChangeCategory(queryCategory)
@@ -30,32 +31,26 @@ function ProductListPageLayout() {
   }, [search])
 
 
+
+
   return (
     <>
       <section className="grid gap-1 p-1  md:grid-cols-3 xl:grid-cols-8  rounded-lg h-screen overflow-auto">
         <SideBar className="p-1 h-fit md:col-span-1 xl:col-span-2  rounded-lg ">
-          <ProductFilters onChangePrice={onChangePrice} onChangeCategory={onChangeCategory} category={category} price={price} />
-          <span className="">Filter by name: {queryName}</span>
+          <ProductFilters name={name} onChangeName={onChangeName} onChangePrice={onChangePrice} onChangeCategory={onChangeCategory} category={category} price={price} />
         </SideBar>
 
-        <Prefetching handlePrefetching={prefetching} className="overflow-y-auto grid gap-1  grid-cols-1 md:col-span-2 xl:col-span-6  sm:grid-cols-2   xl:grid-cols-3 ">
+        <Prefetching handlePrefetching={prefetching} className=" h-fit overflow-y-auto grid gap-1  grid-cols-1 md:col-span-2 xl:col-span-6  sm:grid-cols-2   xl:grid-cols-3 ">
 
-          {products && <ProductCardList productList={products} />}
+          {products && !productsFilters.isFilter && <ProductCardList productList={products} />}
+          {productsFilters.isFilter && productsFilters.listProducts.length > 0 && <ProductCardList productList={productsFilters.listProducts} />}
+
+          {productsFilters.isFilter && !loading && productsFilters.listProducts.length === 0 &&
+           <div className="col-span-full  border text-2xl"> <span>☹️</span>No se encontraron resultados prueba con otros filtros  </div>}
           {loading && <SkeletonProductCard cantSkeleton={5} />}
 
         </Prefetching>
 
-
-
-        {/* <Prefetching handlePrefetching={prefetching} className="md:col-span-3 grid md:grid-cols-2 lg:grid-cols-3 m-auto  max-h-[600px]     overflow-y-auto  " >
-          {isFilter  && productsFilters.length > 0  && <ProductCardList productList={productsFilters} /> }
-
-          {isFilter && productsFilters.length === 0 && <h1>No se encontraron resultados</h1>}
-          
-
-          {!isFilter && <ProductCardList productList={products} />}
-          {loading ? <span>Cargardo productos</span> : null}
-        </Prefetching> */}
 
       </section>
 

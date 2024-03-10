@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import { MdDelete } from "react-icons/md";
-import { IoAddCircle } from "react-icons/io5";
-import { GrSubtractCircle } from "react-icons/gr";
+import ControlCantItemsProduct from "../products/ControlCantItemsProduct";
+
 
 const product = {
   title: "title Product",
@@ -32,14 +32,9 @@ function ItemsInCart({ title = product.title, image = product.image, price = pro
 
         <img className=' w-[100px] h-[100px] rounded ' src={image} alt={`imagen del producto ${title}`} />
 
-        <div className='max-w-[60%]  flex flex-col   p-2'>
+        <div className='max-w-[60%]  flex flex-col  gap-3  p-2'>
           <h1 className='font-normal  '>{title}</h1>
-
-          <div className="flex-1  flex gap-2 text-md items-center">
-            <button onClick={onDeleteCantProduct} className={`${cant === 1 && 'collapse'} border  rounded p-1`}><GrSubtractCircle /></button>
-            <span>{cant}</span>
-            <button onClick={onAddCantProduct} className="border rounded p-1"><IoAddCircle /></button>
-          </div>
+          <ControlCantItemsProduct cant={cant} onAddCantProduct={onAddCantProduct} onDeleteCantProduct={onDeleteCantProduct} />
         </div>
 
         <span className=' h-fit my-auto font-semibold'>${price}</span>

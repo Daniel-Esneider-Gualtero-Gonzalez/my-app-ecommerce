@@ -1,7 +1,7 @@
 import { MdLogout } from "react-icons/md";
 import { useContextAuth } from "../../contexts/contextAuth"
 
-function SingUp({...props}) {
+function SingOut({...props}) {
   const {logOut,user} = useContextAuth()
   return (
     <> 
@@ -11,4 +11,4 @@ function SingUp({...props}) {
   )
 }
 
-export default SingUp
+export default SingOut
