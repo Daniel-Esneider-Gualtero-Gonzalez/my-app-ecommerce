@@ -39,7 +39,7 @@ function ProductsLayout() {
 
 
       <section className=" flex flex-col gap-2 rounded-lg" >
-        <h1 className="justify-between md:text-xl">Carrusel de images mas comprados <Link to={"/products/search"}  className=" p-2 rounded bg-blue-600 text-white ">Ver más <IoIosArrowForward className="ml-1"/></Link></h1>
+        <h1 className="justify-between md:text-xl">Carrusel de imagenes de los productos más comprados <Link to={"/products/search"}  className=" p-2 rounded bg-blue-600 text-white ">Ver más <IoIosArrowForward className="ml-1"/></Link></h1>
           <Carousel />
 
       </section>
