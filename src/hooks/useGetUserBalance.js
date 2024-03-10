@@ -13,7 +13,7 @@ function useGetUserBalance() {
         const headers = getCommunHeaders()
 
         try {
-            const getBalance = await fetch("http://localhost:3000/user/balance/",{
+            const getBalance = await fetch("https://backend-app-ecommerce.vercel.app/user/balance/",{
                 headers:headers
             })
             if (!getBalance.ok) {

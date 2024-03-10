@@ -33,7 +33,7 @@ function NavBar() {
 
     return (
         <nav style={stylesNavScroll} className=" flex items-center justify-between p-1  rounded-lg">
-            <Logo className="max-h-10  rounded-lg  "/>
+            <Logo className="max-h-16  rounded-lg  "/>
 
         {/* se ocultan aqui y de la misma manera en el sidebar */}
             <ul className="hidden md:flex gap-2 ">

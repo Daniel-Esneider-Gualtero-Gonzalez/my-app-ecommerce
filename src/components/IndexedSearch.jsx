@@ -1,26 +1,15 @@
-import React, { useEffect, useState } from 'react'
-
-function IndexedSearch({ className="",search = "", bdCoicidencias = [] }) {
-
-    const [coicidencias, setCoicidencias] = useState([])
 
 
+function IndexedSearch({Element="li",  handleClick = ()=>{},className="",search = "", bdCoicidencias = [] ,props }) {
 
-    useEffect(() => {
-
-        const resultado = cumpleBusqueda(search, bdCoicidencias)
-
-        setCoicidencias(resultado)
-    }, [search])
-
-    useEffect(() => {
-
-    }, [coicidencias])
+    const coicidencias = cumpleBusqueda(search, bdCoicidencias)
 
     return (
         <>
             {coicidencias.length > 0 && coicidencias.map(coici => {
-                return <li className={className}>{coici}</li>
+                return <Element key={coici} {...props} onClick={(event)=> {
+                    handleClick(coici)
+                }} className={className}>{coici}</Element>
             })}
         </>
 

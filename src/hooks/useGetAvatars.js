@@ -9,7 +9,7 @@ function useGetAvatars() {
     useEffect(()=> {
         setLoading(true)
         const getAvatars = async ()=>{
-            const response = await fetch("http://localhost:3000/avatars/")
+            const response = await fetch("https://backend-app-ecommerce.vercel.app/avatars/")
             const avatars = await response.json()
             setLoading(false)
             if(!response.ok){

@@ -9,7 +9,7 @@ export async function authUser(credentials) {
 
     
     try {
-        const authUser = await fetch("http://localhost:3000/auth/login",{
+        const authUser = await fetch("https://backend-app-ecommerce.vercel.app/auth/login",{
             method:"POST",
             headers:{
                 'Content-Type' : 'application/json'

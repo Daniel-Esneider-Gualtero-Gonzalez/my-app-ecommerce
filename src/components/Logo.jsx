@@ -3,7 +3,7 @@
 function Logo({...props}) {
     
   return (
-        <img {...props}  src={"/my-ecommerce-logo.webp"} alt="Logo del proyecto My-ecommerce" />
+        <img {...props}  src={"/my-ecommerce-logo-2.webp"} alt="Logo del proyecto My-ecommerce" />
   )
 }
 

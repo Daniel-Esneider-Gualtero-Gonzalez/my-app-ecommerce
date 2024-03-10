@@ -1,23 +1,31 @@
+import ControlCantItemsProduct from "./ControlCantItemsProduct"
+import RatingProduct from "./RatingProduct"
 
 
-function ProductDetails() {
+function ProductDetails({ title, description, price, image, isIncart = false, cant = 0, onDeleteProduct = () => { }, onAddProduct = () => { }, onAddCantProduct = () => { }, onDeleteCantProduct = () => { } }) {
     return (
-        <article className=' grid gap-2  sm:grid-cols-2  bg-gradient-to-b from-transparent via-transparent to-blue-100'>
+        <article className=' grid gap-2  sm:grid-cols-2  '>
+
+            <img className='mx-auto w-[70%] h-[60%]' src={image} alt={`imagen del producto ${title}`} />
+
+            <div className=' p-1 rounded flex flex-col gap-5'>
+
+                <h2 className='font-semibold text-2xl'>{title}</h2>
+                <span className='text-xl font-bold'>${price}</span>
+                <p className='max-w-[85%]'>{description}</p>
+
+                <div className="flex gap-5 mt-4">
+                    {isIncart && <ControlCantItemsProduct cant={cant} onAddCantProduct={onAddCantProduct} onDeleteCantProduct={onDeleteCantProduct} />}
+                    {isIncart && <button onClick={onDeleteProduct} className='btn-delete rounded w-fit '>Eliminar del carrito</button>}
+                    {!isIncart && <button onClick={onAddProduct} className='btn-addToCart rounded w-fit '>Agregar al carrito</button>}
+                </div>
 
 
-            <div className=' '>
-                <img className='object-cover   ' src="https://websitedemos.net/electric-scooter-04/wp-content/uploads/sites/1113/2022/07/scooter-01.png" alt="" />
+                <RatingProduct />
             </div>
 
-            <div className=' p-1 rounded flex flex-col gap-1'>
-                <h2 className='font-semibold text-xl'>Libero X250</h2>
-                <h3 className=''>250 Watt Electric Scooter</h3>
-                <span className='font-bold'>$7500</span>
-                <h2 className='mt-3 font-bold '>Detalles de producto</h2>
-                <p className='max-w-[85%]'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum magni impedit ab. Quisquam corrupti dolor itaque officia nisi, numquam suscipit, ipsa accusamus labore, ea et aliquid debitis fuga veritatis culpa.</p>
-                <button className='btn-addToCart rounded w-fit '>Agregar al carrito</button>
-            </div>
-            
+
+
 
         </article>
     )

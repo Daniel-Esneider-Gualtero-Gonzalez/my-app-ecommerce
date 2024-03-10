@@ -65,7 +65,7 @@ export function useRegisterUser() {
         }
     
         setLoading(true)
-        const response = await fetch("http://localhost:3000/singup/",optionsFetch)
+        const response = await fetch("https://backend-app-ecommerce.vercel.app/singup/",optionsFetch)
         if(!response.ok){
             if(response.status === 409){
                 setError("El correo esta en uso")
