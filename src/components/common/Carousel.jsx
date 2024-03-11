@@ -68,6 +68,9 @@ function Carousel({ listImages, ...props }) {
         if (isAutomatic === false) {
             clearInterval(idInterval)
         }
+        return function name(params) {
+            clearInterval(idInterval)
+        }
 
     }, [isAutomatic, images])
 
